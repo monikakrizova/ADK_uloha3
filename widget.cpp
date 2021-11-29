@@ -105,6 +105,12 @@ void Widget::on_pushButton_4_clicked()
     else if (ui->comboBox->currentIndex() == 1)
         ui->Canvas->sl_exp = false;
 
+    //Draw slope
+    if (ui->comboBox_2->currentIndex() == 0)
+        ui->Canvas->colorchanged = false;
+    else if (ui->comboBox_2->currentIndex() == 1)
+        ui->Canvas->colorchanged = true;
+
     //Is the triangulation not empty?
     if (dt.size() > 0)
     {

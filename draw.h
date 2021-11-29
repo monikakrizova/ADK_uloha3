@@ -38,7 +38,7 @@ public:
     std::vector<Edge> getContours(){return contours;}
     std::vector<Triangle> getTriangles(){return triangles;}
     void setTriangles(std::vector<Triangle> &triangles_){triangles = triangles_;}
-    bool sl_exp = false;
+    bool sl_exp = false, colorchanged = false;
     void clearDT();
 
 signals:

@@ -53,7 +53,7 @@ void Draw::paintEvent(QPaintEvent *event)
 
     //Draw slope
     double slope_exposition;
-    int col;
+    int col1, col2, col3;
     QColor color;
 
     for (Triangle t:triangles)
@@ -66,22 +66,70 @@ void Draw::paintEvent(QPaintEvent *event)
         //Get slope
         if (sl_exp == true)
         {
-            double k = 255/M_PI_2;
-            slope_exposition = t.getSlope();
+            if (colorchanged == false)
+            {
+                double k = 255/M_PI_2;
+                slope_exposition = t.getSlope();
 
-            //Convert to color
-            col = 255 - k * slope_exposition;
+                //Convert to color
+                col1 = col2 = col3 = 255 - k * slope_exposition;
+            }
+
+            else if (colorchanged == true)
+            {
+                slope_exposition = t.getSlope();
+                double slope_deg = slope_exposition*180/M_PI;
+                std::cout << slope_deg << std::endl;
+                if (slope_deg < 5)
+                {
+                    //Green
+                    col1 = 123;
+                    col2 = 240;
+                    col3 = 84;
+                }
+                else if ((slope_deg >= 5) && (slope_deg) < 10)
+                {
+                    //Light green
+                    col1 = 203;
+                    col2 = 242;
+                    col3 = 194;
+                }
+                else if ((slope_deg >= 10) && (slope_deg) < 15)
+                {
+                    //Yellow
+                    col1 = 245;
+                    col2 = 232;
+                    col3 = 91;
+                }
+                else if ((slope_deg >= 15) && (slope_deg) < 20)
+                {
+                    //Orange
+                    col1 = 245;
+                    col2 = 192;
+                    col3 = 78;
+                }
+                else if (slope_deg >= 20)
+                {
+                    //Red
+                    col1 = 232;
+                    col2 = 35;
+                    col3 = 35;
+                }
+            }
         }
 
         else if (sl_exp == false)
         {
-            double k = 255/(2*M_PI);
-            slope_exposition = t.getExposition();
-            //Convert to color
-            col = 255 - k * slope_exposition;
+            if (colorchanged == false)
+            {
+                double k = 255/(2*M_PI);
+                slope_exposition = t.getExposition();
+                //Convert to color
+                col1 = col2 = col3 = 255 - k * slope_exposition;
+            }
         }
 
-        QColor color(col, col, col);
+        QColor color(col1, col2, col3, 255);
 
         //Set pen and brush
         qp.setBrush(color);
@@ -103,7 +151,7 @@ void Draw::paintEvent(QPaintEvent *event)
 
 void Draw::mousePressEvent(QMouseEvent *event)
 {
-    //Get coordinates
+    /*//Get coordinates
     int x = event->pos().x();
     int y = event->pos().y();
     int z = rand() % 1000;
@@ -115,7 +163,7 @@ void Draw::mousePressEvent(QMouseEvent *event)
     points.push_back(p);
 
     //Update screen
-    repaint();
+    repaint();*/
 }
 
 void Draw::clear()
