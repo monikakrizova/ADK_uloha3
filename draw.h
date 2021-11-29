@@ -6,6 +6,7 @@
 #include <QtGui>
 #include "edge.h"
 #include "triangle.h"
+#include "iostream"
 
 
 class Draw : public QWidget
@@ -35,9 +36,8 @@ public:
     std::vector<Edge> getContours(){return contours;}
     std::vector<Triangle> getTriangles(){return triangles;}
     void setTriangles(std::vector<Triangle> &triangles_){triangles = triangles_;}
+    bool sl_exp = false;
     void clearDT();
-
-
 
 signals:
 

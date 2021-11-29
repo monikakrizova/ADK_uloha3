@@ -46,7 +46,9 @@ void Draw::paintEvent(QPaintEvent *event)
     }
 
     //Draw slope
-    double k = 255/M_PI;
+    double slope_exposition;
+    int col;
+    QColor color;
 
     for (Triangle t:triangles)
     {
@@ -56,10 +58,25 @@ void Draw::paintEvent(QPaintEvent *event)
         QPoint3D p3 = t.getP3();
 
         //Get slope
-        double slope = t.getSlope();
+        if (sl_exp == true)
+        {
+            double k = 255/M_PI_2;
+            slope_exposition = t.getSlope();
 
-        //Convert to color
-        int col = 255 - k * slope;
+            //Convert to color
+            col = 255 - k * slope_exposition;
+        }
+
+        else if (sl_exp == false)
+        {
+            double k = 255/(2*M_PI);
+            slope_exposition = t.getExposition();
+            //Convert to color
+            col = 255 - k * slope_exposition;
+        }
+
+        std::cout << "angle: " << slope_exposition << ", color: " << col << std::endl;
+
         QColor color(col, col, col);
 
         //Set pen and brush

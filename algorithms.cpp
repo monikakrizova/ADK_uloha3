@@ -331,9 +331,9 @@ std::vector<Edge> Algorithms::getContourLines(std::vector<Edge> &dt, double zmin
 double Algorithms::getSlope(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3)
 {
     //Compute slope of triangle
-    double ux = p1.x() - p2.x();
-    double uy = p1.y() - p2.y();
-    double uz = p1.getZ() - p2.getZ();
+    double ux = p2.x() - p1.x();
+    double uy = p2.y() - p1.y();
+    double uz = p2.getZ() - p1.getZ();
 
     double vx = p3.x() - p2.x();
     double vy = p3.y() - p2.y();
@@ -353,9 +353,9 @@ double Algorithms::getSlope(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3)
 double Algorithms:: getExposition(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3)
 {
     //Compute exposition (direction of the projected normal vector)
-    double ux = p1.x() - p2.x();
-    double uy = p1.y() - p2.y();
-    double uz = p1.getZ() - p2.getZ();
+    double ux = p2.x() - p1.x();
+    double uy = p2.y() - p1.y();
+    double uz = p2.getZ() - p1.getZ();
 
     double vx = p3.x() - p2.x();
     double vy = p3.y() - p2.y();
@@ -366,8 +366,12 @@ double Algorithms:: getExposition(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3)
     double ny = -ux*vz + vx*uz;
     double nz = ux*vy - vx*uy;
 
+    double dir = atan2(nx, ny);
+
+    if (dir < 0)
+        dir += M_PI;
     //Direction of the vector
-    return atan2(nx, ny);
+    return dir;
 }
 
 std::vector<Triangle> Algorithms::analyzeDTM(std::vector<Edge> &dt)

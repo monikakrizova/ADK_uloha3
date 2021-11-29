@@ -95,6 +95,9 @@ void Widget::on_pushButton_4_clicked()
         //Set triangles
         ui->Canvas->setTriangles(triangles);
 
+        if (ui->comboBox->currentIndex() == 0)
+            ui->Canvas->sl_exp = true;
+
         repaint();
     }
 }
@@ -102,8 +105,10 @@ void Widget::on_pushButton_4_clicked()
 void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
+    //QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/souradnicePB.txt";
     QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
     repaint();
 }
+
 

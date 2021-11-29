@@ -71,9 +71,36 @@
       </widget>
      </item>
      <item>
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>Slope</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Exposition</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton_4">
        <property name="text">
-        <string>Draw Slope</string>
+        <string>Analyze DTM</string>
        </property>
       </widget>
      </item>
