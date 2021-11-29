@@ -81,8 +81,6 @@ void Draw::paintEvent(QPaintEvent *event)
             col = 255 - k * slope_exposition;
         }
 
-        std::cout << "angle: " << slope_exposition << ", color: " << col << std::endl;
-
         QColor color(col, col, col);
 
         //Set pen and brush

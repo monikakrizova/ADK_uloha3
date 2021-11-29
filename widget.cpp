@@ -54,13 +54,23 @@ void Widget::on_pushButton_cleardt_clicked()
 
 void Widget::on_lineEdit_3_editingFinished()
 {
+    //Set dz
     dz = ui->lineEdit_3->text().toDouble();
 }
 
 void Widget::on_pushButton_3_clicked()
 {
+    //Get points
+    std::vector<QPoint3D> points = ui->Canvas->getPoints();
+
+    //Create DT
+    Algorithms a;
+    std::vector<Edge> dt = a.dT(points);
+
+    //Set DT
+    ui->Canvas->setDT(dt);
+
     //Create contours
-    std::vector<Edge> dt = ui->Canvas->getDT();
     double zmin = ui->Canvas->getZmin();
     double zmax = ui->Canvas->getZmax();
 
@@ -82,8 +92,14 @@ void Widget::on_pushButton_3_clicked()
 
 void Widget::on_pushButton_4_clicked()
 {
+    //Get points
+    std::vector<QPoint3D> points = ui->Canvas->getPoints();
+
+    //Create DT
+    Algorithms a;
+    std::vector<Edge> dt = a.dT(points);
+
     //Draw slope
-    std::vector<Edge> dt = ui->Canvas->getDT();
     if (ui->comboBox->currentIndex() == 0)
         ui->Canvas->sl_exp = true;
     else if (ui->comboBox->currentIndex() == 1)
