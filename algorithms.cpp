@@ -324,7 +324,8 @@ std::vector<Edge> Algorithms::getContourLines(std::vector<Edge> &dt, double zmin
             }
         }
     }
-
+    int dz_int = (int)dz;
+    d.setDZ(dz_int);
     return contours;
 }
 

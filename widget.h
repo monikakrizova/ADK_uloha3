@@ -34,6 +34,7 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+
 private:
     Ui::Widget *ui;
 };

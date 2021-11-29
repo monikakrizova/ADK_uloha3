@@ -39,8 +39,14 @@ void Draw::paintEvent(QPaintEvent *event)
         //Get start point, get end point
         QPoint3D s_point = c.getStart();
         QPoint3D e_point = c.getEnd();
-        qp.setPen(Qt::magenta);
+        QPen fill_pen(Qt::magenta, 1);
+        qp.setPen(fill_pen);
 
+        if ((int)s_point.getZ()%(dz*5)  == 0)
+        {
+            QPen fill_pen(Qt::magenta, 3);
+            qp.setPen(fill_pen);
+        }
         //Draw line
         qp.drawLine(s_point,e_point);
     }
@@ -119,14 +125,18 @@ void Draw::clear()
     points.clear();
     dt.clear();
     contours.clear();
+    triangles.clear();
     repaint();
 }
 
 void Draw::clearDT()
 {
     dt.clear();
+    triangles.clear();
     repaint();
 }
+
+
 
 void Draw::loadData(QString &file_name)
 {

@@ -84,6 +84,10 @@ void Widget::on_pushButton_4_clicked()
 {
     //Draw slope
     std::vector<Edge> dt = ui->Canvas->getDT();
+    if (ui->comboBox->currentIndex() == 0)
+        ui->Canvas->sl_exp = true;
+    else if (ui->comboBox->currentIndex() == 1)
+        ui->Canvas->sl_exp = false;
 
     //Is the triangulation not empty?
     if (dt.size() > 0)
@@ -94,19 +98,15 @@ void Widget::on_pushButton_4_clicked()
 
         //Set triangles
         ui->Canvas->setTriangles(triangles);
-
-        if (ui->comboBox->currentIndex() == 0)
-            ui->Canvas->sl_exp = true;
-
-        repaint();
     }
+    repaint();
 }
 
 void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
-    //QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/souradnicePB.txt";
-    QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
+    QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/souradnicePB.txt";
+    //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
     repaint();
 }
