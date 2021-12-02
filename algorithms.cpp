@@ -399,6 +399,165 @@ std::vector<Triangle> Algorithms::analyzeDTM(std::vector<Edge> &dt)
         //Add triangle to the list
         triangles.push_back(t);
     }
-
     return triangles;
+}
+
+QPoint3D Algorithms::getCentreOfMass(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3)
+{
+    //Compute centre of mass
+    double x = (p1.x()+p2.x()+p3.x())/3;
+    double y = (p1.y()+p2.y()+p3.y())/3;
+
+    //Create QPoint3D
+    QPoint3D centre_of_mass(x, y, 0);
+    return centre_of_mass;
+}
+
+
+std::vector<Edge> Algorithms::dTPolygon(std::vector<QPoint3D> &points)
+{
+    //Create Delaunay triangulation using incremental method
+    std::vector<Edge> dt;
+    std::list<Edge> ael;
+
+    //Find pivot (minimum x)
+    QPoint3D q = *min_element(points.begin(), points.end(), sortByX());
+
+    //Point nearest to pivot q
+    int i_nearest = getNearestPoint(q, points);
+    QPoint3D qn = points[i_nearest];
+
+    //Create new edge
+    Edge e(q, qn);
+
+    //Find optimal Delaunay point
+    int i_point = getDelaunayPoint(q, qn, points);
+
+    //Point has not been found, change orientation, search again
+    if (i_point == -1)
+    {
+        e.changeOrientation();
+        i_point = getDelaunayPoint(qn, q, points);
+    }
+
+    //Delaunay point + 3rd vertex
+    QPoint3D v3 = points[i_point];
+
+    //Create edges
+    QPoint3D es = e.getStart();
+    QPoint3D ee = e.getEnd();
+    Edge e2(ee, v3);
+    Edge e3(v3, es);
+
+    //Adding 3 edges to DT
+    dt.push_back(e);
+    dt.push_back(e2);
+    dt.push_back(e3);
+
+    //Adding 3 edges to AEL
+    ael.push_back(e);
+    ael.push_back(e2);
+    ael.push_back(e3);
+
+    //Proces edges until AEL is empty
+    while(!ael.empty())
+    {
+        //get last edge
+        e = ael.back();
+        ael.pop_back();
+
+        //Change orientation
+        e.changeOrientation();
+
+        //Find optimal Delaunay point
+        QPoint3D qs = e.getStart();
+        QPoint3D qe = e.getEnd();
+        i_point = getDelaunayPoint(qs, qe, points);
+
+        //Point has been found
+        if (i_point != -1)
+        {
+            //Check if the centre of mass of triangle is inside polygon
+            QPoint3D com = getCentreOfMass(qs, qe, points[i_point]);
+            int result = getPositionWinding(com, points);
+
+            //Centre of mass is inside triangle
+            if (result == 1)
+            {
+                //Delaunay point + 3rd vertex
+                v3 = points[i_point];
+
+                //Create edges
+                es = e.getStart();
+                ee = e.getEnd();
+                Edge e2(ee, v3);
+                Edge e3(v3, es);
+
+                //Add 3 edges to DT
+                dt.push_back(e);
+                dt.push_back(e2);
+                dt.push_back(e3);
+
+                //Update AEL
+                updateAEL(e2, ael);
+                updateAEL(e3, ael);
+            }
+        }
+    }
+    return dt;
+}
+
+double Algorithms::get2LinesAngle(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3, QPoint3D &p4)
+{
+    //Compute angle formed by two lines
+
+    //Coordinate differences
+    double ux=p2.x()-p1.x();
+    double uy=p2.y()-p1.y();
+
+    double vx=p4.x()-p3.x();
+    double vy=p4.y()-p3.y();
+
+    //Dot product
+    double dp=ux*vx+uy*vy;
+
+    //Norms
+    double nu = sqrt(ux*ux + uy*uy);
+    double nv = sqrt(vx*vx + vy*vy);
+
+    //Angle
+    return fabs(acos(dp/(nu*nv)));
+}
+
+
+int Algorithms::getPositionWinding(QPoint3D &q, std::vector<QPoint3D> &pol)
+{
+    //Analyze position of point and polygon
+    int n = pol.size();
+
+    double omega_sum=0;
+    double eps = 1.0e-10; //High number of epsylon to find a solution for point being on a line
+
+    //Process all segments of polygon
+    for (int i = 0; i<n; i++)
+    {
+        //Angle between two line segments
+        double omega = get2LinesAngle(pol[i], q, pol[(i+1)%n], q);
+
+        //Point and line segment position
+        int pos = getPointLinePosition(q, pol[i], pol[(i+1)%n]);
+
+        if (pos==1) //Point in the left halfplane
+            omega_sum += omega;
+        else //Point in the right halfplane
+            omega_sum -= omega;
+    }
+
+    //Point position
+    if (fabs(fabs(omega_sum) - 2*M_PI) < eps)    //Point inside polygon
+        return 1;
+    else if (fabs(fabs(omega_sum) - M_PI) < eps) //Point on a line
+        return -1;
+    else    //Point outside polygon
+        return 0;
 }
