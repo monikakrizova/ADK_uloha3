@@ -136,9 +136,28 @@ void Widget::on_pushButton_5_clicked()
 void Widget::on_pushButton_6_clicked()
 {
     //Open text file with dialog
-    QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/polygon.txt";
+    QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/polygon2.txt";
     //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
-    ui->Canvas->loadData(file_name);
+
+    ui->Canvas->loadPolygon(file_name);
+
+
+    repaint();
+    std::cout << "ahoooooooj" << std::endl;
+
+}
+
+void Widget::on_pushButton_7_clicked()
+{
+    //Get points
+    std::vector<QPoint3D> points = ui->Canvas->getPoints();
+
+    //Create DT
+    Algorithms a;
+    std::vector<Edge> dt = a.dTPolygon(points);
+
+    //Set DT
+    ui->Canvas->setDT(dt);
     repaint();
 }
 

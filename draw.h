@@ -14,7 +14,7 @@ class Draw : public QWidget
     Q_OBJECT
 private:
     std::vector<QPoint3D> points;
-    QPolygonF pol;
+    QPolygonF polygon;
     std::vector<Edge> dt;
     std::vector<Edge> contours;
     std::vector<Triangle> triangles;

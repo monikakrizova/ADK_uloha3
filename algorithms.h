@@ -28,6 +28,8 @@ public:
     std::vector<Triangle> analyzeDTM(std::vector<Edge> &dt);
     QPoint3D getCentreOfMass(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3);
     int getPositionRayCrossing(QPoint3D &q, std::vector<QPoint3D> &pol);
+    double get2LinesAngle(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3, QPoint3D &p4);
+    int getPositionWinding(QPoint3D &q, std::vector<QPoint3D> &pol);
 };
 
 #endif // ALGORITHMS_H

@@ -479,7 +479,8 @@ std::vector<Edge> Algorithms::dTPolygon(std::vector<QPoint3D> &points)
         {
             //Check if the centre of mass of triangle is inside polygon
             QPoint3D com = getCentreOfMass(qs, qe, points[i_point]);
-            int result = getPositionRayCrossing(com, points);
+            int result = getPositionWinding(com, points);
+            std::cout<< "result " << result << std::endl;
 
             //Centre of mass is inside triangle
             if (result == 1)
@@ -501,10 +502,10 @@ std::vector<Edge> Algorithms::dTPolygon(std::vector<QPoint3D> &points)
                 //Update AEL
                 updateAEL(e2, ael);
                 updateAEL(e3, ael);
+                std::cout<< "bod pridan" << std::endl;
             }
         }
     }
-
     return dt;
 }
 
@@ -543,4 +544,60 @@ int Algorithms::getPositionRayCrossing(QPoint3D &q, std::vector<QPoint3D> &pol)
         return 0; //Point lies outside the polygon
     else    //Odd number
         return 1; //Point lies inside the polygon
+}
+
+
+double Algorithms::get2LinesAngle(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3, QPoint3D &p4)
+{
+    //Compute angle formed by two lines
+
+    //Coordinate differences
+    double ux=p2.x()-p1.x();
+    double uy=p2.y()-p1.y();
+
+    double vx=p4.x()-p3.x();
+    double vy=p4.y()-p3.y();
+
+    //Dot product
+    double dp=ux*vx+uy*vy;
+
+    //Norms
+    double nu = sqrt(ux*ux + uy*uy);
+    double nv = sqrt(vx*vx + vy*vy);
+
+    //Angle
+    return fabs(acos(dp/(nu*nv)));
+}
+
+
+int Algorithms::getPositionWinding(QPoint3D &q, std::vector<QPoint3D> &pol)
+{
+    //Analyze position of point and polygon
+    int n = pol.size();
+
+    double omega_sum=0;
+    double eps = 1.0e-10; //High number of epsylon to find a solution for point being on a line
+
+    //Process all segments of polygon
+    for (int i = 0; i<n; i++)
+    {
+        //Angle between two line segments
+        double omega = get2LinesAngle(pol[i], q, pol[(i+1)%n], q);
+
+        //Point and line segment position
+        int pos = getPointLinePosition(q, pol[i], pol[(i+1)%n]);
+
+        if (pos==1) //Point in the left halfplane
+            omega_sum += omega;
+        else //Point in the right halfplane
+            omega_sum -= omega;
+    }
+
+    //Point position
+    if (fabs(fabs(omega_sum) - 2*M_PI) < eps)    //Point inside polygon
+        return 1;
+    else if (fabs(fabs(omega_sum) - M_PI) < eps) //Point on a line
+        return -1;
+    else    //Point outside polygon
+        return 0;
 }

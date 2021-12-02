@@ -14,13 +14,17 @@ void Draw::paintEvent(QPaintEvent *event)
 
     //Draw points
     int r=4;
-    QPolygon pol;
+    QPolygon pol, polygonek;
 
     for (int i=0; i<points.size(); i++)
     {
         qp.drawEllipse(points[i].x()-r,points[i].y()-r,2*r,2*r);
         pol.append(QPoint(points[i].x(), points[i].y()));
+        polygon.append(QPointF(points[i]));
     }
+
+    //Draw non-convex polygon
+    qp.drawPolygon(polygon);
 
     //Draw triangulation
     for(Edge e : dt)
@@ -30,9 +34,9 @@ void Draw::paintEvent(QPaintEvent *event)
         QPoint3D e_point = e.getEnd();
 
         //Draw line
+        qp.setPen(Qt::cyan);
         qp.drawLine(s_point, e_point);
     }
-
 
     //Draw contour lines
     for (Edge c:contours)
@@ -261,8 +265,6 @@ void Draw::clearDT()
 void Draw::loadData(QString &file_name)
 {
     //Load data from the *.txt file
-    QPolygonF polygon;
-    std::vector<QPolygonF> buildings_;
 
     QPoint3D point;
 
@@ -283,75 +285,6 @@ void Draw::loadData(QString &file_name)
             point.setX(x);
             point.setY(y);
             point.setZ(z);
-
-            if (y > y_max)
-                y_max = y;
-            else if (y < y_min)
-                y_min = y;
-            if (x < x_min)
-                x_min = x;
-            else if (x > x_max)
-                x_max = x;
-            if (z < z_min)
-                z_min = z;
-            else if (z > z_max)
-                z_max = z;
-
-        //Save polygon to the vector of QPolygonFs
-        points.push_back(point);
-    }
-
-    //Compute scales to zoom in in canvas
-    double canvas_weight = 952.0;
-    double canvas_height = 748.0;
-
-    double dy = fabs(y_max-y_min);
-    double dx = fabs(x_max-x_min);
-
-    double k;
-    if (dy > dx)
-        k = canvas_weight/dy;
-    else
-        k = canvas_height/dx;
-
-    //Transform coordinates from JTSK to canvas
-    for (int unsigned i = 0; i < points.size(); i++)
-        {
-        QPoint3D pol = points[i];
-
-        double temp = points[i].x();
-        points[i].setX(-k*(points[i].y()-y_max));
-        points[i].setY(k*(temp-x_min));
-        }
-
-    }
-    inputFile.close();
-}
-
-
-void Draw::loadPolygon(QString &file_name)
-{
-    //Load data from the *.txt file
-    QPoint3D point;
-
-    QFile inputFile(file_name);
-    if (inputFile.open(QIODevice::ReadOnly))
-    {
-        QTextStream in(&inputFile);
-        while (!in.atEnd())
-        {
-            QString line = in.readLine();
-            int id = line.split(" ")[0].toInt();
-            double y = line.split(" ")[1].toDouble();
-            double x = line.split(" ")[2].toDouble();
-            double z = line.split(" ")[3].toDouble();
-
-            //Add vertice to the end of the QPoint3D vector
-            point.setX(x);
-            point.setY(y);
-            point.setZ(z);
-
-            pol.append(point);
 
             if (y > y_max)
                 y_max = y;
@@ -389,6 +322,69 @@ void Draw::loadPolygon(QString &file_name)
         double temp = points[i].x();
         points[i].setX(-k*(points[i].y()-y_max));
         points[i].setY(k*(temp-x_min));
+        }
+
+    }
+    inputFile.close();
+}
+
+
+void Draw::loadPolygon(QString &file_name)
+{
+    //Load data from the *.txt file
+    QPoint3D point;
+
+    QFile inputFile(file_name);
+    if (inputFile.open(QIODevice::ReadOnly))
+    {
+        QTextStream in(&inputFile);
+        while (!in.atEnd())
+        {
+            QString line = in.readLine();
+            int id = line.split(" ")[0].toInt();
+            double y = line.split(" ")[1].toDouble();
+            double x = line.split(" ")[2].toDouble();
+
+            //Add vertice to the end of the QPoint3D vector
+            point.setX(x);
+            point.setY(y);
+
+            if (y > y_max)
+                y_max = y;
+            else if (y < y_min)
+                y_min = y;
+            if (x < x_min)
+                x_min = x;
+            else if (x > x_max)
+                x_max = x;
+/*            if (z < z_min)
+                z_min = z;
+            else if (z > z_max)
+                z_max = z;*/
+
+        //Save polygon to the QPolygonF
+            points.push_back(point);
+    }
+
+    //Compute scales to zoom in in canvas
+    double canvas_weight = 1031.0;
+    double canvas_height = 777.0;
+
+    double dy = fabs(y_max-y_min);
+    double dx = fabs(x_max-x_min);
+
+    double k;
+    if (dy > dx)
+        k = canvas_weight/dy;
+    else
+        k = canvas_height/dx;
+
+    //Transform coordinates from JTSK to canvas
+    for (int unsigned i = 0; i < points.size(); i++)
+        {
+        double temp = points[i].x();
+        points[i].setX(-k*(points[i].y()-y_max)+11);
+        points[i].setY(k*(temp-x_min)+11);
         }
     }
     inputFile.close();

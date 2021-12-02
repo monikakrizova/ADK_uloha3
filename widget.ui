@@ -29,7 +29,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_5">
        <property name="text">
-        <string>Load points data</string>
+        <string>Load points</string>
        </property>
       </widget>
      </item>
@@ -41,9 +41,29 @@
       </widget>
      </item>
      <item>
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton_6">
        <property name="text">
-        <string>Load polygon and create DT :)</string>
+        <string>Load polygon</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_7">
+       <property name="text">
+        <string>Create polygon DT</string>
        </property>
       </widget>
      </item>
