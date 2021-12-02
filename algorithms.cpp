@@ -399,7 +399,6 @@ std::vector<Triangle> Algorithms::analyzeDTM(std::vector<Edge> &dt)
         //Add triangle to the list
         triangles.push_back(t);
     }
-
     return triangles;
 }
 
@@ -409,6 +408,7 @@ QPoint3D Algorithms::getCentreOfMass(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3)
     double x = (p1.x()+p2.x()+p3.x())/3;
     double y = (p1.y()+p2.y()+p3.y())/3;
 
+    //Create QPoint3D
     QPoint3D centre_of_mass(x, y, 0);
     return centre_of_mass;
 }
@@ -480,7 +480,6 @@ std::vector<Edge> Algorithms::dTPolygon(std::vector<QPoint3D> &points)
             //Check if the centre of mass of triangle is inside polygon
             QPoint3D com = getCentreOfMass(qs, qe, points[i_point]);
             int result = getPositionWinding(com, points);
-            std::cout<< "result " << result << std::endl;
 
             //Centre of mass is inside triangle
             if (result == 1)
@@ -502,50 +501,11 @@ std::vector<Edge> Algorithms::dTPolygon(std::vector<QPoint3D> &points)
                 //Update AEL
                 updateAEL(e2, ael);
                 updateAEL(e3, ael);
-                std::cout<< "bod pridan" << std::endl;
             }
         }
     }
     return dt;
 }
-
-int Algorithms::getPositionRayCrossing(QPoint3D &q, std::vector<QPoint3D> &pol)
-{
-    //Get number of vertices in polygon
-    int n = pol.size();
-
-    //Inicialize number of intersetions
-    int k = 0;
-
-    //First point reduction
-    double dx = pol[0].x()-q.x();
-    double dy = pol[0].y()-q.y();
-
-    //Process all segments of polygon
-    for (int i = 0; i <= n; i++)
-    {
-        //Point coordinates reductions
-        double dxx = pol[i%n].x()-q.x();
-        double dyy = pol[i%n].y()-q.y();
-
-        //Find intersection
-        if (((dyy > 0) && (dy <= 0)) || ((dy > 0) && (dyy <= 0)))
-        {
-            //Compute x coordinate of the found intersection
-            double xm = (dxx*dy-dx*dyy)/(dyy-dy);
-            if (xm > 0) //Right plane
-                k++;
-        }
-        dx = dxx;
-        dy = dyy;
-    }
-
-    if (k%2 == 0) //Even number
-        return 0; //Point lies outside the polygon
-    else    //Odd number
-        return 1; //Point lies inside the polygon
-}
-
 
 double Algorithms::get2LinesAngle(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3, QPoint3D &p4)
 {

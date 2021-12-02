@@ -20,7 +20,6 @@ void Draw::paintEvent(QPaintEvent *event)
     {
         qp.drawEllipse(points[i].x()-r,points[i].y()-r,2*r,2*r);
         pol.append(QPoint(points[i].x(), points[i].y()));
-        polygon.append(QPointF(points[i]));
     }
 
     //Draw non-convex polygon
@@ -34,7 +33,7 @@ void Draw::paintEvent(QPaintEvent *event)
         QPoint3D e_point = e.getEnd();
 
         //Draw line
-        qp.setPen(Qt::cyan);
+        qp.setPen(Qt::blue);
         qp.drawLine(s_point, e_point);
     }
 
@@ -59,7 +58,7 @@ void Draw::paintEvent(QPaintEvent *event)
     //Draw slope
     double slope_exposition;
     int col1, col2, col3;
-    QColor color;
+    //QColor color;
 
     for (Triangle t:triangles)
     {
@@ -204,7 +203,6 @@ void Draw::paintEvent(QPaintEvent *event)
                     col3 = 35;
                 }
             }
-
         }
 
         QColor color (col1, col2, col3,255);
@@ -250,6 +248,7 @@ void Draw::clear()
     dt.clear();
     contours.clear();
     triangles.clear();
+    polygon.clear();
     repaint();
 }
 
@@ -344,10 +343,12 @@ void Draw::loadPolygon(QString &file_name)
             int id = line.split(" ")[0].toInt();
             double y = line.split(" ")[1].toDouble();
             double x = line.split(" ")[2].toDouble();
+            double z = rand() % 1000;
 
             //Add vertice to the end of the QPoint3D vector
             point.setX(x);
             point.setY(y);
+            point.setZ(z);
 
             if (y > y_max)
                 y_max = y;
@@ -357,12 +358,12 @@ void Draw::loadPolygon(QString &file_name)
                 x_min = x;
             else if (x > x_max)
                 x_max = x;
-/*            if (z < z_min)
+            if (z < z_min)
                 z_min = z;
             else if (z > z_max)
-                z_max = z;*/
+                z_max = z;
 
-        //Save polygon to the QPolygonF
+        //Save polygon to the vector of QPoint3D
             points.push_back(point);
     }
 
@@ -385,8 +386,10 @@ void Draw::loadPolygon(QString &file_name)
         double temp = points[i].x();
         points[i].setX(-k*(points[i].y()-y_max)+11);
         points[i].setY(k*(temp-x_min)+11);
+        polygon.append(points[i]);
         }
     }
+
     inputFile.close();
 }
 
