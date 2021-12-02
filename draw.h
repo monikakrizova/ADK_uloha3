@@ -22,6 +22,7 @@ private:
     double y_min = 999999999.0, x_max = 0.0; //pro meritko
     double z_min = 999999999.0, z_max = 0.0; //pro souradnice
     int dz = 1;
+    double max_slope, min_slope;
 
 public:
     explicit Draw(QWidget *parent = nullptr);
@@ -35,6 +36,8 @@ public:
     double getZmax(){return z_max;}
     void setDT(std::vector<Edge> &dt_){dt = dt_;}
     void setDZ(int &dz_){dz = dz_;}
+    void setMinSlope(double &minsl_){min_slope = minsl_;}
+    void setMaxSlope(double &maxsl_){max_slope = maxsl_;}
     std::vector<Edge> getDT(){return dt;}
     void setContours(std::vector<Edge> &contours_){contours = contours_;}
     std::vector<Edge> getContours(){return contours;}

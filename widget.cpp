@@ -43,6 +43,31 @@ void Widget::on_pushButton_clicked()
     //Set DT
     ui->Canvas->setDT(dt);
 
+    double min_slope = 100.0, max_slope = 0.0;
+    for (int i = 0; i < dt.size(); i+=3)
+    {
+        //Get triangle edges
+        Edge e1 = dt[i];
+        Edge e2 = dt[i+1];
+
+        //Get triangle vertices
+        QPoint3D p1 = e1.getStart();
+        QPoint3D p2 = e1.getEnd();
+        QPoint3D p3 = e2.getEnd();
+
+        //Compute slope and exposition
+        double slope = a.getSlope(p1, p2, p3);
+        if ((slope > max_slope) && (slope <= M_PI_2))
+            max_slope = slope;
+        else if (slope < min_slope)
+            min_slope = slope;
+    }
+        //max_slope = max_slope*(180/M_PI);
+        //min_slope = min_slope*(180/M_PI);
+
+        ui->Canvas->setMaxSlope(max_slope);
+        ui->Canvas->setMinSlope(min_slope);
+
     repaint();
 
 }
@@ -122,7 +147,7 @@ void Widget::on_pushButton_4_clicked()
 void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
-    //QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/souradnicePB.txt";
+    //QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/test_data/PB2.txt";
     QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
     repaint();
