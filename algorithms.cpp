@@ -402,3 +402,145 @@ std::vector<Triangle> Algorithms::analyzeDTM(std::vector<Edge> &dt)
 
     return triangles;
 }
+
+QPoint3D Algorithms::getCentreOfMass(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3)
+{
+    //Compute centre of mass
+    double x = (p1.x()+p2.x()+p3.x())/3;
+    double y = (p1.y()+p2.y()+p3.y())/3;
+
+    QPoint3D centre_of_mass(x, y, 0);
+    return centre_of_mass;
+}
+
+
+std::vector<Edge> Algorithms::dTPolygon(std::vector<QPoint3D> &points)
+{
+    //Create Delaunay triangulation using incremental method
+    std::vector<Edge> dt;
+    std::list<Edge> ael;
+
+    //Find pivot (minimum x)
+    QPoint3D q = *min_element(points.begin(), points.end(), sortByX());
+
+    //Point nearest to pivot q
+    int i_nearest = getNearestPoint(q, points);
+    QPoint3D qn = points[i_nearest];
+
+    //Create new edge
+    Edge e(q, qn);
+
+    //Find optimal Delaunay point
+    int i_point = getDelaunayPoint(q, qn, points);
+
+    //Point has not been found, change orientation, search again
+    if (i_point == -1)
+    {
+        e.changeOrientation();
+        i_point = getDelaunayPoint(qn, q, points);
+    }
+
+    //Delaunay point + 3rd vertex
+    QPoint3D v3 = points[i_point];
+
+    //Create edges
+    QPoint3D es = e.getStart();
+    QPoint3D ee = e.getEnd();
+    Edge e2(ee, v3);
+    Edge e3(v3, es);
+
+    //Adding 3 edges to DT
+    dt.push_back(e);
+    dt.push_back(e2);
+    dt.push_back(e3);
+
+    //Adding 3 edges to AEL
+    ael.push_back(e);
+    ael.push_back(e2);
+    ael.push_back(e3);
+
+    //Proces edges until AEL is empty
+    while(!ael.empty())
+    {
+        //get last edge
+        e = ael.back();
+        ael.pop_back();
+
+        //Change orientation
+        e.changeOrientation();
+
+        //Find optimal Delaunay point
+        QPoint3D qs = e.getStart();
+        QPoint3D qe = e.getEnd();
+        i_point = getDelaunayPoint(qs, qe, points);
+
+        //Point has been found
+        if (i_point != -1)
+        {
+            //Check if the centre of mass of triangle is inside polygon
+            QPoint3D com = getCentreOfMass(qs, qe, points[i_point]);
+            int result = getPositionRayCrossing(com, points);
+
+            //Centre of mass is inside triangle
+            if (result == 1)
+            {
+                //Delaunay point + 3rd vertex
+                v3 = points[i_point];
+
+                //Create edges
+                es = e.getStart();
+                ee = e.getEnd();
+                Edge e2(ee, v3);
+                Edge e3(v3, es);
+
+                //Add 3 edges to DT
+                dt.push_back(e);
+                dt.push_back(e2);
+                dt.push_back(e3);
+
+                //Update AEL
+                updateAEL(e2, ael);
+                updateAEL(e3, ael);
+            }
+        }
+    }
+
+    return dt;
+}
+
+int Algorithms::getPositionRayCrossing(QPoint3D &q, std::vector<QPoint3D> &pol)
+{
+    //Get number of vertices in polygon
+    int n = pol.size();
+
+    //Inicialize number of intersetions
+    int k = 0;
+
+    //First point reduction
+    double dx = pol[0].x()-q.x();
+    double dy = pol[0].y()-q.y();
+
+    //Process all segments of polygon
+    for (int i = 0; i <= n; i++)
+    {
+        //Point coordinates reductions
+        double dxx = pol[i%n].x()-q.x();
+        double dyy = pol[i%n].y()-q.y();
+
+        //Find intersection
+        if (((dyy > 0) && (dy <= 0)) || ((dy > 0) && (dyy <= 0)))
+        {
+            //Compute x coordinate of the found intersection
+            double xm = (dxx*dy-dx*dyy)/(dyy-dy);
+            if (xm > 0) //Right plane
+                k++;
+        }
+        dx = dxx;
+        dy = dyy;
+    }
+
+    if (k%2 == 0) //Even number
+        return 0; //Point lies outside the polygon
+    else    //Odd number
+        return 1; //Point lies inside the polygon
+}

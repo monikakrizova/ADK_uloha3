@@ -133,4 +133,12 @@ void Widget::on_pushButton_5_clicked()
     repaint();
 }
 
+void Widget::on_pushButton_6_clicked()
+{
+    //Open text file with dialog
+    QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/polygon.txt";
+    //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
+    ui->Canvas->loadData(file_name);
+    repaint();
+}
 

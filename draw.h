@@ -14,6 +14,7 @@ class Draw : public QWidget
     Q_OBJECT
 private:
     std::vector<QPoint3D> points;
+    QPolygonF pol;
     std::vector<Edge> dt;
     std::vector<Edge> contours;
     std::vector<Triangle> triangles;
@@ -28,6 +29,7 @@ public:
     void mousePressEvent(QMouseEvent *event);
     void clear();
     void loadData(QString &file_name);
+    void loadPolygon(QString &file_name);
     std::vector<QPoint3D> getPoints(){return points;}
     double getZmin(){return z_min;}
     double getZmax(){return z_max;}

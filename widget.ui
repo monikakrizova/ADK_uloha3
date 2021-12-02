@@ -29,7 +29,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_5">
        <property name="text">
-        <string>Load data</string>
+        <string>Load points data</string>
        </property>
       </widget>
      </item>
@@ -37,6 +37,13 @@
       <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string>Create DT</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="text">
+        <string>Load polygon and create DT :)</string>
        </property>
       </widget>
      </item>
@@ -61,7 +68,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_3"/>
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_3">
