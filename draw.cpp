@@ -16,13 +16,101 @@ void Draw::paintEvent(QPaintEvent *event)
     int r=4;
     QPolygon pol;
 
-    for (int i=0; i<points.size(); i++)
+    for (int unsigned i=0; i<points.size(); i++)
     {
         qp.drawEllipse(points[i].x()-r,points[i].y()-r,2*r,2*r);
         pol.append(QPoint(points[i].x(), points[i].y()));
     }
 
+    //Draw contour lines
+    for (Edge c : contours)
+    {
+        //Get start point, get end point
+        QPoint3D s_point = c.getStart();
+        QPoint3D e_point = c.getEnd();
+
+        QPen fill_pen(Qt::magenta, 1);
+        qp.setPen(fill_pen);
+
+        //Draw line
+        qp.drawLine(s_point,e_point);
+
+        //Higligt every 5th contour
+        if ((int)s_point.getZ()%(dz*5)  == 0)
+        {
+            QPen fill_pen(Qt::magenta, 3);
+            qp.setPen(fill_pen);
+
+            //Draw line
+            qp.drawLine(s_point,e_point);
+        }
+    }
+
+    //Draw labels
+    for (int unsigned i = 0; i < contours.size(); i+=10)
+    {
+        Edge c = contours[i];
+
+        QPoint3D s1_point = c.getStart();
+        QPoint3D e1_point = c.getEnd();
+
+        if ((int)s1_point.getZ()%(dz*5)  == 0)
+        {
+            if (labels == true)
+            {
+                //Secure the same orientation for all edges
+               if (s1_point.x() > e1_point.x())
+                {
+                    QPoint3D temp = e1_point;
+                    e1_point = s1_point;
+                    s1_point = temp;
+                }
+
+                //Compute direction
+                double dx = e1_point.x() - s1_point.x();
+                double dy = e1_point.y() - s1_point.y();
+                double rot = atan2(dy,dx);
+
+                //Determine location for label
+                QPointF label_point;
+                label_point.setX((s1_point.x()+e1_point.x())/2);
+                label_point.setY((s1_point.y()+e1_point.y())/2);
+                double z = s1_point.getZ();
+                QString z_str = QString::number(z);
+
+                //Translate and rorate coordinate system
+                qp.translate(label_point);
+                qp.rotate(rot*180/M_PI);
+                qp.translate(-label_point);
+
+                //Color of widget window
+                QColor color (240, 240, 240 ,255);
+
+                //Draw rectangle bellow number
+                qp.setBrush(color);
+                QPen fill_pen(color);
+                qp.setPen(fill_pen);
+
+                //Set text
+                QFont font = qp.font();
+                font.setPixelSize(12);
+                qp.setFont(font);
+
+                qp.drawRect(label_point.x()-font.pixelSize()/2, label_point.y()-font.pixelSize()/2,20, 20);
+
+                //Translate and rorate coordinate system back
+                qp.translate(label_point);
+                qp.rotate(-rot*180/M_PI);
+                qp.translate(-label_point);
+            }
+        }
+    }
+
+
+
     //Draw triangulation
+    qp.setPen(QPen(Qt::black, 1));
+
     for(Edge e : dt)
     {
         //Get start point, get end point
@@ -33,22 +121,63 @@ void Draw::paintEvent(QPaintEvent *event)
         qp.drawLine(s_point, e_point);
     }
 
-    //Draw contour lines
-    for (Edge c:contours)
+    //Draw labels
+    for (int unsigned i = 0; i < contours.size(); i+=10)
     {
-        //Get start point, get end point
-        QPoint3D s_point = c.getStart();
-        QPoint3D e_point = c.getEnd();
-        QPen fill_pen(Qt::magenta, 1);
-        qp.setPen(fill_pen);
+        Edge c = contours[i];
 
-        if ((int)s_point.getZ()%(dz*5)  == 0)
+        QPoint3D s1_point = c.getStart();
+        QPoint3D e1_point = c.getEnd();
+
+        if ((int)s1_point.getZ()%(dz*5)  == 0)
         {
-            QPen fill_pen(Qt::magenta, 3);
-            qp.setPen(fill_pen);
+            if (labels == true)
+            {
+                //Secure the same orientation for all edges
+               if (s1_point.x() > e1_point.x())
+                {
+                    QPoint3D temp = e1_point;
+                    e1_point = s1_point;
+                    s1_point = temp;
+                }
+
+                //Compute direction
+                double dx = e1_point.x() - s1_point.x();
+                double dy = e1_point.y() - s1_point.y();
+                double rot = atan2(dy,dx);
+
+                //Determine location for label
+                QPointF label_point;
+                label_point.setX((s1_point.x()+e1_point.x())/2);
+                label_point.setY((s1_point.y()+e1_point.y())/2);
+                double z = s1_point.getZ();
+                QString z_str = QString::number(z);
+
+                //Translate and rorate coordinate system
+                qp.translate(label_point);
+                qp.rotate(rot*180/M_PI);
+                qp.translate(-label_point);
+
+                //Set text
+                QFont font = qp.font();
+                font.setPixelSize(12);
+                qp.setFont(font);
+
+                //Set pen
+                qp.setPen(QPen(Qt::magenta, 3));
+
+                //Draw text
+                //qp.drawText(label_point, z_str);
+                QRect rect = QRect(label_point.x()-font.pixelSize()/2, label_point.y()-font.pixelSize()/2, 20,20);
+                QRect boundingRect;
+                qp.drawText(rect, 0, z_str, &boundingRect);
+
+                //Translate and rorate coordinate system back
+                qp.translate(label_point);
+                qp.rotate(-rot*180/M_PI);
+                qp.translate(-label_point);
+            }
         }
-        //Draw line
-        qp.drawLine(s_point,e_point);
     }
 
     //Draw slope
@@ -260,8 +389,8 @@ void Draw::clearDT()
 void Draw::loadData(QString &file_name)
 {
     //Load data from the *.txt file
-    QPolygonF polygon;
-    std::vector<QPolygonF> buildings_;
+    //QPolygonF polygon;
+    //std::vector<QPolygonF> buildings_;
 
     QPoint3D point;
 
@@ -276,7 +405,6 @@ void Draw::loadData(QString &file_name)
             double y = line.split(" ")[1].toDouble();
             double x = line.split(" ")[2].toDouble();
             double z = line.split(" ")[3].toDouble();
-
 
             //Add vertice to the end of the QPoint3D vector
             point.setX(x);
@@ -296,31 +424,34 @@ void Draw::loadData(QString &file_name)
             else if (z > z_max)
                 z_max = z;
 
-        //Save polygon to the vector of QPolygonFs
-        points.push_back(point);
-    }
+            z_max = round(z_max);
+            z_min = round(z_min);
 
-    //Compute scales to zoom in in canvas
-    double canvas_weight = 952.0;
-    double canvas_height = 748.0;
+            //Save point to the vector of points
+            points.push_back(point);
+        }
 
-    double dy = fabs(y_max-y_min);
-    double dx = fabs(x_max-x_min);
+        //Compute scales to zoom in in canvas
+        double canvas_weight = 1061.0;
+        double canvas_height = 777.0;
 
-    double k;
-    if (dy > dx)
-        k = canvas_weight/dy;
-    else
-        k = canvas_height/dx;
+        double dy = fabs(y_max-y_min);
+        double dx = fabs(x_max-x_min);
 
-    //Transform coordinates from JTSK to canvas
-    for (int unsigned i = 0; i < points.size(); i++)
+        double k;
+        if (dy > dx)
+            k = canvas_weight/dy;
+        else
+            k = canvas_height/dx;
+
+        //Transform coordinates from JTSK to canvas
+        for (int unsigned i = 0; i < points.size(); i++)
         {
-        QPoint3D pol = points[i];
+            QPoint3D pol = points[i];
 
-        double temp = points[i].x();
-        points[i].setX(-k*(points[i].y()-y_max));
-        points[i].setY(k*(temp-x_min));
+            double temp = points[i].x();
+            points[i].setX(-k*(points[i].y()-y_max));
+            points[i].setY(k*(temp-x_min));
         }
 
     }

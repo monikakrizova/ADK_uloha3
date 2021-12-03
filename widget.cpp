@@ -10,7 +10,7 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
     //zmin = 100.0;
     //zmax = 1000.0;
-    dz = 5.0;
+    dz = 1.0;
 
     ui->lineEdit_3->setText(QString::number(dz));
 }
@@ -127,10 +127,26 @@ void Widget::on_pushButton_4_clicked()
 void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
-    QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/souradnicePB.txt";
+    //QString file_name = "D:/skola_ING/semestr3/ADKaGIS/kladivova_spererova_adk-master/U3_kladivova_spererova/U3_test_data/test.txt";
+    QString file_name = "D:/Github/ADK/ADK_uloha3/e1.txt";
     //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
     repaint();
 }
 
+
+
+void Widget::on_pushButton_contour_labels_clicked()
+{
+    std::vector<Edge> main_contours = ui->Canvas->getMainContours();
+
+}
+
+void Widget::on_checkBox_stateChanged(int arg1)
+{
+    if (ui->checkBox->isChecked())
+        ui->Canvas->labels = true;
+    else
+        ui->Canvas->labels = false;
+}
 

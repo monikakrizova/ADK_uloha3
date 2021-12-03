@@ -7,6 +7,7 @@
 #include "edge.h"
 #include "triangle.h"
 #include "iostream"
+#include <QTextOption>
 
 
 class Draw : public QWidget
@@ -15,7 +16,7 @@ class Draw : public QWidget
 private:
     std::vector<QPoint3D> points;
     std::vector<Edge> dt;
-    std::vector<Edge> contours;
+    std::vector<Edge> contours, main_contours;
     std::vector<Triangle> triangles;
     double y_max = 0.0, x_min = 999999999.0; //pro transformaci
     double y_min = 999999999.0, x_max = 0.0; //pro meritko
@@ -35,10 +36,13 @@ public:
     void setDZ(int &dz_){dz = dz_;}
     std::vector<Edge> getDT(){return dt;}
     void setContours(std::vector<Edge> &contours_){contours = contours_;}
+    void setMainContours(std::vector<Edge> &main_contours_){main_contours = main_contours_;}
     std::vector<Edge> getContours(){return contours;}
+    std::vector<Edge> getMainContours(){return main_contours;}
     std::vector<Triangle> getTriangles(){return triangles;}
     void setTriangles(std::vector<Triangle> &triangles_){triangles = triangles_;}
     bool sl_exp = false, colorchanged = false;
+    bool labels = false;
     void clearDT();
 
 signals:

@@ -71,6 +71,16 @@
       </widget>
      </item>
      <item>
+      <widget class="QCheckBox" name="checkBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Show contour labels</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="verticalSpacer_4">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -166,7 +176,7 @@
   <customwidget>
    <class>Draw</class>
    <extends>QWidget</extends>
-   <header location="global">draw.h</header>
+   <header>draw.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
