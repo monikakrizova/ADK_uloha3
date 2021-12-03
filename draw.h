@@ -18,6 +18,8 @@ private:
     std::vector<Edge> dt;
     std::vector<Edge> contours, main_contours;
     std::vector<Triangle> triangles;
+    std::vector<QPoint3D> label_points;
+    std::vector<double> directions;
     double y_max = 0.0, x_min = 999999999.0; //pro transformaci
     double y_min = 999999999.0, x_max = 0.0; //pro meritko
     double z_min = 999999999.0, z_max = 0.0; //pro souradnice
@@ -34,6 +36,10 @@ public:
     double getZmax(){return z_max;}
     void setDT(std::vector<Edge> &dt_){dt = dt_;}
     void setDZ(int &dz_){dz = dz_;}
+    void setDirections(std::vector<double> directions_){directions = directions_;}
+    std::vector<double> getDirections(){return directions;}
+    void setLabelPoints(std::vector<QPoint3D> &label_points_){label_points = label_points_;}
+    std::vector<QPoint3D> getLabelPoints(){return label_points;}
     std::vector<Edge> getDT(){return dt;}
     void setContours(std::vector<Edge> &contours_){contours = contours_;}
     void setMainContours(std::vector<Edge> &main_contours_){main_contours = main_contours_;}
@@ -41,6 +47,7 @@ public:
     std::vector<Edge> getMainContours(){return main_contours;}
     std::vector<Triangle> getTriangles(){return triangles;}
     void setTriangles(std::vector<Triangle> &triangles_){triangles = triangles_;}
+    int round2num(int &numToRound, int &multiple, bool &dir);
     bool sl_exp = false, colorchanged = false;
     bool labels = false;
     void clearDT();

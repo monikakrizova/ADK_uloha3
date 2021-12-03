@@ -25,7 +25,7 @@ public:
     double getSlope(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3);
     double getExposition(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3);
     std::vector<Triangle> analyzeDTM(std::vector<Edge> &dt);
-    int round2num(int numToRound, int multiple, bool dir);
+    std::tuple<std::vector<QPoint3D>,std::vector<double>> calculateLabelPoints(std::vector<Edge> &main_contours);
 
 };
 

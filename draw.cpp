@@ -1,6 +1,5 @@
 #include "draw.h"
 #include <stdlib.h>
-#include <algorithms.h>
 
 Draw::Draw(QWidget *parent) : QWidget(parent)
 {
@@ -12,6 +11,11 @@ void Draw::paintEvent(QPaintEvent *event)
 {
     QPainter qp(this);
     qp.begin(this);
+
+    //Set text
+    QFont font = qp.font();
+    font.setPixelSize(12);
+    qp.setFont(font);
 
     //Draw points
     int r=4;
@@ -47,38 +51,19 @@ void Draw::paintEvent(QPaintEvent *event)
         }
     }
 
-    //Draw labels
-    for (int unsigned i = 0; i < main_contours.size(); i+=10)
+
+
+    //std::cout << "labelpoints: " << label_points.size() << std::endl;
+
+    //Draw squares bellow labels nad contours but above triangulation
+    for (int unsigned i = 0; i < label_points.size(); i++)
     {
-        Edge c = main_contours[i];
-
-        QPoint3D s1_point = c.getStart();
-        QPoint3D e1_point = c.getEnd();
-
             if (labels == true)
             {
-                //Secure the same orientation for all edges
-               if (s1_point.x() > e1_point.x())
-                {
-                    QPoint3D temp = e1_point;
-                    e1_point = s1_point;
-                    s1_point = temp;
-                }
-
-                //Compute direction
-                double dx = e1_point.x() - s1_point.x();
-                double dy = e1_point.y() - s1_point.y();
-                double rot = atan2(dy,dx);
-
-                //Determine location for label
-                QPointF label_point;
-                label_point.setX((s1_point.x()+e1_point.x())/2);
-                label_point.setY((s1_point.y()+e1_point.y())/2);
-
                 //Translate and rorate coordinate system
-                qp.translate(label_point);
-                qp.rotate(rot*180/M_PI);
-                qp.translate(-label_point);
+                qp.translate(label_points[i]);
+                qp.rotate(directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
 
                 //Color of widget window
                 QColor color (240, 240, 240 ,255);
@@ -88,20 +73,14 @@ void Draw::paintEvent(QPaintEvent *event)
                 QPen fill_pen(color);
                 qp.setPen(fill_pen);
 
-                //Set text
-                QFont font = qp.font();
-                font.setPixelSize(12);
-                qp.setFont(font);
-
-                qp.drawRect(label_point.x()-font.pixelSize()/2, label_point.y()-font.pixelSize()/2,20, 20);
+                qp.drawRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2,20, 20);
 
                 //Translate and rorate coordinate system back
-                qp.translate(label_point);
-                qp.rotate(-rot*180/M_PI);
-                qp.translate(-label_point);
+                qp.translate(label_points[i]);
+                qp.rotate(-directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
             }
     }
-
 
 
     //Draw triangulation
@@ -118,58 +97,35 @@ void Draw::paintEvent(QPaintEvent *event)
     }
 
     //Draw labels for main contours
-    for (int unsigned i = 0; i < main_contours.size(); i+=10)
+    for (int i = 0; i < label_points.size(); i++)
     {
-        Edge c = main_contours[i];
-
-        QPoint3D s1_point = c.getStart();
-        QPoint3D e1_point = c.getEnd();
-
             if (labels == true)
             {
-                //Secure the same orientation for all edges
-               if (s1_point.x() > e1_point.x())
-                {
-                    QPoint3D temp = e1_point;
-                    e1_point = s1_point;
-                    s1_point = temp;
-                }
 
-                //Compute direction
-                double dx = e1_point.x() - s1_point.x();
-                double dy = e1_point.y() - s1_point.y();
-                double rot = atan2(dy,dx);
+                double z = label_points[i].getZ();
 
-                //Determine location for label
-                QPointF label_point;
-                label_point.setX((s1_point.x()+e1_point.x())/2);
-                label_point.setY((s1_point.y()+e1_point.y())/2);
-                double z = s1_point.getZ();
+                std::cout << "z: " << z << std::endl;
+
                 QString z_str = QString::number(z);
 
                 //Translate and rorate coordinate system
-                qp.translate(label_point);
-                qp.rotate(rot*180/M_PI);
-                qp.translate(-label_point);
-
-                //Set text
-                QFont font = qp.font();
-                font.setPixelSize(12);
-                qp.setFont(font);
+                qp.translate(label_points[i]);
+                qp.rotate(directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
 
                 //Set pen
                 qp.setPen(QPen(Qt::magenta, 3));
 
                 //Draw text
                 //qp.drawText(label_point, z_str);
-                QRect rect = QRect(label_point.x()-font.pixelSize()/2, label_point.y()-font.pixelSize()/2, 20,20);
+                QRect rect = QRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2, 20,20);
                 QRect boundingRect;
                 qp.drawText(rect, 0, z_str, &boundingRect);
 
                 //Translate and rorate coordinate system back
-                qp.translate(label_point);
-                qp.rotate(-rot*180/M_PI);
-                qp.translate(-label_point);
+                qp.translate(label_points[i]);
+                qp.rotate(-directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
             }
     }
 
@@ -404,6 +360,7 @@ void Draw::loadData(QString &file_name)
             point.setY(y);
             point.setZ(z);
 
+            //Find maximum and minimum coordinates
             if (y > y_max)
                 y_max = y;
             else if (y < y_min)
@@ -417,20 +374,21 @@ void Draw::loadData(QString &file_name)
             else if (z > z_max)
                 z_max = z;
 
-
             //Save point to the vector of points
             points.push_back(point);
         }
 
         //Round number to closest multiple by 5
-        Algorithms a;
-
         z_max = round(z_max);
         z_min = round(z_min);
 
-        z_max = a.round2num(z_max, 5, true);
-        z_min = a.round2num(z_min, 5, false);
+        int round = 5; bool up = true; bool down = false;
 
+        int z1_max = (int)z_max;
+        int z1_min = (int)z_min;
+
+        z_max = round2num(z1_max, round, up);
+        z_min = round2num(z1_min, round, down);
 
         //Compute scales to zoom in in canvas
         double canvas_weight = 1061.0;
@@ -457,4 +415,23 @@ void Draw::loadData(QString &file_name)
 
     }
     inputFile.close();
+}
+
+int Draw::round2num(int &numToRound, int &multiple, bool &dir)
+{
+    //Round to the closest multiple
+    //dir == true -> up
+    //dir == false -> down
+
+    int remainder = numToRound % multiple;
+    if (remainder == 0)
+        return numToRound;
+
+    if (dir == true) //round up
+    {
+        return numToRound + multiple - remainder;
+    }
+    else    //round down
+        return numToRound - remainder;
+
 }

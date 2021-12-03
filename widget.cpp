@@ -65,6 +65,7 @@ void Widget::on_pushButton_3_clicked()
 
     //Create DT
     Algorithms a;
+
     std::vector<Edge> dt = a.dT(points);
 
     //Set DT
@@ -82,12 +83,18 @@ void Widget::on_pushButton_3_clicked()
         std::vector<Edge> contours = a.getContourLines(dt, zmin, zmax, dz);
         std::vector<Edge> main_contours = a.getContourLines(dt, zmin, zmax, dz*5);
 
+
         std::cout << "contours;" << contours.size() << std::endl;
         std::cout << "main_contours;" << main_contours.size() << std::endl;
 
         //Set contours
         ui->Canvas->setContours(contours);
         ui->Canvas->setMainContours(main_contours);
+
+        auto[label_points,directions] = a.calculateLabelPoints(main_contours);
+
+        ui->Canvas->setLabelPoints(label_points);
+        ui->Canvas->setDirections(directions);
 
         repaint();
     }

@@ -79,15 +79,15 @@ int Algorithms::getDelaunayPoint(QPoint3D &s,QPoint3D &e,std::vector<QPoint3D> &
                 //Center and radius of inscribed circle
                 auto[c,r] = getCircleCenterAndRadius(points[i],s,e);
 
-                //Correct radius
-                if(getPointLinePosition(c,s,e)==0)
-                    r = -r;
+                        //Correct radius
+                        if(getPointLinePosition(c,s,e)==0)
+                        r = -r;
 
-                //Update minimum radius
-                if (r < min_r)
+                        //Update minimum radius
+                        if (r < min_r)
                 {
-                   min_r = r;
-                   min_index = i;
+                    min_r = r;
+                    min_index = i;
                 }
             }
         }
@@ -403,21 +403,46 @@ std::vector<Triangle> Algorithms::analyzeDTM(std::vector<Edge> &dt)
     return triangles;
 }
 
-int Algorithms::round2num(int numToRound, int multiple, bool dir)
+
+
+std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabelPoints(std::vector<Edge> &main_contours)
 {
-    //Round to the closest multiple
-    //dir == true -> up
-    //dir == false -> down
+    std::vector<QPoint3D> label_points;
+    std::vector<double> rotations;
 
-    int remainder = numToRound % multiple;
-    if (remainder == 0)
-        return numToRound;
-
-    if (dir == true) //round up
+    //Draw labels
+    for (int unsigned i = 0; i < main_contours.size(); i+=10)
     {
-        return numToRound + multiple - remainder;
+        Edge c = main_contours[i];
+
+        QPoint3D s1_point = c.getStart();
+        QPoint3D e1_point = c.getEnd();
+
+        //Secure the same orientation for all edges
+        if (s1_point.x() > e1_point.x())
+        {
+            QPoint3D temp = e1_point;
+            e1_point = s1_point;
+            s1_point = temp;
+        }
+
+        //Compute direction
+        double dx = e1_point.x() - s1_point.x();
+        double dy = e1_point.y() - s1_point.y();
+        double rot = atan2(dy,dx);
+
+        rotations.push_back(rot);
+
+        //Determine location for label
+        QPoint3D label_point;
+        label_point.setX((s1_point.x()+e1_point.x())/2);
+        label_point.setY((s1_point.y()+e1_point.y())/2);
+        label_point.setZ(s1_point.getZ());
+
+        label_points.push_back(label_point);
+
     }
-    else    //round down
-        return numToRound - remainder;
+
+    return {label_points, rotations};
 
 }
