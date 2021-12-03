@@ -88,6 +88,11 @@ void Widget::on_lineEdit_3_editingFinished()
 void Widget::on_pushButton_3_clicked()
 {
     //Create contours
+    //Get points
+    std::vector<QPoint3D> points = ui->Canvas->getPoints();
+
+    //Create DT
+    Algorithms a;
 
     //Get dt
     std::vector<Edge> dt = ui->Canvas->getDT();
@@ -102,9 +107,16 @@ void Widget::on_pushButton_3_clicked()
         Algorithms a;
         //Create contours
         std::vector<Edge> contours = a.getContourLines(dt, zmin, zmax, dz);
+        std::vector<Edge> main_contours = a.getContourLines(dt, zmin, zmax, dz*5);
 
         //Set contours
         ui->Canvas->setContours(contours);
+        ui->Canvas->setMainContours(main_contours);
+
+        auto[label_points,directions] = a.calculateLabelPoints(main_contours);
+
+        ui->Canvas->setLabelPoints(label_points);
+        ui->Canvas->setDirections(directions);
 
         repaint();
     }
@@ -145,9 +157,12 @@ void Widget::on_pushButton_4_clicked()
 void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
-    //QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/test_data/e1.txt";
-    QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
+    //QString file_name = "D:/skola_ING/semestr3/ADKaGIS/kladivova_spererova_adk-master/U3_kladivova_spererova/U3_test_data/test.txt";
+    QString file_name = "D:/Github/ADK/ADK_uloha3/test_data.txt";
+    //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
+
+
     repaint();
 }
 
@@ -176,4 +191,20 @@ void Widget::on_pushButton_7_clicked()
     ui->Canvas->setDT(dt);
     repaint();
 }
+
+
+void Widget::on_pushButton_contour_labels_clicked()
+{
+    std::vector<Edge> main_contours = ui->Canvas->getMainContours();
+
+}
+
+void Widget::on_checkBox_stateChanged(int arg1)
+{
+    if (ui->checkBox->isChecked())
+        ui->Canvas->labels = true;
+    else
+        ui->Canvas->labels = false;
+}
+
 

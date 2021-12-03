@@ -38,6 +38,10 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void on_pushButton_contour_labels_clicked();
+
+    void on_checkBox_stateChanged(int arg1);
+
 private:
     Ui::Widget *ui;
 };

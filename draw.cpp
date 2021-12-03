@@ -12,11 +12,16 @@ void Draw::paintEvent(QPaintEvent *event)
     QPainter qp(this);
     qp.begin(this);
 
+    //Set text
+    QFont font = qp.font();
+    font.setPixelSize(12);
+    qp.setFont(font);
+
     //Draw points
     int r=4;
     QPolygon pol, polygonek;
 
-    for (int i=0; i<points.size(); i++)
+    for (int unsigned i=0; i<points.size(); i++)
     {
         qp.drawEllipse(points[i].x()-r,points[i].y()-r,2*r,2*r);
         pol.append(QPoint(points[i].x(), points[i].y()));
@@ -38,21 +43,102 @@ void Draw::paintEvent(QPaintEvent *event)
     }
 
     //Draw contour lines
-    for (Edge c:contours)
+    for (Edge c : contours)
     {
         //Get start point, get end point
         QPoint3D s_point = c.getStart();
         QPoint3D e_point = c.getEnd();
+
         QPen fill_pen(Qt::magenta, 1);
         qp.setPen(fill_pen);
 
+        //Draw line
+        qp.drawLine(s_point,e_point);
+
+        //Higligt every 5th contour
         if ((int)s_point.getZ()%(dz*5)  == 0)
         {
             QPen fill_pen(Qt::magenta, 3);
             qp.setPen(fill_pen);
+
+            //Draw line
+            qp.drawLine(s_point,e_point);
         }
+    }
+
+
+    //Draw squares bellow labels nad contours but above triangulation
+    for (int unsigned i = 0; i < label_points.size(); i++)
+    {
+            if (labels == true)
+            {
+                //Translate and rorate coordinate system
+                qp.translate(label_points[i]);
+                qp.rotate(directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
+
+                //Color of widget window
+                QColor color (240, 240, 240 ,255);
+
+                //Draw rectangle bellow number
+                qp.setBrush(color);
+                QPen fill_pen(color);
+                qp.setPen(fill_pen);
+
+                qp.drawRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2,20, 20);
+
+                //Translate and rorate coordinate system back
+                qp.translate(label_points[i]);
+                qp.rotate(-directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
+            }
+    }
+
+
+    //Draw triangulation
+    qp.setPen(QPen(Qt::black, 1));
+
+    for(Edge e : dt)
+    {
+        //Get start point, get end point
+        QPoint3D s_point = e.getStart();
+        QPoint3D e_point = e.getEnd();
+
         //Draw line
-        qp.drawLine(s_point,e_point);
+        qp.drawLine(s_point, e_point);
+    }
+
+    //Draw labels for main contours
+    for (int i = 0; i < label_points.size(); i++)
+    {
+            if (labels == true)
+            {
+
+                double z = label_points[i].getZ();
+
+                std::cout << "z: " << z << std::endl;
+
+                QString z_str = QString::number(z);
+
+                //Translate and rorate coordinate system
+                qp.translate(label_points[i]);
+                qp.rotate(directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
+
+                //Set pen
+                qp.setPen(QPen(Qt::magenta, 3));
+
+                //Draw text
+                //qp.drawText(label_point, z_str);
+                QRect rect = QRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2, 20,20);
+                QRect boundingRect;
+                qp.drawText(rect, 0, z_str, &boundingRect);
+
+                //Translate and rorate coordinate system back
+                qp.translate(label_points[i]);
+                qp.rotate(-directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
+            }
     }
 
     //Draw slope
@@ -371,12 +457,12 @@ void Draw::loadData(QString &file_name)
             double x = line.split(" ")[2].toDouble();
             double z = line.split(" ")[3].toDouble();
 
-
             //Add vertice to the end of the QPoint3D vector
             point.setX(x);
             point.setY(y);
             point.setZ(z);
 
+            //Find maximum and minimum coordinates
             if (y > y_max)
                 y_max = y;
             else if (y < y_min)
@@ -390,35 +476,48 @@ void Draw::loadData(QString &file_name)
             else if (z > z_max)
                 z_max = z;
 
-        //Save polygon to the vector of QPolygonFs
-        points.push_back(point);
-    }
+            //Save point to the vector of points
+            points.push_back(point);
+        }
 
-    //Compute scales to zoom in in canvas
-    double canvas_weight = 872.0;
-    double canvas_height = 777.0;
+        //Round number to closest multiple by 5
+        z_max = round(z_max);
+        z_min = round(z_min);
 
-    double dy = fabs(y_max-y_min);
-    double dx = fabs(x_max-x_min);
+        int round = 5; bool up = true; bool down = false;
 
-    double k;
-    if (dy > dx)
-        k = canvas_weight/dy;
-    else
-        k = canvas_height/dx;
+        int z1_max = (int)z_max;
+        int z1_min = (int)z_min;
 
-    //Transform coordinates from JTSK to canvas
-    for (int unsigned i = 0; i < points.size(); i++)
+        z_max = round2num(z1_max, round, up);
+        z_min = round2num(z1_min, round, down);
+
+        //Compute scales to zoom in in canvas
+        double canvas_weight = 1061.0;
+        double canvas_height = 777.0;
+
+        double dy = fabs(y_max-y_min);
+        double dx = fabs(x_max-x_min);
+
+        double k;
+        if (dy > dx)
+            k = canvas_weight/dy;
+        else
+            k = canvas_height/dx;
+
+        //Transform coordinates from JTSK to canvas
+        for (int unsigned i = 0; i < points.size(); i++)
         {
-        double temp = points[i].x();
-        points[i].setX(-k*(points[i].y()-y_max));
-        points[i].setY(k*(temp-x_min));
+            QPoint3D pol = points[i];
+
+            double temp = points[i].x();
+            points[i].setX(-k*(points[i].y()-y_max));
+            points[i].setY(k*(temp-x_min));
         }
 
     }
     inputFile.close();
 }
-
 
 void Draw::loadPolygon(QString &file_name)
 {
@@ -485,5 +584,21 @@ void Draw::loadPolygon(QString &file_name)
     inputFile.close();
 }
 
+int Draw::round2num(int &numToRound, int &multiple, bool &dir)
+{
+    //Round to the closest multiple
+    //dir == true -> up
+    //dir == false -> down
 
+    int remainder = numToRound % multiple;
+    if (remainder == 0)
+        return numToRound;
 
+    if (dir == true) //round up
+    {
+        return numToRound + multiple - remainder;
+    }
+    else    //round down
+        return numToRound - remainder;
+
+}

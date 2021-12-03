@@ -30,6 +30,7 @@ public:
     int getPositionRayCrossing(QPoint3D &q, std::vector<QPoint3D> &pol);
     double get2LinesAngle(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3, QPoint3D &p4);
     int getPositionWinding(QPoint3D &q, std::vector<QPoint3D> &pol);
+    std::tuple<std::vector<QPoint3D>,std::vector<double>> calculateLabelPoints(std::vector<Edge> &main_contours);
 };
 
 #endif // ALGORITHMS_H
