@@ -559,7 +559,7 @@ void Draw::loadPolygon(QString &file_name)
     }
 
     //Compute scales to zoom in in canvas
-    double canvas_weight = 872;
+    double canvas_weight = 1061.0;
     double canvas_height = 777.0;
 
     double dy = fabs(y_max-y_min);
