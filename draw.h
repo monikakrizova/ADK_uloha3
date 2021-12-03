@@ -23,6 +23,7 @@ private:
     double z_min = 999999999.0, z_max = 0.0; //pro souradnice
     int dz = 1;
     double max_slope, min_slope;
+    int slope_param, expos_param;
 
 public:
     explicit Draw(QWidget *parent = nullptr);
@@ -43,8 +44,10 @@ public:
     std::vector<Edge> getContours(){return contours;}
     std::vector<Triangle> getTriangles(){return triangles;}
     void setTriangles(std::vector<Triangle> &triangles_){triangles = triangles_;}
-    bool sl_exp = false, colorchanged = false;
+    bool sl_exp = false;
     void clearDT();
+    void setSlopeParameters(int slope_param_){slope_param = slope_param_;}
+    void setExpositionParameters(int expos_param_){expos_param = expos_param_;}
 
 signals:
 

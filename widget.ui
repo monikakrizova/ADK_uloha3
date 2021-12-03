@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1210</width>
+    <width>1021</width>
     <height>799</height>
    </rect>
   </property>
@@ -129,6 +129,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Slope parameters:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QComboBox" name="comboBox_2">
        <item>
         <property name="text">
@@ -137,7 +144,43 @@
        </item>
        <item>
         <property name="text">
-         <string>Yellow -&gt; red</string>
+         <string>Green to Red</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Yellow to Red</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Cyan to Blue</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Exposition parameters</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox_3">
+       <item>
+        <property name="text">
+         <string>Shades of grey</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Discrete color scheme</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Continuous color scheme</string>
         </property>
        </item>
       </widget>

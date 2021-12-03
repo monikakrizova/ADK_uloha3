@@ -126,10 +126,8 @@ void Widget::on_pushButton_4_clicked()
         ui->Canvas->sl_exp = false;
 
     //Draw slope
-    if (ui->comboBox_2->currentIndex() == 0)
-        ui->Canvas->colorchanged = false;
-    else if (ui->comboBox_2->currentIndex() == 1)
-        ui->Canvas->colorchanged = true;
+    ui->Canvas->setSlopeParameters(ui->comboBox_2->currentIndex());
+    ui->Canvas->setExpositionParameters(ui->comboBox_3->currentIndex());
 
     //Is the triangulation not empty?
     if (dt.size() > 0)
@@ -147,7 +145,7 @@ void Widget::on_pushButton_4_clicked()
 void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
-    //QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/test_data/PB2.txt";
+    //QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/test_data/e1.txt";
     QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
     repaint();
@@ -165,6 +163,8 @@ void Widget::on_pushButton_6_clicked()
 
 void Widget::on_pushButton_7_clicked()
 {
+    //Create polygon DT
+
     //Get points
     std::vector<QPoint3D> points = ui->Canvas->getPoints();
 
