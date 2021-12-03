@@ -402,3 +402,22 @@ std::vector<Triangle> Algorithms::analyzeDTM(std::vector<Edge> &dt)
 
     return triangles;
 }
+
+int Algorithms::round2num(int numToRound, int multiple, bool dir)
+{
+    //Round to the closest multiple
+    //dir == true -> up
+    //dir == false -> down
+
+    int remainder = numToRound % multiple;
+    if (remainder == 0)
+        return numToRound;
+
+    if (dir == true) //round up
+    {
+        return numToRound + multiple - remainder;
+    }
+    else    //round down
+        return numToRound - remainder;
+
+}

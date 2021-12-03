@@ -80,9 +80,14 @@ void Widget::on_pushButton_3_clicked()
         Algorithms a;
         //Create contours
         std::vector<Edge> contours = a.getContourLines(dt, zmin, zmax, dz);
+        std::vector<Edge> main_contours = a.getContourLines(dt, zmin, zmax, dz*5);
+
+        std::cout << "contours;" << contours.size() << std::endl;
+        std::cout << "main_contours;" << main_contours.size() << std::endl;
 
         //Set contours
         ui->Canvas->setContours(contours);
+        ui->Canvas->setMainContours(main_contours);
 
         repaint();
     }
@@ -128,9 +133,11 @@ void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
     //QString file_name = "D:/skola_ING/semestr3/ADKaGIS/kladivova_spererova_adk-master/U3_kladivova_spererova/U3_test_data/test.txt";
-    QString file_name = "D:/Github/ADK/ADK_uloha3/e1.txt";
+    QString file_name = "D:/Github/ADK/ADK_uloha3/test_data.txt";
     //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
+
+
     repaint();
 }
 

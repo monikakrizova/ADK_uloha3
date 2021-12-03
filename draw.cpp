@@ -1,5 +1,6 @@
 #include "draw.h"
 #include <stdlib.h>
+#include <algorithms.h>
 
 Draw::Draw(QWidget *parent) : QWidget(parent)
 {
@@ -47,15 +48,13 @@ void Draw::paintEvent(QPaintEvent *event)
     }
 
     //Draw labels
-    for (int unsigned i = 0; i < contours.size(); i+=10)
+    for (int unsigned i = 0; i < main_contours.size(); i+=10)
     {
-        Edge c = contours[i];
+        Edge c = main_contours[i];
 
         QPoint3D s1_point = c.getStart();
         QPoint3D e1_point = c.getEnd();
 
-        if ((int)s1_point.getZ()%(dz*5)  == 0)
-        {
             if (labels == true)
             {
                 //Secure the same orientation for all edges
@@ -75,8 +74,6 @@ void Draw::paintEvent(QPaintEvent *event)
                 QPointF label_point;
                 label_point.setX((s1_point.x()+e1_point.x())/2);
                 label_point.setY((s1_point.y()+e1_point.y())/2);
-                double z = s1_point.getZ();
-                QString z_str = QString::number(z);
 
                 //Translate and rorate coordinate system
                 qp.translate(label_point);
@@ -103,7 +100,6 @@ void Draw::paintEvent(QPaintEvent *event)
                 qp.rotate(-rot*180/M_PI);
                 qp.translate(-label_point);
             }
-        }
     }
 
 
@@ -121,16 +117,14 @@ void Draw::paintEvent(QPaintEvent *event)
         qp.drawLine(s_point, e_point);
     }
 
-    //Draw labels
-    for (int unsigned i = 0; i < contours.size(); i+=10)
+    //Draw labels for main contours
+    for (int unsigned i = 0; i < main_contours.size(); i+=10)
     {
-        Edge c = contours[i];
+        Edge c = main_contours[i];
 
         QPoint3D s1_point = c.getStart();
         QPoint3D e1_point = c.getEnd();
 
-        if ((int)s1_point.getZ()%(dz*5)  == 0)
-        {
             if (labels == true)
             {
                 //Secure the same orientation for all edges
@@ -177,7 +171,6 @@ void Draw::paintEvent(QPaintEvent *event)
                 qp.rotate(-rot*180/M_PI);
                 qp.translate(-label_point);
             }
-        }
     }
 
     //Draw slope
@@ -424,12 +417,20 @@ void Draw::loadData(QString &file_name)
             else if (z > z_max)
                 z_max = z;
 
-            z_max = round(z_max);
-            z_min = round(z_min);
 
             //Save point to the vector of points
             points.push_back(point);
         }
+
+        //Round number to closest multiple by 5
+        Algorithms a;
+
+        z_max = round(z_max);
+        z_min = round(z_min);
+
+        z_max = a.round2num(z_max, 5, true);
+        z_min = a.round2num(z_min, 5, false);
+
 
         //Compute scales to zoom in in canvas
         double canvas_weight = 1061.0;
