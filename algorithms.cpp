@@ -376,6 +376,9 @@ double Algorithms:: getExposition(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3)
 
 std::vector<Triangle> Algorithms::analyzeDTM(std::vector<Edge> &dt)
 {
+    double max_slope = 0.0;
+    double min_slope = 100.0;
+
     //Computing slope and exposition for each triangle
     std::vector<Triangle> triangles;
     for (int i = 0; i < dt.size(); i+=3)
@@ -399,6 +402,11 @@ std::vector<Triangle> Algorithms::analyzeDTM(std::vector<Edge> &dt)
         //Add triangle to the list
         triangles.push_back(t);
     }
+
+    Draw d;
+    d.setMaxSlope(max_slope);
+    d.setMinSlope(min_slope);
+
     return triangles;
 }
 

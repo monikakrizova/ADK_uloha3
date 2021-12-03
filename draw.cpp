@@ -57,8 +57,7 @@ void Draw::paintEvent(QPaintEvent *event)
 
     //Draw slope
     double slope_exposition;
-    int col1, col2, col3;
-    //QColor color;
+    int red, green, blue;
 
     for (Triangle t:triangles)
     {
@@ -70,142 +69,235 @@ void Draw::paintEvent(QPaintEvent *event)
         //Get slope
         if (sl_exp == true)
         {
-            if (colorchanged == false)
+            if (slope_param == 0)
             {
                 double k = 255/M_PI_2;
                 slope_exposition = t.getSlope();
 
                 //Convert to color
-                col1 = col2 = col3 = 255 - k * slope_exposition;
+                red = green = blue = 255 - k * slope_exposition;
             }
 
-            else if (colorchanged == true)
+            else if (slope_param == 1)
             {
                 slope_exposition = t.getSlope();
-                double slope_deg = slope_exposition*180/M_PI;
-                std::cout << slope_deg << std::endl;
-                if (slope_deg < 2)
-                    col1=col2=col3 = 200;
-                else if ((slope_deg >= 2) && (slope_deg) < 5)
+                double fraction = slope_exposition/(20*M_PI/180);
+
+                if (slope_exposition < (20*M_PI/180))
                 {
-                    //Light green
-                    col1 = 203;
-                    col2 = 242;
-                    col3 = 194;
+                    red = fraction*255;
+                    green = 255-fraction*255;
+                    blue = 0;
                 }
-                else if ((slope_deg >= 5) && (slope_deg) < 10)
+                else
                 {
-                    //Green
-                    col1 = 123;
-                    col2 = 240;
-                    col3 = 84;
+                    red = 255;
+                    green = 0;
+                    blue = 0;
                 }
-                else if ((slope_deg >= 10) && (slope_deg) < 15)
+            }
+            else if (slope_param == 2)
+            {
+                slope_exposition = t.getSlope();
+                double fraction = slope_exposition/(20*M_PI/180);
+
+                if (slope_exposition >= (20*M_PI/180))
                 {
-                    //Yellow
-                    col1 = 245;
-                    col2 = 232;
-                    col3 = 91;
+                    red = 255;
+                    green = 0;
+                    blue = 0;
                 }
-                else if ((slope_deg >= 15) && (slope_deg) < 20)
+                else
                 {
-                    //Orange
-                    col1 = 245;
-                    col2 = 192;
-                    col3 = 78;
+                    red = 255;
+                    green = 255-fraction*255;
+                    blue = 0;
                 }
-                else if (slope_deg >= 20)
+            }
+            else if (slope_param == 3)
+            {
+                slope_exposition = t.getSlope();
+                double fraction = slope_exposition/(20*M_PI/180);
+                if (slope_exposition < (20*M_PI/180))
                 {
-                    //Red
-                    col1 = 232;
-                    col2 = 35;
-                    col3 = 35;
+                    red = 0;
+                    green = 255-fraction*255;
+                    blue = 255;
+                }
+                else
+                {
+                    red = 0;
+                    green = 0;
+                    blue = 255;
                 }
             }
         }
 
         else if (sl_exp == false)
         {
-            if (colorchanged == false)
+            if (expos_param == 0)
             {
                 double k = 255/(2*M_PI);
                 slope_exposition = t.getExposition();
                 //Convert to color
-                col1 = col2 = col3 = 255 - k * slope_exposition;
+                red = green = blue = 255 - k * slope_exposition;
             }
-            else if (colorchanged == true)
+            else if (expos_param == 1)
             {
                 slope_exposition = t.getExposition();
-                std::cout << slope_exposition*180/M_PI << std::endl;
 
                 slope_exposition *= 180/M_PI;
                 if((slope_exposition >= 22.5) && (slope_exposition < 67.5))
                 {
                     //Northeast - Orange
-                    col1 = 245;
-                    col2 = 192;
-                    col3 = 78;
+                    red = 255;
+                    green = 127;
+                    blue = 0;
                 }
 
                 if((slope_exposition >= 67.5) && (slope_exposition < 112.5))
                 {
                     //East - Yellow
-                    col1 = 245;
-                    col2 = 232;
-                    col3 = 91;
+                    red = 255;
+                    green = 255;
+                    blue = 0;
                 }
 
                 else if((slope_exposition >= 112.5) && (slope_exposition < 157.5))
                 {
                     //Southeast Green
-                    col1 = 123;
-                    col2 = 240;
-                    col3 = 84;
+                    red = 0;
+                    green = 255;
+                    blue = 0;
                 }
 
                 else if((slope_exposition >= 157.5) && (slope_exposition < 202.5))
                 {
                     //South - Cyan
-                    col1 = 81;
-                    col2 = 244;
-                    col3 = 252;
+                    red = 0;
+                    green = 255;
+                    blue = 255;
                 }
 
                 else if((slope_exposition >= 202.5) && (slope_exposition < 247.5))
                 {
                     //Southwest - Blue
-                    col1 = 23;
-                    col2 = 135;
-                    col3 = 227;
+                    red = 0;
+                    green = 127;
+                    blue = 255;
                 }
 
                 else if((slope_exposition >= 247.5) && (slope_exposition < 292.5))
                 {
                     //West - Dark Blue
-                    col1 = 8;
-                    col2 = 53;
-                    col3 = 225;
+                    red = 0;
+                    green = 0;
+                    blue = 255;
                 }
 
                 else if((slope_exposition >= 292.5) && (slope_exposition < 337.5))
                 {
                     //Northwest - Purple
-                    col1 = 247;
-                    col2 = 8;
-                    col3 = 255;
+                    red = 255;
+                    green = 0;
+                    blue = 255;
                 }
 
                 else if((slope_exposition > 337.5) || (slope_exposition < 22.5))
                 {
                     //North - Red
-                    col1 = 232;
-                    col2 = 35;
-                    col3 = 35;
+                    red = 255;
+                    green = 0;
+                    blue = 0;
+                }
+            }
+            else if (expos_param == 2)
+            {
+                slope_exposition = t.getExposition();
+
+                slope_exposition *= 180/M_PI;
+                if ((slope_exposition >= 0) && (slope_exposition < 45))
+                {
+                    //Northeast - Orange
+                    double fraction = slope_exposition/(45);
+                    red = 255;
+                    green = 0;
+                    blue = 127*fraction;
+                }
+
+                else if((slope_exposition >= 45) && (slope_exposition < 90))
+                {
+                    //Orange to yellow
+                    slope_exposition -= 45;
+                    double fraction = slope_exposition/(45);
+                    red = 255;
+                    green = 127+fraction*127;
+                    blue = 0;
+                }
+
+                else if((slope_exposition >= 90) && (slope_exposition < 135))
+                {
+                    //Yellow to green
+                    slope_exposition -= 90;
+                    double fraction = slope_exposition/(45);
+                    red = 255-fraction*127;
+                    green = 255;
+                    blue = 0;
+                }
+
+                else if((slope_exposition >= 135) && (slope_exposition < 180))
+                {
+                    //Green to Cyan
+                    slope_exposition -= 135;
+                    double fraction = slope_exposition/(45);
+                    red = 0;
+                    green = 255;
+                    blue = fraction*255;
+                }
+
+                else if((slope_exposition >= 180) && (slope_exposition < 225))
+                {
+                    //Cyan to ligth blue
+                    slope_exposition -= 180;
+                    double fraction = slope_exposition/(45);
+                    red = 0;
+                    green = 255-fraction*127;
+                    blue = 255;
+                }
+
+                else if((slope_exposition >= 255) && (slope_exposition < 270))
+                {
+                    //Light Blue to Dark Blue
+                    slope_exposition -= 255;
+                    double fraction = slope_exposition/(45);
+                    red = 0;
+                    green = 127-fraction*127;
+                    blue = 255;
+                }
+
+                else if((slope_exposition >= 270) && (slope_exposition < 315))
+                {
+                    //Blue to Purple
+                    slope_exposition -= 270;
+                    double fraction = slope_exposition/(45);
+                    red = fraction*255;
+                    green = 0;
+                    blue = 255;
+                }
+
+                else if (slope_exposition > 315)
+                {
+                    //Purple to Red
+                    slope_exposition -= 315;
+                    double fraction = slope_exposition/(45);
+                    red = 255;
+                    green = 0;
+                    blue = 255-255*fraction;
                 }
             }
         }
 
-        QColor color (col1, col2, col3,255);
+        QColor color (red, green, blue,255);
 
         //Set pen and brush
         qp.setBrush(color);
@@ -303,8 +395,8 @@ void Draw::loadData(QString &file_name)
     }
 
     //Compute scales to zoom in in canvas
-    double canvas_weight = 952.0;
-    double canvas_height = 748.0;
+    double canvas_weight = 872.0;
+    double canvas_height = 777.0;
 
     double dy = fabs(y_max-y_min);
     double dx = fabs(x_max-x_min);
@@ -343,7 +435,7 @@ void Draw::loadPolygon(QString &file_name)
             int id = line.split(" ")[0].toInt();
             double y = line.split(" ")[1].toDouble();
             double x = line.split(" ")[2].toDouble();
-            double z = rand() % 1000;
+            double z = rand() % 100;
 
             //Add vertice to the end of the QPoint3D vector
             point.setX(x);
@@ -368,7 +460,7 @@ void Draw::loadPolygon(QString &file_name)
     }
 
     //Compute scales to zoom in in canvas
-    double canvas_weight = 1031.0;
+    double canvas_weight = 872;
     double canvas_height = 777.0;
 
     double dy = fabs(y_max-y_min);
