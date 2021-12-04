@@ -42,6 +42,24 @@ void Draw::paintEvent(QPaintEvent *event)
         qp.drawLine(s_point, e_point);
     }
 
+    /*QPoint a = QPoint(500,500);
+    QPoint b = QPoint(510,400);
+    QPoint c = QPoint(600,510);
+
+    qp.drawLine(a,b);
+    qp.drawLine(a,c);
+
+    double dx = b.x() - a.x();
+    double dy = b.y() - a.y();
+    double dx2 = c.x() - a.x();
+    double dy2 = c.y() - a.y();
+
+    double rot = atan2(dy,dx);
+    double rot2 = atan2(dy2, dx2);
+
+    std::cout << "rot a,b :" << rot << std::endl;
+    std::cout << "rot a,c :" << rot2 << std::endl;*/
+
     //Draw contour lines
     for (Edge c : contours)
     {
@@ -115,8 +133,6 @@ void Draw::paintEvent(QPaintEvent *event)
             {
 
                 double z = label_points[i].getZ();
-
-                std::cout << "z: " << z << std::endl;
 
                 QString z_str = QString::number(z);
 
@@ -427,6 +443,7 @@ void Draw::clear()
     contours.clear();
     triangles.clear();
     polygon.clear();
+    label_points.clear();
     repaint();
 }
 

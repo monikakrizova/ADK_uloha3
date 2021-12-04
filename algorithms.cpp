@@ -571,13 +571,13 @@ int Algorithms::getPositionWinding(QPoint3D &q, std::vector<QPoint3D> &pol)
 
 }
 
-std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabelPoints(std::vector<Edge> &main_contours)
+std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabelPoints(std::vector<Edge> &main_contours, std::vector<QPoint3D> &points)
 {
     std::vector<QPoint3D> label_points;
     std::vector<double> rotations;
 
     //Draw labels
-    for (int unsigned i = 0; i < main_contours.size(); i+=10)
+    for (int unsigned i = 0; i < main_contours.size(); i+=15)
     {
         Edge c = main_contours[i];
 
@@ -597,7 +597,6 @@ std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabel
         double dy = e1_point.y() - s1_point.y();
         double rot = atan2(dy,dx);
 
-        rotations.push_back(rot);
 
         //Determine location for label
         QPoint3D label_point;
@@ -606,6 +605,23 @@ std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabel
         label_point.setZ(s1_point.getZ());
 
         label_points.push_back(label_point);
+
+        int i_nearest = getNearestPoint(label_point, points);
+        QPoint3D qn = points[i_nearest];
+
+        double dx2 = qn.x()-label_point.x();
+        double dy2 = qn.y()-label_point.y();
+        double rot2 = atan2(dy2,dx2);
+
+        double dz = qn.getZ() - label_point.getZ();
+
+        std::cout << "dz:" << dz << std::endl;
+
+
+        if ((rot2 - rot > 0) && (rot2 - rot < M_PI) && (dz < 0))
+            rot += M_PI;
+
+        rotations.push_back(rot);
 
     }
 
