@@ -92,7 +92,7 @@
 \section{Zadání}
 Navrhněte aplikaci s grafickým rozhraním, která nad množinou bodů vytvoří polyedrický digitální model terénu.
 
-Jako vstupní data využijte existující data o alespoň 300 bodech. Nad nimi vytvořte Delaunayovu triangulaci metodou inkrementální konstrukce. Triangulaci využijte pro výpočet a vizualizace vrstevnic. Výslednou triangulaci doplňte o vhodnou vizualizaci sklonu jednotlivých trojúhelníků a jejich expozici. 
+Jako vstupní data využijte existující data o alespoň 300 bodech. Nad nimi vytvořte Delaunayovu triangulaci metodou inkrementální konstrukce. Triangulaci využijte pro výpočet a vykreslení vrstevnic. Výslednou triangulaci doplňte o vhodnou vizualizaci sklonu jednotlivých trojúhelníků a jejich expozici. 
 
 %----------------------------------------------------------------------------------------
 %	BONUSOVÉ ÚLOHY
@@ -113,32 +113,28 @@ Zpracovány byly celkem 3 bonusové úlohy ze 7 zadaných.
 %----------------------------------------------------------------------------------------
 
 \section{Popis problému}
-Triangulace je jednou ze základních výpočetních úloh nejen v oblasti digitální kartografie. Kromě tvorby DMT své uplatnění najde i při tvorbě jakékoliv vizualizaci prostorových dat ve formě 3D modelů. Dále lze triangulaci využít při detekci otisku prstů či např. modelování přírodních jevů.
+Triangulace je jednou ze základních výpočetních úloh nejen v oblasti digitální kartografie. Kromě tvorby DMT své uplatnění najde i při tvorbě jakékoliv vizualizace prostorových dat ve formě 3D modelů. Dále lze triangulaci využít při detekci otisku prstů či např. modelování přírodních jevů.
  
 \subsection{Formulace problému}
 
-Mějme množinu bodů $P$. Triangulací se rozumí převod množiny bodů na trojúhelnikovou síť $m$ trojúhelníků $t$, tak, aby platilo:
+Mějme množinu bodů $P$. Triangulací se rozumí převod množiny bodů na trojúhelnikovou síť $m$ trojúhelníků $t$ tak, aby platilo:
 
 \begin{itemize}
 	\item Libovolné 2 trojúhelníky mají společnou nejvýše jednu hranu.
-	\item sjednovení trojúhelníků je souvislá množina
-	\item unitř žádného trojúhelníku neleží žádný další bod z $P$
-	
+	\item Sjednocení trojúhelníků je souvislá množina.
+	\item Uvnitř žádného trojúhelníku neleží žádný další bod z $P$.	
 \end{itemize}
 
-
-Triangulace by měla tvořit pravidelné trojúhelníky blíží se trojúhelníkům rovnostranným a všechy trojúhelníky by se v každém bodě měly co nejlépe přimykat terénu. 
-
-Existuje několik druhů triangulace. Nejpoužívanějsí je však Delaunayova triangulace, která svými kritérii zajišťuje jednoznačnost, spolehlivé výslekdy a má optimální časovou složitost.
+Triangulace by měla tvořit pravidelné trojúhelníky blížící se trojúhelníkům rovnostranným a všechny trojúhelníky by se v každém bodě měly co nejlépe přimykat terénu. 
 
 %----------------------------------------------------------------------------------------
 %	POPIS ALGORITMŮ
 %----------------------------------------------------------------------------------------
 
 \section{Popisy algoritmů}
-\subsection{Delaunayova trinagulace}
+\subsection{Delaunayova triangulace}
 
-\paragraph{Vlastnosti}
+Existuje několik druhů triangulace. Nejpoužívanějsí je však Delaunayova triangulace, která svými kritérii zajišťuje jednoznačnost, spolehlivé výslekdy a má optimální časovou složitost. Tyto požadavky jsou následující:
 
 \begin{itemize}
 \item Uvnitř kružnice $k$ opsanému libovolnému trojúhelníku $t_{j}$ neleží žádný jiný bod množiny $P$.
@@ -148,15 +144,15 @@ Existuje několik druhů triangulace. Nejpoužívanějsí je však Delaunayova t
 
 \end{itemize}
 
-\paragraph{Popis algoritmu}
-Existuje několik metod kontruskce Delaunayho triangulace. V této úloze však byla implementována metoda inkrementální konstrukce, která je založena na postupném přidávání bodů do již vytvořené triangulace.
+\subsubsection{Inkrementální konstrukce}
+Existuje několik metod konstrukce Delaunayho triangulace. V této úloze však byla implementována metoda inkrementální konstrukce, která je založena na postupném přidávání bodů do již vytvořené triangulace.
 
 Pro konstrukci je používána datová struktura AEL (Active Edge List), která obsahuje hrany $e$, ke kterým hledáme Delaunayovský bod minimalizující poloměr kružnice mezi Delaunayovskou hranou a hledaným bodem. Delaunayovská hrana je orientovaná a bod hledáme pouze vlevo od ní.
 
- \paragraph{Popis Algoritmu 2}
+ \paragraph{Popis Algoritmu}
  
  \begin{enumerate}
- \item Nalezení bodu $q$ s nejmenší xovou souřadnicí 
+ \item Nalezení bodu $q$ s nejmenší x-ovou souřadnicí 
  $$ q = min(x_i) $$ 
  \item Nalezení nejbližšího bodu k počátečnímu bodu 
  $$ ||p_1 - q||_2 = min  $$
@@ -191,20 +187,20 @@ Pro konstrukci je používána datová struktura AEL (Active Edge List), která 
 
 
 \subsection{Konstrukce vrstevnic lineární interpolací}
-Vrstevnice je  křivka, která spojuje body se stejnou nadmořskou výškou. Zpravidle bývají vrstevnice vykresllovány s pravidelným intervalem.
+Vrstevnice je křivka, která spojuje body se stejnou nadmořskou výškou. Zpravidla bývají vrstevnice vykreslovány s pravidelným intervalem.
 
-Vrstevnice dělíme na základní a hlavní. Základní vrstevnice tvořené s pravidelným základním intervalem bývají vyznačeny tenkou, nepřerušovanou linií a jsou uzavřené. Hlavní vrstevnice je každá pátá základní vrstevnice. V mapách je značena tlustou, nepřerušovanou, uzavřenou linií a bývají doplněny popisem.
+Vrstevnice dělíme na základní a hlavní. Základní vrstevnice tvořené s pravidelným základním intervalem bývají vyznačeny tenkou, nepřerušovanou linií a jsou uzavřené. Hlavní vrstevnice je každá pátá základní vrstevnice. V mapách bývá značena tlustou, nepřerušovanou, uzavřenou linií a bývají doplněny popisem.
 
 Dále existují vrstevnice doplňkové, které doplňují základní vrstevnice v těch místech, kde dostatečně nevystihují zejména sklonitý terén, a vrstevnice pomocné, které se používají pro místa s nestálým reliéfem jako např. v oblastech povrchové těžby. Doplňkové ani pomocné vrstevnice nebyly v této aplikaci implementovány.
 
 \subsubsection{Lineární interpolace}
 Lineární interpolace předpokládá:
 \begin{enumerate}
-\item spád terénu mezi dvěma body, mezi kterými provádíme interpolaci, je konstantní
-\item Rozestup vrstevnic mezi dvěma body je konstatní
+\item Spád terénu mezi dvěma body, mezi kterými provádíme interpolaci, je konstantní.
+\item Rozestup vrstevnic mezi dvěma body je konstantní.
 \end{enumerate}
 
-Na vstupu máme trojúhelník $t$ a vodorovnou rovinu $\rho$ o výšce $h$. Lineární interpolace je založena na analytické geometrii, kdy hledáme průsečnici roviny $T$ určené trojúhelníkem $t$ a vodorovnou rovinou. Tento výpočet provedeme nad každým trojúhelníkem $t$
+Na vstupu máme trojúhelník $t$ a vodorovnou rovinu $\rho$ o výšce $h$. Lineární interpolace je založena na analytické geometrii. Hledáme tedy průsečnici roviny $T$ určené trojúhelníkem $t$ a vodorovnou rovinou. Tento výpočet provedeme nad každým trojúhelníkem $t$
 
 \subsubsection{Algoritmus}
 
@@ -213,19 +209,17 @@ Na vstupu máme trojúhelník $t$ a vodorovnou rovinu $\rho$ o výšce $h$. Line
 
 Varianty vzájemné polohy $\rho$ a $T$:
 	\begin{enumerate}
-		\item Nemamají žádný společný bod - neřešíme
-		\item Průsečnice tvoří jeden bod - neřešíme
+		\item Nemají žádný společný bod - neřešíme.
+		\item Průsečnice tvoří jeden bod - neřešíme.
 		\item Průsečnice je úsečka:
 		\begin{itemize}
-		\item Hrana leží v rovině $\rho$ - vrstevnice je přímo v hraně
-		\item Průsečnice roviny s trojúhelníkem vytvářející nové průsečíky mezi vrcholy trojúhelníka - vrstevnice vykreslena mezi body vypočtenými následujícími rovnicemi:
+		\item Hrana leží v rovině $\rho$ - vrstevnice je přímo v hraně.
+		\item Průsečnice roviny s trojúhelníkem vytvářející nové průsečíky mezi vrcholy trojúhelníku - vrstevnice je vykreslena mezi body vypočtenými následujícími rovnicemi:
 		$$  x = \frac{(x_2 - x_1)}{(z_2 - z_1)} (z - z_1) + x_1 $$ 
 		
 $$  y = \frac{(y_2 - y_1)}{(z_2 - z_1)} (z - z_1) + y_1 $$ 
 		\end{itemize}
-		\item Všechny hrany trojúhelníka leží v rovině $\rho$ - neřešíme
-		
-	
+		\item Všechny hrany trojúhelníku leží v rovině $\rho$ - neřešíme.	
 	\end{enumerate}
 
 \end{enumerate}
@@ -241,7 +235,7 @@ $$
 $$  v = (v_x, v_y, v_z)
 $$
 
-$$ n_t = \vec{u}\times \vec{v} = (n_x, n_y, n_z)$$
+$$ n = \vec{u}\times \vec{v} = (n_x, n_y, n_z)$$
   
 $$ \varphi = arccos \frac{n_z}{|n|} $$ 
 
@@ -268,62 +262,10 @@ $$ A =atan2( \frac{n_x}{n_y}) $$
 %----------------------------------------------------------------------------------------
 \section{Problematické situace}
 
-\subsection{Winding Number algoritmus}
-Případ singularity u Winding Number algoritmu, kdy bod $q$ leží na hraně $h$ polygonu ${P_{j}}$ byl ošetřen následovně; Pokud se bod na hraně nachází, tak $\Omega(q, P)$ neodpovídá ani jednomu výsledku z \ref{WN:omega_WN}, tj. 
-
-\begin{equation}
-\Omega(q, P) \neq 1 \wedge \Omega(q, P) \neq 0, \quad q \in h
-\end{equation}
+\subsection{idk}
 
 
-\subsection{Ray Crossing algoritmus}
-Prochází-li polopřímka $r$ jedním z vrcholů ${p_{i}}$ polygonu ${P_{j}}$ či jeho hranou $h$, dochází k tzv. singularitě.
-
-Pro odstranění této singularity se zavádí varianta Ray Crossing algoritmu s redukcí ke $q$. V této metodě se vytváří lokální souřadnicový systém $(q,x',y')$ s posunutím bodů ${p_{i}}$ o hodnotu $q$. 
-
-Lokální souřadnicová soustava je popsána následovně:
-\begin{itemize}
-\item počátek v bodě q
-\item osa $x^{\prime}$ rovnoběžná s osou x
-\item osa $y^{\prime}$ rovnoběžná s osou y
-\end{itemize}
-
-Redukce popisují následující rovnice.
-
-\begin{eqnarray}
-x_{i}^{\prime}=x_{i}-x_{q}\, \nonumber \\
-y_{i}^{\prime}=y_{i}-y_{q} \
-\end{eqnarray}
-\begin{eqnarray}
-x_{i-1}^{\prime}=x_{i-1}-x_{q}\, \nonumber \\
-y_{i-1}^{\prime}=y_{i-1}-y_{q} \,
-\end{eqnarray}
-
-Zdali existuje průsečík přímky $h$ a paprsku $r$ zjistíme následující podmínkou
-
-\begin{equation}
-\left(y_{i}^{\prime}>0\right) \wedge\left(y_{i-1}^{\prime}<=0\right) \vee\left(y_{i-1}^{\prime}>0\right) \wedge\left(y_{i}^{\prime}<=0\right)
-\end{equation}
-
-Pokud existuje, vypočítáme jeho x-ovou souřadnici podle \ref{RC:xm}.
-
-\begin{equation}
-x_{m}^{\prime}=\frac{x_{i}^{\prime} y_{i-1}^{\prime}-x_{i-1}^{\prime} y_{i}^{\prime}}{y_{i}^{\prime}-y_{i-1}^{\prime}}
-\label{RC:xm} 
-\end{equation}
-
-Následně pak hledáme pouze ty průsečíky $M$, které se nachází v pravé polorovině $\sigma_{r}$.
-
-\begin{equation}
-k(r, P)=\left\{\begin{array}{l}
-k(r, P)+1, x_{m}^{\prime}>0 \\ 
-k(r, P), x_{m}^{\prime} <= 0
-\end{array}\right.
-\end{equation}
-
-Zda bod leží v polygonu zjistíme dle rovnice rovnice \ref{RC:k}.
-
-Případ singulárního případu, kdy bod leží na hraně polygonu nebyl v naší aplikaci ošetřen.
+\subsection{idk}
 
 \clearpage
 

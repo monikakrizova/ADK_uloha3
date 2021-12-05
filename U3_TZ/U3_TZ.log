@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.4)  5 DEC 2021 01:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.4)  5 DEC 2021 02:02
 entering extended mode
 **./U3_TZ.tex
 (U3_TZ.tex
@@ -178,17 +178,29 @@ LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
 05.
 (D:\Programy\MikTex\tex/latex/psnfss\ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [2
+)
+Overfull \hbox (7.1812pt too wide) in paragraph at lines 137--138
+\T1/ppl/m/n/10.95 tri-an-gu-lace, která svými kri-té-rii za-ji²-´uje jed-no-zna
+£-nost, spo-leh-livé vý-slekdy
+ []
+
+[2
 
 ]
-Overfull \hbox (1.3961pt too wide) in paragraph at lines 144--145
+Overfull \hbox (1.3961pt too wide) in paragraph at lines 140--141
 []\T1/ppl/m/n/10.95 Uvnit° kruº-nice $\OML/zplm/m/it/10.95 k$ \T1/ppl/m/n/10.95
  opsa-nému li-bo-vol-nému troj-ú-hel-níku $\OML/zplm/m/it/10.95 t[]$ \T1/ppl/m/
 n/10.95 ne-leºí ºádný
  []
 
-[3] [4] [5] [6] [7]
-Overfull \hbox (2.53426pt too wide) in paragraph at lines 289--290
+[3] [4]
+Overfull \hbox (6.50365pt too wide) in paragraph at lines 217--218
+\T1/ppl/m/n/10.95 £íky mezi vr-choly troj-ú-hel-níku - vrs-tev-nice je vy-kres-
+lena mezi
+ []
+
+[5] [6] [7]
+Overfull \hbox (2.53426pt too wide) in paragraph at lines 283--284
 []\T1/ppl/m/n/10.95 Vrcholy po-ly-gon· jsou na-£í-tány po-stupn¥ °á-dek po °ádk
 u, p°i-£emº musí
  []
@@ -196,7 +208,7 @@ u, p°i-£emº musí
 <images/vstup.png, id=34, 62.03175pt x 91.542pt>
 File: images/vstup.png Graphic file (type png)
 <use images/vstup.png>
-Package pdftex.def Info: images/vstup.png  used on input line 300.
+Package pdftex.def Info: images/vstup.png  used on input line 294.
 (pdftex.def)             Requested size: 62.03159pt x 91.54178pt.
 [8
 
@@ -205,19 +217,19 @@ Package pdftex.def Info: images/vstup.png  used on input line 300.
 File: images/aplikace_klik_analyze.png Graphic file (type png)
 <use images/aplikace_klik_analyze.png>
 Package pdftex.def Info: images/aplikace_klik_analyze.png  used on input line 3
-19.
+13.
 (pdftex.def)             Requested size: 314.85072pt x 223.31033pt.
 <images/aplikace_analyze_outside.png, id=41, 786.5385pt x 557.08125pt>
 File: images/aplikace_analyze_outside.png Graphic file (type png)
 <use images/aplikace_analyze_outside.png>
 Package pdftex.def Info: images/aplikace_analyze_outside.png  used on input lin
-e 333.
+e 327.
 (pdftex.def)             Requested size: 314.60983pt x 222.82855pt.
 <images/aplikace_analyze_inside.png, id=42, 787.14075pt x 557.08125pt>
 File: images/aplikace_analyze_inside.png Graphic file (type png)
 <use images/aplikace_analyze_inside.png>
 Package pdftex.def Info: images/aplikace_analyze_inside.png  used on input line
- 339.
+ 333.
 (pdftex.def)             Requested size: 314.85072pt x 222.82855pt.
  [9
 
@@ -227,10 +239,10 @@ ng> <./images/aplikace_analyze_inside.png>]
 File: images/aplikace_uvodni_okno.png Graphic file (type png)
 <use images/aplikace_uvodni_okno.png>
 Package pdftex.def Info: images/aplikace_uvodni_okno.png  used on input line 34
-9.
+3.
 (pdftex.def)             Requested size: 314.85072pt x 222.82855pt.
 
-Overfull \hbox (2.51743pt too wide) in paragraph at lines 366--367
+Overfull \hbox (2.51743pt too wide) in paragraph at lines 360--361
 []\T1/ppl/m/n/10.95 double get2LinesAngle(QPoint &p1, QPoint &p2, QPoint &p3, Q
 Point
  []
@@ -239,45 +251,45 @@ Point
 
  <./images/aplikace_uvodni_okno.png>]
 
-LaTeX Warning: Reference `WN:omega_i' on page 12 undefined on input line 381.
+LaTeX Warning: Reference `WN:omega_i' on page 12 undefined on input line 375.
 
 
-Overfull \hbox (7.14873pt too wide) in paragraph at lines 380--382
+Overfull \hbox (7.14873pt too wide) in paragraph at lines 374--376
 \T1/ppl/m/n/10.95 jsou body ur-£u-jící li-nie, tzn. vr-choly po-ly-gonu. Ná-vra
 -to-vou hod-no-tou funkce
  []
 
 
-Overfull \hbox (2.5062pt too wide) in paragraph at lines 383--385
+Overfull \hbox (2.5062pt too wide) in paragraph at lines 377--379
 \T1/ppl/m/n/10.95 drobn¥ vy-sv¥t-lena v ka-pi-tole 3. Vstup-ními ar-gu-menty js
 ou sou-°ad-nice bodu
  []
 
 
-Overfull \hbox (3.73209pt too wide) in paragraph at lines 392--394
+Overfull \hbox (3.73209pt too wide) in paragraph at lines 386--388
 \T1/ppl/m/n/10.95 QPoint) a vek-tor vr-chol· po-ly-gonu (vek-tor na-pl-n¥ný prv
 ky QPoint). Funkce
  []
 
 [12]
-Overfull \hbox (5.61566pt too wide) in paragraph at lines 423--425
+Overfull \hbox (5.61566pt too wide) in paragraph at lines 417--419
 \T1/ppl/m/n/10.95 Funkce na-sta-vuje gra-fické atri-buty vy-kres-lo-va-ných ob-
 jekt· a kreslí na plátno
  []
 
 
-Overfull \hbox (0.77649pt too wide) in paragraph at lines 429--431
+Overfull \hbox (0.77649pt too wide) in paragraph at lines 423--425
 \T1/ppl/m/n/10.95 Funkce smaºe ve²-keré ob-jekty, jeº jsou vy-kres-leny na ca-n
 -vasu, funkce nemá
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 467--468
+Underfull \hbox (badness 10000) in paragraph at lines 461--462
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 
  []
 
@@ -285,15 +297,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 469--470
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 2385 strings out of 481556
- 32168 string characters out of 2927850
- 274655 words of memory out of 3000000
- 17580 multiletter control sequences out of 15000+200000
+ 2384 strings out of 481556
+ 32161 string characters out of 2927850
+ 274646 words of memory out of 3000000
+ 17579 multiletter control sequences out of 15000+200000
  567952 words of font info for 85 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,6n,27p,442b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -303,7 +312,7 @@ s/cm/cmr10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D
 :/Programy/MikTex/fonts/type1/public/mathpazo/fplmri.pfb><D:/Programy/MikTex/fo
 nts/type1/urw/palatino/uplb8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/
 uplr8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on U3_TZ.pdf (16 pages, 161162 bytes).
+Output written on U3_TZ.pdf (16 pages, 161618 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
