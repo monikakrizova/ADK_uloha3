@@ -133,8 +133,12 @@ void Draw::paintEvent(QPaintEvent *event)
             {
 
                 double z = label_points[i].getZ();
+                double x = label_points[i].x();
 
+                //std::cout << "x:" << x << std::endl;
+                QString x_str = QString::number(x);
                 QString z_str = QString::number(z);
+                //QString i_str = QString::number(i);
 
                 //Translate and rorate coordinate system
                 qp.translate(label_points[i]);
@@ -148,7 +152,7 @@ void Draw::paintEvent(QPaintEvent *event)
                 //qp.drawText(label_point, z_str);
                 QRect rect = QRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2, 20,20);
                 QRect boundingRect;
-                qp.drawText(rect, 0, z_str, &boundingRect);
+                qp.drawText(rect, 0, x_str, &boundingRect);
 
                 //Translate and rorate coordinate system back
                 qp.translate(label_points[i]);

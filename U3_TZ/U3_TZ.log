@@ -1,0 +1,311 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.4)  5 DEC 2021 01:32
+entering extended mode
+**./U3_TZ.tex
+(U3_TZ.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(D:\Programy\MikTex\tex/latex/base\article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(D:\Programy\MikTex\tex/latex/base\size11.clo
+File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(D:\Programy\MikTex\tex/latex/base\inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+(D:\Programy\MikTex\tex/latex/base\fontenc.sty
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+)
+(D:\Programy\MikTex\tex/latex/psnfss\mathpazo.sty
+Package: mathpazo 2020/03/25 PSNFSS-v9.3 Palatino w/ Pazo Math (D.Puga, WaS) 
+\symupright=\mathgroup4
+)
+(D:\Programy\MikTex\tex/generic/babel\babel.sty
+Package: babel 2020/02/14 3.40 The Babel package
+
+(D:\Programy\MikTex\tex/generic/babel\switch.def
+File: switch.def 2020/02/14 3.40 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+(D:\Programy\MikTex\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(D:\Programy\MikTex\tex/latex/babel-czech\czech.ldf
+Language: czech 2008/07/06 v3.1a Czech support from the babel system
+
+(D:\Programy\MikTex\tex/generic/babel\babel.def
+File: babel.def 2020/02/14 3.40 Babel common definitions
+\babel@savecnt=\count175
+\U@D=\dimen135
+
+(D:\Programy\MikTex\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count176
+)
+Package babel Info: Making " an active character on input line 172.
+\cs@wordlen=\count177
+Package babel Info: Making - an active character on input line 226.
+))
+(D:\Programy\MikTex\tex/latex/graphics\graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(D:\Programy\MikTex\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(D:\Programy\MikTex\tex/latex/graphics\graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(D:\Programy\MikTex\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(D:\Programy\MikTex\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(D:\Programy\MikTex\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen136
+\Gin@req@width=\dimen137
+)
+(D:\Programy\MikTex\tex/latex/l3backend\l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count178
+\l__pdf_internal_box=\box45
+) (U3_TZ.aux)
+\openout1 = `U3_TZ.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 12
+.
+
+(D:\Programy\MikTex\tex/latex/psnfss\t1ppl.fd
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
+)
+\big@size=\dimen138
+
+(D:\Programy\MikTex\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count179
+\scratchdimen=\dimen139
+\scratchbox=\box46
+\nofMPsegments=\count180
+\nofMParguments=\count181
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count182
+\MPscratchDim=\dimen140
+\MPnumerator=\count183
+\makeMPintoPDFobject=\count184
+\everyMPtoPDFconversion=\toks18
+) (D:\Programy\MikTex\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+) [1
+
+{C:/Users/Marek/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (U3_TZ.toc
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 5
+.
+
+(D:\Programy\MikTex\tex/latex/psnfss\ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
+5.
+
+(D:\Programy\MikTex\tex/latex/psnfss\omlzplm.fd
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
+5.
+
+(D:\Programy\MikTex\tex/latex/psnfss\omszplm.fd
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
+5.
+
+(D:\Programy\MikTex\tex/latex/psnfss\omxzplm.fd
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
+5.
+
+(D:\Programy\MikTex\tex/latex/psnfss\ot1zplm.fd
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+))
+\tf@toc=\write3
+\openout3 = `U3_TZ.toc'.
+
+ [1]
+Overfull \hbox (2.27577pt too wide) in paragraph at lines 95--96
+\T1/ppl/m/n/10.95 nimi vy-tvo°te Delauna-y-ovu tri-an-gu-laci me-to-dou in-kre-
+men-tální kon-strukce.
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
+05.
+(D:\Programy\MikTex\tex/latex/psnfss\ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+) [2
+
+]
+Overfull \hbox (1.3961pt too wide) in paragraph at lines 144--145
+[]\T1/ppl/m/n/10.95 Uvnit° kruº-nice $\OML/zplm/m/it/10.95 k$ \T1/ppl/m/n/10.95
+ opsa-nému li-bo-vol-nému troj-ú-hel-níku $\OML/zplm/m/it/10.95 t[]$ \T1/ppl/m/
+n/10.95 ne-leºí ºádný
+ []
+
+[3] [4] [5] [6] [7]
+Overfull \hbox (2.53426pt too wide) in paragraph at lines 289--290
+[]\T1/ppl/m/n/10.95 Vrcholy po-ly-gon· jsou na-£í-tány po-stupn¥ °á-dek po °ádk
+u, p°i-£emº musí
+ []
+
+<images/vstup.png, id=34, 62.03175pt x 91.542pt>
+File: images/vstup.png Graphic file (type png)
+<use images/vstup.png>
+Package pdftex.def Info: images/vstup.png  used on input line 300.
+(pdftex.def)             Requested size: 62.03159pt x 91.54178pt.
+[8
+
+ <./images/vstup.png>]
+<images/aplikace_klik_analyze.png, id=40, 787.14075pt x 558.28575pt>
+File: images/aplikace_klik_analyze.png Graphic file (type png)
+<use images/aplikace_klik_analyze.png>
+Package pdftex.def Info: images/aplikace_klik_analyze.png  used on input line 3
+19.
+(pdftex.def)             Requested size: 314.85072pt x 223.31033pt.
+<images/aplikace_analyze_outside.png, id=41, 786.5385pt x 557.08125pt>
+File: images/aplikace_analyze_outside.png Graphic file (type png)
+<use images/aplikace_analyze_outside.png>
+Package pdftex.def Info: images/aplikace_analyze_outside.png  used on input lin
+e 333.
+(pdftex.def)             Requested size: 314.60983pt x 222.82855pt.
+<images/aplikace_analyze_inside.png, id=42, 787.14075pt x 557.08125pt>
+File: images/aplikace_analyze_inside.png Graphic file (type png)
+<use images/aplikace_analyze_inside.png>
+Package pdftex.def Info: images/aplikace_analyze_inside.png  used on input line
+ 339.
+(pdftex.def)             Requested size: 314.85072pt x 222.82855pt.
+ [9
+
+ <./images/aplikace_klik_analyze.png>] [10 <./images/aplikace_analyze_outside.p
+ng> <./images/aplikace_analyze_inside.png>]
+<images/aplikace_uvodni_okno.png, id=52, 787.14075pt x 557.08125pt>
+File: images/aplikace_uvodni_okno.png Graphic file (type png)
+<use images/aplikace_uvodni_okno.png>
+Package pdftex.def Info: images/aplikace_uvodni_okno.png  used on input line 34
+9.
+(pdftex.def)             Requested size: 314.85072pt x 222.82855pt.
+
+Overfull \hbox (2.51743pt too wide) in paragraph at lines 366--367
+[]\T1/ppl/m/n/10.95 double get2LinesAngle(QPoint &p1, QPoint &p2, QPoint &p3, Q
+Point
+ []
+
+[11
+
+ <./images/aplikace_uvodni_okno.png>]
+
+LaTeX Warning: Reference `WN:omega_i' on page 12 undefined on input line 381.
+
+
+Overfull \hbox (7.14873pt too wide) in paragraph at lines 380--382
+\T1/ppl/m/n/10.95 jsou body ur-£u-jící li-nie, tzn. vr-choly po-ly-gonu. Ná-vra
+-to-vou hod-no-tou funkce
+ []
+
+
+Overfull \hbox (2.5062pt too wide) in paragraph at lines 383--385
+\T1/ppl/m/n/10.95 drobn¥ vy-sv¥t-lena v ka-pi-tole 3. Vstup-ními ar-gu-menty js
+ou sou-°ad-nice bodu
+ []
+
+
+Overfull \hbox (3.73209pt too wide) in paragraph at lines 392--394
+\T1/ppl/m/n/10.95 QPoint) a vek-tor vr-chol· po-ly-gonu (vek-tor na-pl-n¥ný prv
+ky QPoint). Funkce
+ []
+
+[12]
+Overfull \hbox (5.61566pt too wide) in paragraph at lines 423--425
+\T1/ppl/m/n/10.95 Funkce na-sta-vuje gra-fické atri-buty vy-kres-lo-va-ných ob-
+jekt· a kreslí na plátno
+ []
+
+
+Overfull \hbox (0.77649pt too wide) in paragraph at lines 429--431
+\T1/ppl/m/n/10.95 Funkce smaºe ve²-keré ob-jekty, jeº jsou vy-kres-leny na ca-n
+-vasu, funkce nemá
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 467--468
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 469--470
+
+ []
+
+[15] (U3_TZ.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2385 strings out of 481556
+ 32168 string characters out of 2927850
+ 274655 words of memory out of 3000000
+ 17580 multiletter control sequences out of 15000+200000
+ 567952 words of font info for 85 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 30i,6n,27p,442b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Programy/MikTex/fonts/enc/dvips/base/8r.enc}<D:/Programy/MikTex/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D
+:/Programy/MikTex/fonts/type1/public/mathpazo/fplmri.pfb><D:/Programy/MikTex/fo
+nts/type1/urw/palatino/uplb8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/
+uplr8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on U3_TZ.pdf (16 pages, 161162 bytes).
+PDF statistics:
+ 94 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+

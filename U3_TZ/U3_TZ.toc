@@ -1,0 +1,40 @@
+\babel@toc {czech}{}
+\contentsline {section}{\numberline {1}Zadání}{2}%
+\contentsline {section}{\numberline {2}Údaje o bonusových úlohách}{2}%
+\contentsline {section}{\numberline {3}Popis problému}{2}%
+\contentsline {subsection}{\numberline {3.1}Formulace problému}{2}%
+\contentsline {section}{\numberline {4}Popisy algoritmů}{3}%
+\contentsline {subsection}{\numberline {4.1}Delaunayova trinagulace}{3}%
+\contentsline {paragraph}{Vlastnosti}{3}%
+\contentsline {paragraph}{Popis algoritmu}{3}%
+\contentsline {paragraph}{Popis Algoritmu 2}{3}%
+\contentsline {subsection}{\numberline {4.2}Konstrukce vrstevnic lineární interpolací}{5}%
+\contentsline {subsubsection}{\numberline {4.2.1}Lineární interpolace}{5}%
+\contentsline {subsubsection}{\numberline {4.2.2}Algoritmus}{5}%
+\contentsline {subsection}{\numberline {4.3}Algoritmus výpočtu sklonu trojúhelníku}{6}%
+\contentsline {subsection}{\numberline {4.4}Algoritmus výpočtu expozice trojúhelníku}{6}%
+\contentsline {section}{\numberline {5}Problematické situace}{7}%
+\contentsline {subsection}{\numberline {5.1}idk}{7}%
+\contentsline {subsection}{\numberline {5.2}idk}{7}%
+\contentsline {section}{\numberline {6}Vstupní data}{8}%
+\contentsline {section}{\numberline {7}Výstupní data}{9}%
+\contentsline {section}{\numberline {8}Printscreen vytvořené aplikace}{11}%
+\contentsline {section}{\numberline {9}Dokumentace}{11}%
+\contentsline {subsection}{\numberline {9.1}Třída Algorithms}{11}%
+\contentsline {paragraph}{int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);}{12}%
+\contentsline {paragraph}{double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);}{12}%
+\contentsline {paragraph}{int getPositionWinding(QPoint \&q, std::vector<QPoint> \&pol);}{12}%
+\contentsline {paragraph}{int getPositionRayCrossing(QPoint \&q, std::vector<QPoint> \&pol);}{12}%
+\contentsline {subsection}{\numberline {9.2}Třída Draw}{13}%
+\contentsline {paragraph}{• void paintEvent(QPaintEvent *event);}{13}%
+\contentsline {paragraph}{void mousePressEvent(QMouseEvent *event);}{13}%
+\contentsline {paragraph}{void clear();}{13}%
+\contentsline {paragraph}{QPoint getPoint()\{return q;\}}{13}%
+\contentsline {paragraph}{std::vector<QPolygon> getPolygon()\{return polygons;\}}{14}%
+\contentsline {paragraph}{void fillPolygon(int result);}{14}%
+\contentsline {paragraph}{void loadData(QString \&file\_name);}{14}%
+\contentsline {subsection}{\numberline {9.3}Třída Widget}{14}%
+\contentsline {paragraph}{ void on\_pushButtonClear\_clicked();}{14}%
+\contentsline {paragraph}{ void on\_pushButtonAnalyze\_clicked();}{14}%
+\contentsline {paragraph}{void on\_pushButtonLoad\_clicked();}{14}%
+\contentsline {section}{\numberline {10}Závěr}{15}%

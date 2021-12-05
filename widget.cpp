@@ -153,7 +153,7 @@ void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
     //QString file_name = "D:/skola_ING/semestr3/ADKaGIS/kladivova_spererova_adk-master/U3_kladivova_spererova/U3_test_data/test.txt";
-    QString file_name = "D:/Github/ADK/ADK_uloha3/test_data/e1.txt";
+    QString file_name = "D:/Github/ADK/ADK_uloha3/test_data/e12.txt";
     //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
 
