@@ -577,7 +577,7 @@ std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabel
     std::vector<double> rotations;
 
     //Draw labels
-    for (int unsigned i = 0; i < main_contours.size(); i+=2)
+    for (int unsigned i = 0; i < main_contours.size(); i+=15)
     {
         Edge c = main_contours[i];
 
@@ -596,7 +596,6 @@ std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabel
         double dx = e1_point.x() - s1_point.x();
         double dy = e1_point.y() - s1_point.y();
         double rot = atan2(dy,dx);
-
 
         //Determine location for label
         QPoint3D label_point;

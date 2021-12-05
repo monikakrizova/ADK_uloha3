@@ -56,7 +56,9 @@ public:
     int round2num(int &numToRound, int &multiple, bool &dir);
     bool sl_exp = false, colorchanged = false;
     bool labels = false;
+    bool wContours = false;
     void clearDT();
+    void clearPoints();
     void setSlopeParameters(int slope_param_){slope_param = slope_param_;}
     void setExpositionParameters(int expos_param_){expos_param = expos_param_;}
 

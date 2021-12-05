@@ -12,28 +12,35 @@
 \contentsline {subsubsection}{\numberline {4.2.2}Algoritmus}{5}%
 \contentsline {subsection}{\numberline {4.3}Algoritmus výpočtu sklonu trojúhelníku}{6}%
 \contentsline {subsection}{\numberline {4.4}Algoritmus výpočtu expozice trojúhelníku}{6}%
-\contentsline {section}{\numberline {5}Problematické situace}{7}%
-\contentsline {subsection}{\numberline {5.1}idk}{7}%
-\contentsline {subsection}{\numberline {5.2}idk}{7}%
-\contentsline {section}{\numberline {6}Vstupní data}{8}%
-\contentsline {section}{\numberline {7}Výstupní data}{9}%
-\contentsline {section}{\numberline {8}Printscreen vytvořené aplikace}{11}%
-\contentsline {section}{\numberline {9}Dokumentace}{11}%
-\contentsline {subsection}{\numberline {9.1}Třída Algorithms}{11}%
-\contentsline {paragraph}{int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);}{12}%
-\contentsline {paragraph}{double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);}{12}%
-\contentsline {paragraph}{int getPositionWinding(QPoint \&q, std::vector<QPoint> \&pol);}{12}%
-\contentsline {paragraph}{int getPositionRayCrossing(QPoint \&q, std::vector<QPoint> \&pol);}{12}%
-\contentsline {subsection}{\numberline {9.2}Třída Draw}{13}%
-\contentsline {paragraph}{• void paintEvent(QPaintEvent *event);}{13}%
-\contentsline {paragraph}{void mousePressEvent(QMouseEvent *event);}{13}%
-\contentsline {paragraph}{void clear();}{13}%
-\contentsline {paragraph}{QPoint getPoint()\{return q;\}}{13}%
-\contentsline {paragraph}{std::vector<QPolygon> getPolygon()\{return polygons;\}}{14}%
-\contentsline {paragraph}{void fillPolygon(int result);}{14}%
-\contentsline {paragraph}{void loadData(QString \&file\_name);}{14}%
-\contentsline {subsection}{\numberline {9.3}Třída Widget}{14}%
-\contentsline {paragraph}{ void on\_pushButtonClear\_clicked();}{14}%
-\contentsline {paragraph}{ void on\_pushButtonAnalyze\_clicked();}{14}%
-\contentsline {paragraph}{void on\_pushButtonLoad\_clicked();}{14}%
-\contentsline {section}{\numberline {10}Závěr}{15}%
+\contentsline {subsection}{\numberline {4.5}Automatické generování popisu vrstevnic}{7}%
+\contentsline {section}{\numberline {5}Problematické situace}{10}%
+\contentsline {subsection}{\numberline {5.1}Transformace souřadnic}{10}%
+\contentsline {subsubsection}{\numberline {5.1.1}Počátek}{10}%
+\contentsline {subsubsection}{\numberline {5.1.2}Měřítko}{10}%
+\contentsline {subsubsection}{\numberline {5.1.3}Transformace souřadnic}{11}%
+\contentsline {subsection}{\numberline {5.2}Automatické určování maximální a minimální hodnoty z}{12}%
+\contentsline {subsection}{\numberline {5.3}Generování popisu vrstevnice ve směru spádu}{13}%
+\contentsline {section}{\numberline {6}Vstupní data}{14}%
+\contentsline {subsection}{\numberline {6.1}Načítání bodů}{14}%
+\contentsline {subsection}{\numberline {6.2}Načítání polygonu}{14}%
+\contentsline {section}{\numberline {7}Výstupní data}{16}%
+\contentsline {section}{\numberline {8}Printscreen vytvořené aplikace}{18}%
+\contentsline {section}{\numberline {9}Dokumentace}{18}%
+\contentsline {subsection}{\numberline {9.1}Třída Algorithms}{18}%
+\contentsline {paragraph}{int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);}{19}%
+\contentsline {paragraph}{double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);}{19}%
+\contentsline {paragraph}{int getPositionWinding(QPoint \&q, std::vector<QPoint> \&pol);}{19}%
+\contentsline {paragraph}{int getPositionRayCrossing(QPoint \&q, std::vector<QPoint> \&pol);}{19}%
+\contentsline {subsection}{\numberline {9.2}Třída Draw}{20}%
+\contentsline {paragraph}{• void paintEvent(QPaintEvent *event);}{20}%
+\contentsline {paragraph}{void mousePressEvent(QMouseEvent *event);}{20}%
+\contentsline {paragraph}{void clear();}{20}%
+\contentsline {paragraph}{QPoint getPoint()\{return q;\}}{20}%
+\contentsline {paragraph}{std::vector<QPolygon> getPolygon()\{return polygons;\}}{21}%
+\contentsline {paragraph}{void fillPolygon(int result);}{21}%
+\contentsline {paragraph}{void loadData(QString \&file\_name);}{21}%
+\contentsline {subsection}{\numberline {9.3}Třída Widget}{21}%
+\contentsline {paragraph}{ void on\_pushButtonClear\_clicked();}{21}%
+\contentsline {paragraph}{ void on\_pushButtonAnalyze\_clicked();}{21}%
+\contentsline {paragraph}{void on\_pushButtonLoad\_clicked();}{21}%
+\contentsline {section}{\numberline {10}Závěr}{22}%

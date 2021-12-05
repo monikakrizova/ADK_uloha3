@@ -42,23 +42,6 @@ void Draw::paintEvent(QPaintEvent *event)
         qp.drawLine(s_point, e_point);
     }
 
-    /*QPoint a = QPoint(500,500);
-    QPoint b = QPoint(510,400);
-    QPoint c = QPoint(600,510);
-
-    qp.drawLine(a,b);
-    qp.drawLine(a,c);
-
-    double dx = b.x() - a.x();
-    double dy = b.y() - a.y();
-    double dx2 = c.x() - a.x();
-    double dy2 = c.y() - a.y();
-
-    double rot = atan2(dy,dx);
-    double rot2 = atan2(dy2, dx2);
-
-    std::cout << "rot a,b :" << rot << std::endl;
-    std::cout << "rot a,c :" << rot2 << std::endl;*/
 
     //Draw contour lines
     for (Edge c : contours)
@@ -88,28 +71,28 @@ void Draw::paintEvent(QPaintEvent *event)
     //Draw squares bellow labels nad contours but above triangulation
     for (int unsigned i = 0; i < label_points.size(); i++)
     {
-            if (labels == true)
-            {
-                //Translate and rorate coordinate system
-                qp.translate(label_points[i]);
-                qp.rotate(directions[i]*180/M_PI);
-                qp.translate(-label_points[i]);
+        if (labels == true)
+        {
+            //Translate and rorate coordinate system
+            qp.translate(label_points[i]);
+            qp.rotate(directions[i]*180/M_PI);
+            qp.translate(-label_points[i]);
 
-                //Color of widget window
-                QColor color (240, 240, 240 ,255);
+            //Color of widget window
+            QColor color (240, 240, 240 ,255);
 
-                //Draw rectangle bellow number
-                qp.setBrush(color);
-                QPen fill_pen(color);
-                qp.setPen(fill_pen);
+            //Draw rectangle bellow number
+            qp.setBrush(color);
+            QPen fill_pen(color);
+            qp.setPen(fill_pen);
 
-                qp.drawRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2,20, 20);
+            qp.drawRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2,20, 20);
 
-                //Translate and rorate coordinate system back
-                qp.translate(label_points[i]);
-                qp.rotate(-directions[i]*180/M_PI);
-                qp.translate(-label_points[i]);
-            }
+            //Translate and rorate coordinate system back
+            qp.translate(label_points[i]);
+            qp.rotate(-directions[i]*180/M_PI);
+            qp.translate(-label_points[i]);
+        }
     }
 
 
@@ -129,41 +112,38 @@ void Draw::paintEvent(QPaintEvent *event)
     //Draw labels for main contours
     for (int i = 0; i < label_points.size(); i++)
     {
-            if (labels == true)
-            {
+        if (labels == true)
+        {
+            //Get Z coord
+            double z = label_points[i].getZ();
+            QString z_str = QString::number(z);
 
-                double z = label_points[i].getZ();
-                double x = label_points[i].x();
+            //Translate and rorate coordinate system
+            qp.translate(label_points[i]);
+            qp.rotate(directions[i]*180/M_PI);
+            qp.translate(-label_points[i]);
 
-                //std::cout << "x:" << x << std::endl;
-                QString x_str = QString::number(x);
-                QString z_str = QString::number(z);
-                //QString i_str = QString::number(i);
+            //Set pen
+            qp.setPen(QPen(Qt::magenta, 3));
 
-                //Translate and rorate coordinate system
-                qp.translate(label_points[i]);
-                qp.rotate(directions[i]*180/M_PI);
-                qp.translate(-label_points[i]);
+            //Draw text
+            //qp.drawText(label_point, z_str);
+            QRect rect = QRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2, 20,20);
+            QRect boundingRect;
+            qp.drawText(rect, 0, z_str, &boundingRect);
 
-                //Set pen
-                qp.setPen(QPen(Qt::magenta, 3));
-
-                //Draw text
-                //qp.drawText(label_point, z_str);
-                QRect rect = QRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2, 20,20);
-                QRect boundingRect;
-                qp.drawText(rect, 0, x_str, &boundingRect);
-
-                //Translate and rorate coordinate system back
-                qp.translate(label_points[i]);
-                qp.rotate(-directions[i]*180/M_PI);
-                qp.translate(-label_points[i]);
-            }
+            //Translate and rorate coordinate system back
+            qp.translate(label_points[i]);
+            qp.rotate(-directions[i]*180/M_PI);
+            qp.translate(-label_points[i]);
+        }
     }
 
     //Draw slope
     double slope_exposition;
     int red, green, blue;
+
+    QColor color;
 
     for (Triangle t:triangles)
     {
@@ -403,7 +383,10 @@ void Draw::paintEvent(QPaintEvent *event)
             }
         }
 
-        QColor color (red, green, blue,255);
+        color.setRed(red);
+        color.setGreen(green);
+        color.setBlue(blue);
+        color.setAlpha(255);
 
         //Set pen and brush
         qp.setBrush(color);
@@ -417,6 +400,75 @@ void Draw::paintEvent(QPaintEvent *event)
 
         //Draw triangle
         qp.drawPolygon(pol);
+    }
+
+
+    if (wContours == true)
+    {
+        //Draw contour lines
+        for (Edge c : contours)
+        {
+
+            //Get start point, get end point
+            QPoint3D s_point = c.getStart();
+            QPoint3D e_point = c.getEnd();
+
+            QPen fill_pen(Qt::magenta, 1);
+            qp.setPen(fill_pen);
+
+            //Draw line
+            qp.drawLine(s_point,e_point);
+
+            //Higligt every 5th contour
+            if ((int)s_point.getZ()%(dz*5)  == 0)
+            {
+                QPen fill_pen(Qt::magenta, 3);
+                qp.setPen(fill_pen);
+
+                //Draw line
+                qp.drawLine(s_point,e_point);
+            }
+        }
+
+        //Draw squares bellow labels nad contours but above triangulation
+        for (int unsigned i = 0; i < label_points.size(); i++)
+        {
+            if (labels == true)
+            {
+                //Get Z coord
+                double z = label_points[i].getZ();
+                QString z_str = QString::number(z);
+
+                //Translate and rorate coordinate system
+                qp.translate(label_points[i]);
+                qp.rotate(directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
+
+                //Color of widget window
+                //QColor color (240, 240, 240 ,255);
+
+                //Draw rectangle bellow number
+                qp.setBrush(color);
+                QPen fill_pen(color);
+                qp.setPen(fill_pen);
+
+                //qp.drawRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2,20, 20);
+
+                qp.setPen(QPen(Qt::magenta, 3));
+
+                //Draw text
+                //qp.drawText(label_point, z_str);
+                QRect rect = QRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2, 20,20);
+                QRect boundingRect;
+                qp.drawText(rect, 0, z_str, &boundingRect);
+
+                //Translate and rorate coordinate system back
+                qp.translate(label_points[i]);
+                qp.rotate(-directions[i]*180/M_PI);
+                qp.translate(-label_points[i]);
+            }
+        }
+
     }
 
     //Stop drawing
@@ -458,6 +510,11 @@ void Draw::clearDT()
     repaint();
 }
 
+void Draw::clearPoints()
+{
+    points.clear();
+    repaint();
+}
 
 
 void Draw::loadData(QString &file_name)
@@ -575,30 +632,30 @@ void Draw::loadPolygon(QString &file_name)
             else if (z > z_max)
                 z_max = z;
 
-        //Save polygon to the vector of QPoint3D
+            //Save polygon to the vector of QPoint3D
             points.push_back(point);
-    }
+        }
 
-    //Compute scales to zoom in in canvas
-    double canvas_weight = 1061.0;
-    double canvas_height = 777.0;
+        //Compute scales to zoom in in canvas
+        double canvas_weight = 1061.0;
+        double canvas_height = 777.0;
 
-    double dy = fabs(y_max-y_min);
-    double dx = fabs(x_max-x_min);
+        double dy = fabs(y_max-y_min);
+        double dx = fabs(x_max-x_min);
 
-    double k;
-    if (dy > dx)
-        k = canvas_weight/dy;
-    else
-        k = canvas_height/dx;
+        double k;
+        if (dy > dx)
+            k = canvas_weight/dy;
+        else
+            k = canvas_height/dx;
 
-    //Transform coordinates from JTSK to canvas
-    for (int unsigned i = 0; i < points.size(); i++)
+        //Transform coordinates from JTSK to canvas
+        for (int unsigned i = 0; i < points.size(); i++)
         {
-        double temp = points[i].x();
-        points[i].setX(-k*(points[i].y()-y_max)+11);
-        points[i].setY(k*(temp-x_min)+11);
-        polygon.append(points[i]);
+            double temp = points[i].x();
+            points[i].setX(-k*(points[i].y()-y_max)+11);
+            points[i].setY(k*(temp-x_min)+11);
+            polygon.append(points[i]);
         }
     }
 

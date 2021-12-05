@@ -42,6 +42,10 @@ private slots:
 
     void on_checkBox_stateChanged(int arg1);
 
+    void on_pushButton_ClearPoints_clicked();
+
+    void on_checkBox_ShowContours_stateChanged(int arg1);
+
 private:
     Ui::Widget *ui;
 };

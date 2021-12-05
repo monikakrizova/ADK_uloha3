@@ -152,39 +152,23 @@ Pro konstrukci je používána datová struktura AEL (Active Edge List), která 
  \paragraph{Popis Algoritmu}
  
  \begin{enumerate}
- \item Nalezení bodu $q$ s nejmenší x-ovou souřadnicí 
- $$ q = min(x_i) $$ 
- \item Nalezení nejbližšího bodu k počátečnímu bodu 
- $$ ||p_1 - q||_2 = min  $$
- \item Vytvoření první hrany 
- $$ e = (q, p_1) $$
- \item Hledání Delaunayho bodu 
- $$ \underline{p} = argmin_{\forall p_i \in \sigma_L (e)} r'(k_i); k_i = (a, b, p_i); e = (a, b)$$
- \item Při neexistenci Delaunayho bodu změna orientace hrany a opakování předchozího kroku
- $$ \not\exists \underline{p} : e \leftarrow (p_1, q);$$
- 
- \item Vytvoření zbývajících hran trojúhelníka 
- $$ e_2 = (p_1,  \underline{p}); e_3 = ( \underline{p} , q) $$
- \item Přidání hran do AEL 
- $$ AEL \leftarrow e; AEL \leftarrow e_2; AEL \leftarrow e_3  $$  
- \item Přidání hran do DT  
- $$ DT \leftarrow e; DT \leftarrow e_2; DT \leftarrow e_3  $$
+ \item Nalezení bodu $q$ s nejmenší x-ovou souřadnicí $$ q = min(x_i) $$ 
+ \item Nalezení nejbližšího bodu k počátečnímu bodu $$ ||p_1 - q||_2 = min  $$
+ \item Vytvoření první hrany $$ e = (q, p_1) $$
+ \item Hledání Delaunayho bodu $$ \underline{p} = argmin_{\forall p_i \in \sigma_L (e)} r'(k_i); k_i = (a, b, p_i); e = (a, b)$$
+ \item Při neexistenci Delaunayho bodu změna orientace hrany a opakování předchozího kroku $$ \not\exists \underline{p} : e \leftarrow (p_1, q);$$ 
+ \item Vytvoření zbývajících hran trojúhelníka  $$ e_2 = (p_1,  \underline{p}); e_3 = ( \underline{p} , q) $$
+ \item Přidání hran do AEL  $$ AEL \leftarrow e; AEL \leftarrow e_2; AEL \leftarrow e_3  $$  
+ \item Přidání hran do DT   $$ DT \leftarrow e; DT \leftarrow e_2; DT \leftarrow e_3  $$
  \item Dokud není vektor AEL prázdný: 
  
-		Změna orientace první hrany z AEL
-	$$ e = (p_1, q) $$
-		Hledání Delaunayho bodu k e 
-	$$ \underline{p} = argmin_{\forall p_i \in \sigma_L (e)} r'(k_i); k_i = (a, b, p_i); e = (a, b)$$ 
-		Pokud bod existuje 
-	$$ if \exists  \underline{p}$$
-		Tvorba zbývajících hran trojúhelníku 
-		$$ e_2 = (p_2,  \underline{p}); e_3 = ( \underline{p} , q) $$
-		Přidání hran do DT 
-		$$ DT \leftarrow e; DT \leftarrow e_2; DT \leftarrow e_3  $$
-		Přidání hrany do AEL, pokud již neexistuje s opačnou orientací.
-		$$AEL if \not\exists \leftarrow e_2; AEL \leftarrow e_3  $$ 
+		Změna orientace první hrany z AEL $$ e = (p_1, q) $$
+		Hledání Delaunayho bodu k e  $$ \underline{p} = argmin_{\forall p_i \in \sigma_L (e)} r'(k_i); k_i = (a, b, p_i); e = (a, b)$$ 
+		Pokud bod existuje $$ if \exists  \underline{p}$$
+		Tvorba zbývajících hran trojúhelníku $$ e_2 = (p_2,  \underline{p}); e_3 = ( \underline{p} , q) $$
+		Přidání hran do DT $$ DT \leftarrow e; DT \leftarrow e_2; DT \leftarrow e_3  $$
+		Přidání hrany do AEL, pokud již neexistuje s opačnou orientací.$$AEL if \not\exists \leftarrow e_2; AEL \leftarrow e_3  $$ 
  \end{enumerate}
-
 
 \subsection{Konstrukce vrstevnic lineární interpolací}
 Vrstevnice je křivka, která spojuje body se stejnou nadmořskou výškou. Zpravidla bývají vrstevnice vykreslovány s pravidelným intervalem.
@@ -215,8 +199,7 @@ Varianty vzájemné polohy $\rho$ a $T$:
 		\begin{itemize}
 		\item Hrana leží v rovině $\rho$ - vrstevnice je přímo v hraně.
 		\item Průsečnice roviny s trojúhelníkem vytvářející nové průsečíky mezi vrcholy trojúhelníku - vrstevnice je vykreslena mezi body vypočtenými následujícími rovnicemi:
-		$$  x = \frac{(x_2 - x_1)}{(z_2 - z_1)} (z - z_1) + x_1 $$ 
-		
+$$  x = \frac{(x_2 - x_1)}{(z_2 - z_1)} (z - z_1) + x_1 $$ 		
 $$  y = \frac{(y_2 - y_1)}{(z_2 - z_1)} (z - z_1) + y_1 $$ 
 		\end{itemize}
 		\item Všechny hrany trojúhelníku leží v rovině $\rho$ - neřešíme.	
@@ -227,49 +210,141 @@ $$  y = \frac{(y_2 - y_1)}{(z_2 - z_1)} (z - z_1) + y_1 $$
 \subsection{Algoritmus výpočtu sklonu trojúhelníku}
 Sklon představuje jednu z analytických úloh realizovaných nad DMT. Určuje, zdali terén stoupá, klesá nebo je rovinný.
 
-Sklon každého trojúhelníku se vypočte následujícím způsobem.
+Sklon představuje úhel $ \varphi $ mezi svislicí a normálovým vektorem trojúhelníku. Vypočte se následujícím způsobem.
 
-$$  u = (u_x, u_y, u_z)
-$$
-
-$$  v = (v_x, v_y, v_z)
-$$
-
+$$  u = (u_x, u_y, u_z)$$
+$$  v = (v_x, v_y, v_z)$$
 $$ n = \vec{u}\times \vec{v} = (n_x, n_y, n_z)$$
-  
 $$ \varphi = arccos \frac{n_z}{|n|} $$ 
-
-
 
 \subsection{Algoritmus výpočtu expozice trojúhelníku}
 Expozice představuje orientaci terénu vzhledem ke Slunci.
 
 Orientace v bodě je definován jako azimut průmětu normálového vektoru roviny trojúhelníku do roviny x,y.
 
-
-$$  u = (u_x, u_y, u_z)
-$$
-
-$$  v = (v_x, v_y, v_z)
-$$
-
+$$  u = (u_x, u_y, u_z)$$
+$$  v = (v_x, v_y, v_z)$$
 $$ n_t = \vec{u}\times \vec{v} = (n_x, n_y, n_z)$$
-
 $$ A =atan2( \frac{n_x}{n_y}) $$
+
+\subsection{Automatické generování popisu vrstevnic}
+Výškovou kótou bývají popisovány hlavní vrstevnice. I popis by však měl dodržovat určité kartografické zásady.
+\begin{itemize}
+\item Kóty se umisťují tak, aby byly čitelné při pohledu ve směru stoupání.
+\item Kóty se umisťují nepravidelně a rovnoměrně po celé ploše zobrazovaného území.
+\end{itemize}
+
+Ve třídě Algorithms se vytvořila funkce calculateLabelPoints(), která se volá po stisknutí tlačítka \textit{Create contours} se začkrtnutým checkboxem \textit{Show contour labels}.
+
+Na vstupu jsou vektor hran hlavních vrstevnic a množina bodů $P$. Výstupem funkce jsou vektor 3D bodů a vektor úhlů s datovým typem double. Funkce počítá souřadnice x a y bodu  uprostřed vrstevnice v každém patnáctém trojúhelníku, čímž je zajištěné nepravidelné a náhodné umístění výškových popisů. Z-ová souřadnice je převzána z počátečního bodu segmentu, neboť jejíž hodnota je pro celou vrstevnici konstantní. Ze souřadnicových rozdílů počátečního a koncového bodu každého segmentu vrstevnice je dále vypočtena směrnice přímky, podle které se následně budou orientovat popisy tak, aby byly rovnoběžné s vrstevnicemi.
+
+$$ lp_x = ( \frac{s_x + e_x}{2});  lp_y = ( \frac{s_y + e_y}{2}) $$ 
+$$ \epsilon = atan2( \frac{dy}{dx}) $$
+
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=1]{images/getContourLabels.png} 
+	\caption{výpočet souřadnic a směrnice bodu na popis průmky}
+	\label{fig:getContourLines()}
+\end{figure} 
+
+Ve třídě Draw pak byly nejdříve vygenerovány obdélníky v barvě plátna, aby mohly být popisy umístěny přímo na vrstevnice a nebyly jimy rušeny. 
+
+Abychom mohli vykreslit obdélníky ve směru vrstevnice, musíme nejdříve celý souřadnicový systém posunout do bodu vypočteného funkcí getContourLines() a pootočit o směrnici vypočtenou ze stejné funkce. V transformovaném souřadnicovém systému následně vykreslíme obdélník s vhodnými rozměry a souřadnicový systém transformujeme zpět do původního souřadnicového systému plátna.
+
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=0.5]{images/DrawLabelSquares.png} 
+	\caption{Vykreslování obdélníku pod popisy vrstevnic}
+	\label{fig:DrawLabelSquares}
+\end{figure} 
+
+Následně se po vykreslení triangulace začnou vykreslovat popisy vrstevnic. 
+
+Algoritmus transformace SS je stejný jako u vykreslování obdélníků, pouze je zde ve vypočteném bodě zobrazen popis vrstevnice.
+
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=0.5]{images/DrawLabelSquares.png} 
+	\caption{Vykreslování popisů vrstevnic}
+	\label{fig:DrawLabels}
+\end{figure}
+
+\clearpage
 
 %----------------------------------------------------------------------------------------
 %	PROBLEMATICKÉ SITUACE
 %----------------------------------------------------------------------------------------
 \section{Problematické situace}
+	
+\subsection{Transformace souřadnic}
+	Abychom mohli v oknu aplikace zobrazovat budovy, jejíž lomové body jsou určeny v souřadnicovém systému S-JTSK, bylo nutné souřadnic převést do souřadnicového systému widgetu. 
+	
+\subsubsection{Počátek}
+	Pro určení souřadnic počátku bylo nejdříve nutno zjistit maximální hodnotu souřadnice Y a minimální hodnotu souřadnice X v souřadnicovém systému S-JTSK. 
+	
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=0.8]{images/U2_problem_pocatek.png} 
+	\caption{Výpočet souřadnic počátku}
+	\label{fig:problem_origin}
+\end{figure} 
+	
+\subsubsection{Měřítko}
+Abychom zobrazili pouze území, kde se polygony nachází, bylo nutné také zavést měřítko.
+	
+Měřítko jsme definovali jako podíl šířky/výšky widgetu ku rozdílu maximální a minimální souřadnici v dané ose. Bylo tedy nutné zjistit také minimální hodnotu souřadnice Y a maximální hodnotu souřadnice X.
+	
 
-\subsection{idk}
-
-
-\subsection{idk}
+Měřítko se následně vypočetlo v obou osách, a abychom zabránili tomu, že transformované souřadnice budou mít vyšší hodnotu, než je rozměr widgetu, použilo se měřítko s menším maximálním souřadnicovým rozdílem.
+	
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=0.8]{images/U2_problem_meritko2.png} 
+	\caption{Výpočet měřítka}
+	\label{fig:problem_scale2}
+\end{figure} 
+	
+\subsubsection{Transformace souřadnic}
+Souřadnice v souřadnicovém systému widgetu byly definovány následujícími vzorci.	
+	$$X_{W_{i}}=-k *\left(Y_{S-J T S K_{i}}-Y_{S-J T S K_{\max }}\right)$$	
+	$$ Y_{W_{i}}=k *\left(X_{S-J T S K_{i}}-X_{S-J T S K_{\min }}\right)$$
+	
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=1]{images/U2_problem_transformace.png} 
+	\caption{Transformace souřadnic}
+	\label{fig:problem_transformation}
+\end{figure} 
 
 \clearpage
 
+\subsection{Automatické určování maximální a minimální hodnoty z}
+Aby nemusel uživatel ručně zadávat maximální a minimální hodnotu z, byla napsána funkce round2num(), která má na vstupu 3 parametry; zaokrouhlované číslo, násobek a směr.
 
+Zaokrouhlované číslo představuje číslo, které chceme zaokrouhlit. Násobek je číslo, na jehož násobek chceme zaokrouhlované číslo zaokrouhlit. Směr je proměnná typu bool. Pokud je rovna true, zaokrouhlujeme nahoru, pokud je rovna false, zaokrouhlujeme dolů.
+
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=0.7]{images/round2num.png} 
+	\caption{Funkce round2num()}
+	\label{fig:round2num}
+\end{figure} 
+
+Ve funkci LoadData() tak nejdříve zjistíme extrémní hodnoty y, poté zaokrouhlíme na celá čísla a poté provedeme funkci round2num() jako zobrazuje následující obrázek.
+
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=0.7]{images/round2num2.png} 
+	\caption{Funkce aplikace round2num() v LoadData()}
+	\label{fig:round2num2}
+\end{figure} 
+
+Jelikož chceme, aby se vrstevnice zobrazovaly ve výškách po pěti metrech, rovná se násobek pěti.
+
+
+\subsection{Generování popisu vrstevnice ve směru spádu}
+\clearpage
 
 %----------------------------------------------------------------------------------------
 %	VSTUPNÍ DATA
@@ -277,26 +352,42 @@ $$ A =atan2( \frac{n_x}{n_y}) $$
 
 
 \section{Vstupní data}
+\subsection{Načítání bodů}
 
-Polygonová mapa se do projektu nahrává z textového souboru, který musí splňovat specifický formát, bez něhož nebude zajištěno správné načítání dat.  
+Pro účel aplikace se použila lidarová data DMR 5G. Jelikož byla surová data příliš hustá, byla využita filtrace, která vzala každý desátý bod měření. 
 
-Vrcholy polygonů jsou načítány postupně řádek po řádku, přičemž musí v nahrávaném souboru platit následující pravidla:    
+Soubor bodů se souřadnicemi x, y, z se do projektu nahrávají po stisknutí  tlačítka \textit{Load points}. Souřadnice x, y jsou v  souřadnicovém systému S-JTSK a souřadnice z je ve výškovém systému Bpv.
+
+Body jsou načítány postupně řádek po řádku, přičemž musí v nahrávaném souboru platit následující pravidla:    
 
 \begin{itemize}
-\item každý vrchol polygonu je definován na jednotlivém řádku,
-\item na řádku je pořadí proměnných id >> x >> y   ,  hodnoty jsou od sebe odděleny  jednou mezerou,
-\item id je identifikátor jednotlivých vrcholů polygonu, x a y jsou souřadnice vrcholů polygonu,    
-\item nový polygon má vždy hodnotu id prvního vrcholu rovnu 1, od této hodnoty  se  postupně načítají body, a  to až do okamžiku,  kdy program dojde  k dalšímu identifikátoru s označením 1.   
+\item na řádku je pořadí proměnných id >> y (S-JTSK) >> x (S-JTSK)  >> z (Bpv),  hodnoty jsou od sebe odděleny  jednou mezerou,
+\item id je identifikátor jednotlivých vrcholů polygonu, x, y, z jsou prostorové souřadnice bodů
+
 \end{itemize}
 
 \begin{figure}[htbh]
-	\centering
-	\includegraphics[scale=1]{images/vstup.png} 
-	\caption{Špagetový model vstupního souboru}
+	\centering	\includegraphics[scale=1]{images/vstup.png} 
+	\caption{Špagetový model vstupního souboru bodů}
 	\label{fig:vstup.}
 \end{figure} 
 
-Souřadnice bodu $q$ jsou získávány interaktivně odečtením souřadnic kurzoru myši.   
+\subsection{Načítání polygonu}
+Polygon, nad kterým lze následně zobrazit triangulaci, se načítá stisknutím tlačítka \textit{Load polygon}.
+
+Každý bod polygonu má ID a rovinné souřadnice x,y v souřadnicovém systému S-JTSK.
+
+Body jsou načítány postupně řádek po řádku, přičemž musí v nahrávaném souboru platit následující pravidla:    
+
+\begin{itemize}
+\item na řádku je pořadí proměnných id >> y (S-JTSK) >> x (S-JTSK)  hodnoty jsou od sebe odděleny  jednou mezerou,
+\item id je identifikátor jednotlivých vrcholů polygonu, x, y jsou rovinné souřadnice bodů v S-JTSK
+\end{itemize}
+
+\begin{figure}[htbh]
+	\centering	\includegraphics[scale=1]{images/vstup_polygon.png} 
+	\caption{Špagetový model vstupního souboru polygonu}	\label{fig:vstup_polygon}
+\end{figure} 
 
 \clearpage
 

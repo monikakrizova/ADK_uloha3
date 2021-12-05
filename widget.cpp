@@ -109,12 +109,20 @@ void Widget::on_pushButton_3_clicked()
         std::vector<Edge> contours = a.getContourLines(dt, zmin, zmax, dz);
         std::vector<Edge> main_contours = a.getContourLines(dt, zmin, zmax, dz*5);
 
+        if (ui->Canvas->labels == true)
+        {
+            auto[label_points,directions] = a.calculateLabelPoints(main_contours, points);
+
+            ui->Canvas->setLabelPoints(label_points);
+            ui->Canvas->setDirections(directions);
+        }
+
         //Set contours
         ui->Canvas->setContours(contours);
         ui->Canvas->setMainContours(main_contours);
 
         repaint();
-    }
+    }    
 
 }
 
@@ -146,6 +154,16 @@ void Widget::on_pushButton_4_clicked()
         //Set triangles
         ui->Canvas->setTriangles(triangles);
     }
+
+    if (ui->checkBox_ShowContours->isChecked())
+    {
+        ui->Canvas->wContours = true;
+    }
+    else
+    {
+        ui->Canvas->wContours = false;
+    }
+
     repaint();
 }
 
@@ -153,7 +171,7 @@ void Widget::on_pushButton_5_clicked()
 {
     //Open text file with dialog
     //QString file_name = "D:/skola_ING/semestr3/ADKaGIS/kladivova_spererova_adk-master/U3_kladivova_spererova/U3_test_data/test.txt";
-    QString file_name = "D:/Github/ADK/ADK_uloha3/test_data/e12.txt";
+    QString file_name = "D:/Github/ADK/ADK_uloha3/test_data/e1.txt";
     //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
 
@@ -196,23 +214,24 @@ void Widget::on_pushButton_contour_labels_clicked()
 
 void Widget::on_checkBox_stateChanged(int arg1)
 {
-    if (ui->checkBox->isChecked())
-    {   ui->Canvas->labels = true;
-
-        std::vector<Edge> main_contours = ui->Canvas->getMainContours();
-        std::vector<QPoint3D> points = ui->Canvas->getPoints();
-
-        Algorithms a;
-        auto[label_points,directions] = a.calculateLabelPoints(main_contours, points);
-
-        ui->Canvas->setLabelPoints(label_points);
-        ui->Canvas->setDirections(directions);
-
-    }
-
-
-
+    if (ui->Canvas->labels == false)
+        ui->Canvas->labels = true;
     else
         ui->Canvas->labels = false;
+
+}
+
+
+void Widget::on_pushButton_ClearPoints_clicked()
+{
+    ui->Canvas->clearPoints();
+}
+
+
+
+
+void Widget::on_checkBox_ShowContours_stateChanged(int arg1)
+{
+
 }
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.4)  5 DEC 2021 02:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.4)  5 DEC 2021 17:22
 entering extended mode
 **./U3_TZ.tex
 (U3_TZ.tex
@@ -194,127 +194,197 @@ n/10.95 ne-leºí ºádný
  []
 
 [3] [4]
-Overfull \hbox (6.50365pt too wide) in paragraph at lines 217--218
+Overfull \hbox (6.50365pt too wide) in paragraph at lines 201--202
 \T1/ppl/m/n/10.95 £íky mezi vr-choly troj-ú-hel-níku - vrs-tev-nice je vy-kres-
 lena mezi
  []
 
-[5] [6] [7]
-Overfull \hbox (2.53426pt too wide) in paragraph at lines 283--284
-[]\T1/ppl/m/n/10.95 Vrcholy po-ly-gon· jsou na-£í-tány po-stupn¥ °á-dek po °ádk
-u, p°i-£emº musí
+[5] [6]
+Overfull \hbox (0.12935pt too wide) in paragraph at lines 239--240
+\T1/ppl/m/n/10.95 stu-pem funkce jsou vek-tor 3D bod· a vek-tor úhl· s da-to-vý
+m ty-pem double.
  []
 
-<images/vstup.png, id=34, 62.03175pt x 91.542pt>
+<images/getContourLabels.png, id=31, 287.8755pt x 150.5625pt>
+File: images/getContourLabels.png Graphic file (type png)
+<use images/getContourLabels.png>
+Package pdftex.def Info: images/getContourLabels.png  used on input line 246.
+(pdftex.def)             Requested size: 287.87479pt x 150.56212pt.
+
+Overfull \hbox (4.62552pt too wide) in paragraph at lines 251--252
+[]\T1/ppl/m/n/10.95 Ve t°íd¥ Draw pak byly nejd°íve vy-ge-ne-ro-vány ob-dél-ník
+y v barv¥ plátna,
+ []
+
+[7 <./images/getContourLabels.png>]
+Overfull \hbox (13.87782pt too wide) in paragraph at lines 253--254
+[]\T1/ppl/m/n/10.95 Abychom mohli vy-kres-lit ob-dél-níky ve sm¥ru vrs-tev-nice
+, mu-síme nejd°íve
+ []
+
+<images/DrawLabelSquares.png, id=37, 608.2725pt x 308.95425pt>
+File: images/DrawLabelSquares.png Graphic file (type png)
+<use images/DrawLabelSquares.png>
+Package pdftex.def Info: images/DrawLabelSquares.png  used on input line 257.
+(pdftex.def)             Requested size: 304.13551pt x 154.47675pt.
+File: images/DrawLabelSquares.png Graphic file (type png)
+<use images/DrawLabelSquares.png>
+Package pdftex.def Info: images/DrawLabelSquares.png  used on input line 268.
+(pdftex.def)             Requested size: 304.13551pt x 154.47675pt.
+[8 <./images/DrawLabelSquares.png>] [9]
+<images/U2_problem_pocatek.png, id=45, 263.7855pt x 314.97675pt>
+File: images/U2_problem_pocatek.png Graphic file (type png)
+<use images/U2_problem_pocatek.png>
+Package pdftex.def Info: images/U2_problem_pocatek.png  used on input line 288.
+
+(pdftex.def)             Requested size: 211.02867pt x 251.98172pt.
+ [10
+
+ <./images/U2_problem_pocatek.png>]
+<images/U2_problem_meritko2.png, id=50, 208.98074pt x 142.73325pt>
+File: images/U2_problem_meritko2.png Graphic file (type png)
+<use images/U2_problem_meritko2.png>
+Package pdftex.def Info: images/U2_problem_meritko2.png  used on input line 303
+.
+(pdftex.def)             Requested size: 167.18481pt x 114.18674pt.
+<images/U2_problem_transformace.png, id=51, 274.02374pt x 112.62074pt>
+File: images/U2_problem_transformace.png Graphic file (type png)
+<use images/U2_problem_transformace.png>
+Package pdftex.def Info: images/U2_problem_transformace.png  used on input line
+ 315.
+(pdftex.def)             Requested size: 274.02307pt x 112.62045pt.
+
+[11 <./images/U2_problem_meritko2.png> <./images/U2_problem_transformace.png>]
+<images/round2num.png, id=57, 337.86224pt x 208.3785pt>
+File: images/round2num.png Graphic file (type png)
+<use images/round2num.png>
+Package pdftex.def Info: images/round2num.png  used on input line 329.
+(pdftex.def)             Requested size: 236.50194pt x 145.86394pt.
+<images/round2num2.png, id=58, 277.035pt x 139.11975pt>
+File: images/round2num2.png Graphic file (type png)
+<use images/round2num2.png>
+Package pdftex.def Info: images/round2num2.png  used on input line 338.
+(pdftex.def)             Requested size: 193.92317pt x 97.38315pt.
+
+[12
+
+ <./images/round2num.png> <./images/round2num2.png>] [13]
+<images/vstup.png, id=68, 181.27725pt x 127.677pt>
 File: images/vstup.png Graphic file (type png)
 <use images/vstup.png>
-Package pdftex.def Info: images/vstup.png  used on input line 294.
-(pdftex.def)             Requested size: 62.03159pt x 91.54178pt.
-[8
+Package pdftex.def Info: images/vstup.png  used on input line 370.
+(pdftex.def)             Requested size: 181.27681pt x 127.67668pt.
+ [14
 
  <./images/vstup.png>]
-<images/aplikace_klik_analyze.png, id=40, 787.14075pt x 558.28575pt>
+<images/vstup_polygon.png, id=73, 133.6995pt x 123.46124pt>
+File: images/vstup_polygon.png Graphic file (type png)
+<use images/vstup_polygon.png>
+Package pdftex.def Info: images/vstup_polygon.png  used on input line 388.
+(pdftex.def)             Requested size: 133.69916pt x 123.46092pt.
+ [15 <./images/vstup_polygon.png>]
+<images/aplikace_klik_analyze.png, id=78, 787.14075pt x 558.28575pt>
 File: images/aplikace_klik_analyze.png Graphic file (type png)
 <use images/aplikace_klik_analyze.png>
-Package pdftex.def Info: images/aplikace_klik_analyze.png  used on input line 3
-13.
+Package pdftex.def Info: images/aplikace_klik_analyze.png  used on input line 4
+04.
 (pdftex.def)             Requested size: 314.85072pt x 223.31033pt.
-<images/aplikace_analyze_outside.png, id=41, 786.5385pt x 557.08125pt>
+<images/aplikace_analyze_outside.png, id=79, 786.5385pt x 557.08125pt>
 File: images/aplikace_analyze_outside.png Graphic file (type png)
 <use images/aplikace_analyze_outside.png>
 Package pdftex.def Info: images/aplikace_analyze_outside.png  used on input lin
-e 327.
+e 418.
 (pdftex.def)             Requested size: 314.60983pt x 222.82855pt.
-<images/aplikace_analyze_inside.png, id=42, 787.14075pt x 557.08125pt>
+<images/aplikace_analyze_inside.png, id=80, 787.14075pt x 557.08125pt>
 File: images/aplikace_analyze_inside.png Graphic file (type png)
 <use images/aplikace_analyze_inside.png>
 Package pdftex.def Info: images/aplikace_analyze_inside.png  used on input line
- 333.
+ 424.
 (pdftex.def)             Requested size: 314.85072pt x 222.82855pt.
- [9
+ [16
 
- <./images/aplikace_klik_analyze.png>] [10 <./images/aplikace_analyze_outside.p
+ <./images/aplikace_klik_analyze.png>] [17 <./images/aplikace_analyze_outside.p
 ng> <./images/aplikace_analyze_inside.png>]
-<images/aplikace_uvodni_okno.png, id=52, 787.14075pt x 557.08125pt>
+<images/aplikace_uvodni_okno.png, id=90, 787.14075pt x 557.08125pt>
 File: images/aplikace_uvodni_okno.png Graphic file (type png)
 <use images/aplikace_uvodni_okno.png>
-Package pdftex.def Info: images/aplikace_uvodni_okno.png  used on input line 34
-3.
+Package pdftex.def Info: images/aplikace_uvodni_okno.png  used on input line 43
+4.
 (pdftex.def)             Requested size: 314.85072pt x 222.82855pt.
 
-Overfull \hbox (2.51743pt too wide) in paragraph at lines 360--361
+Overfull \hbox (2.51743pt too wide) in paragraph at lines 451--452
 []\T1/ppl/m/n/10.95 double get2LinesAngle(QPoint &p1, QPoint &p2, QPoint &p3, Q
 Point
  []
 
-[11
+[18
 
  <./images/aplikace_uvodni_okno.png>]
 
-LaTeX Warning: Reference `WN:omega_i' on page 12 undefined on input line 375.
+LaTeX Warning: Reference `WN:omega_i' on page 19 undefined on input line 466.
 
 
-Overfull \hbox (7.14873pt too wide) in paragraph at lines 374--376
+Overfull \hbox (7.14873pt too wide) in paragraph at lines 465--467
 \T1/ppl/m/n/10.95 jsou body ur-£u-jící li-nie, tzn. vr-choly po-ly-gonu. Ná-vra
 -to-vou hod-no-tou funkce
  []
 
 
-Overfull \hbox (2.5062pt too wide) in paragraph at lines 377--379
+Overfull \hbox (2.5062pt too wide) in paragraph at lines 468--470
 \T1/ppl/m/n/10.95 drobn¥ vy-sv¥t-lena v ka-pi-tole 3. Vstup-ními ar-gu-menty js
 ou sou-°ad-nice bodu
  []
 
 
-Overfull \hbox (3.73209pt too wide) in paragraph at lines 386--388
+Overfull \hbox (3.73209pt too wide) in paragraph at lines 477--479
 \T1/ppl/m/n/10.95 QPoint) a vek-tor vr-chol· po-ly-gonu (vek-tor na-pl-n¥ný prv
 ky QPoint). Funkce
  []
 
-[12]
-Overfull \hbox (5.61566pt too wide) in paragraph at lines 417--419
+[19]
+Overfull \hbox (5.61566pt too wide) in paragraph at lines 508--510
 \T1/ppl/m/n/10.95 Funkce na-sta-vuje gra-fické atri-buty vy-kres-lo-va-ných ob-
 jekt· a kreslí na plátno
  []
 
 
-Overfull \hbox (0.77649pt too wide) in paragraph at lines 423--425
+Overfull \hbox (0.77649pt too wide) in paragraph at lines 514--516
 \T1/ppl/m/n/10.95 Funkce smaºe ve²-keré ob-jekty, jeº jsou vy-kres-leny na ca-n
 -vasu, funkce nemá
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 461--462
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 552--553
 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 463--464
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 554--555
 
  []
 
-[15] (U3_TZ.aux)
+[22] (U3_TZ.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2384 strings out of 481556
- 32161 string characters out of 2927850
- 274646 words of memory out of 3000000
- 17579 multiletter control sequences out of 15000+200000
- 567952 words of font info for 85 fonts, out of 3000000 for 9000
+ 2443 strings out of 481556
+ 33732 string characters out of 2927850
+ 275731 words of memory out of 3000000
+ 17629 multiletter control sequences out of 15000+200000
+ 568849 words of font info for 86 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,6n,27p,442b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 30i,6n,27p,711b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/Programy/MikTex/fonts/enc/dvips/base/8r.enc}<D:/Programy/MikTex/fonts/typ
 e1/public/amsfonts/cm/cmmi10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfont
 s/cm/cmr10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D
 :/Programy/MikTex/fonts/type1/public/mathpazo/fplmri.pfb><D:/Programy/MikTex/fo
 nts/type1/urw/palatino/uplb8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/
 uplr8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on U3_TZ.pdf (16 pages, 161618 bytes).
+Output written on U3_TZ.pdf (23 pages, 265696 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
+ 132 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
