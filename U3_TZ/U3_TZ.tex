@@ -444,45 +444,89 @@ Výsledek dotazu může mít 3 různé hodnoty:
 Kód zahrnuje 3 třídy – Draw, Algorithms a Widget, které budou následně detailněji popsány.      
 
 \subsection{Třída Algorithms}
-Třída Algorithms obsahuje 4 funkce :  
+Třída Algorithms obsahuje 14 funkcí:  
 
 \begin{itemize}
-\item int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);
-\item double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);
-\item int getPositionWinding(QPoint \&q, std::vector<QPoint> \&pol);
-\item int getPositionRayCrossing(QPoint \&q, std::vector<QPoint> \&pol);
+	\item 0 v případě, že bod leží v pravé polorovině,
+	\item 1 v případě, že  bod leží v levé polorovině,
+	\item -1 v případě, že bod leží na linii.
 \end{itemize}
-
-\paragraph{int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);}\mbox{}\\
-Analyzuje vzájemnou polohu mezi bodem a linií polygonu, resp. v jaké polorovině vůči linii se bod nachází. Vstupními argumenty funkce jsou souřadnice určovaného bodu (jako QPoint) a souřadnice 2 bodů určujících polohu linie (vrcholy polygonu taktéž jako QPoint). Funkce vrací vždy hodnotu 1, 0 nebo -1 dle následujících pravidel:
 
 \begin{itemize}
-\item 0 v případě, že bod leží v pravé polorovině,
-\item 1 v případě, že  bod leží v levé polorovině,
-\item -1 v případě, že bod leží na linii.
+	\item double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);
+	\item std::tuple<QPoint3D,double> getCircleCenterAndRadius(QPoint3D \&p1,QPoint3D \&p2,QPoint3D \&p3);
+	\item int getDelaunayPoint(QPoint3D \&s,QPoint3D \&e,std::vector<QPoint3D> \&points);
+	\item int getNearestPoint(QPoint3D \&p, std::vector<QPoint3D> \&points);
+	\item std::vector<Edge> dT(std::vector<QPoint3D> \&points);
+	\item std::vector<Edge> dTPolygon(std::vector<QPoint3D> \&points);
+	\item void updateAEL(Edge \&e, std::list<Edge> \&ael);
+	\item QPoint3D getContourPoint(QPoint3D \&p1, QPoint3D \&p2, double z);
+	\item std::vector<Edge> getContourLines(std::vector<Edge> \&dt, double zmin, double zmax, double dz);
+	\item double getSlope(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);
+	\item double getExposition(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);
+	\item std::vector<Triangle> analyzeDTM(std::vector<Edge> \&dt);
+	\item QPoint3D getCentreOfMass(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);
+	\item int getPositionWinding(QPoint3D \&q, std::vector<QPoint3D> \&pol);
+	\item int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);
 \end{itemize}
 
-\paragraph{double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);}\mbox{}\\
-Počítá úhel mezi dvěma liniemi pomocí vztahu \ref{WN:omega_i}. Vstupními argumenty jsou body určující linie, tzn. vrcholy polygonu. Návratovou hodnotou funkce je double – desetinné číslo s velikostí úhlu mezi těmito přímkami.  
+
+\paragraph{double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);}
+Počítá úhel mezi dvěma liniemi. Vstupními argumenty jsou body určující linie, tzn. vrcholy polygonu. Návratovou hodnotou funkce je double – desetinné číslo s velikostí úhlu mezi těmito přímkami.  
+
+\paragraph{std::tuple<QPoint3D,double> getCircleCenterAndRadius(QPoint3D \&p1,QPoint3D \&p2,QPoint3D \&p3);}
+Funkce počítá poloměr a střed vepsaného trojúhelníku. Vstupními argumenty jsou vrcholy trojúhlníku uložené v datovém typu QPoint3D, výstupním je střed trojúhelníku (QPoitn3D) a hodnota poloměru trojúhelníku (double).
+
+\paragraph {int getDelaunayPoint(QPoint3D \&s,QPoint3D \&e,std::vector<QPoint3D> \&points);}
+Funkce hledá Delaunay bod. Vstupními argumenty jsou 2 body Delaunay triangulace a vektor QPoint3D bodů, z nichž je hledán Delaunay bod. Výstupním argumentem funkce je index nalezeného bodu uložený jako integer.
+
+\paragraph {int getNearestPoint(QPoint3D \&p, std::vector<QPoint3D> \&points);}
+Fun\-kce vyhledává k zadanému bodu bod nejbližší ze zadané množiny. Vstupním argumentem je bod QPoint3D, k němuž hledáme bod nebližší vektor bodů QPoint3D, výsledným je nejbližší nalezený bod – QPoint3D.
+
+\paragraph{std::vector<Edge> dT(std::vector<QPoint3D> \&points);}
+Funkce počítá De\-launay triangulaci. Vstupním argumentem funkce je vektor bodů obsahující souřadnice x, y, z. Výstupním argumentem je vektor hran (Edge) vytvořené 
+Delaunay triangulace.
+
+\paragraph {std::vector<Edge> dTPolygon(std::vector<QPoint3D> \&points);}
+Funkce počítá Delaunay triangulaci nekonvexního polygonu. Vstupním argumentem funkce je vektor uzlů polygonu obsahující souřadnice x, y, z. Výstupním argumentem je vektor hran (Edge) vytvořené Delaunay triangulace.
+
+\paragraph {void updateAEL(Edge \&e, std::list<Edge> \&ael);}
+
+\paragraph {QPoint3D getContourPoint(QPoint3D \&p1, QPoint3D \&p2, double z);}
+Funkce hledá mezi dvěma zadanými body lineární interpolací bod v zadané výšce. Vstupními argumenty jsou 2 body QPoint3D a výška, jejíž hodnotu má výsledná vrsetnice mít. Výstupní hodnotou je nalezený průsečík uložený v datovém typu QPoint3D.
+
+\paragraph {std::vector<Edge> getContourLines(std::vector<Edge> \&dt, double zmin, double zmax, double dz);}
+Funkce vytváří vrstevnice o zadaném základním intervalu. Vstupním argumentem je De\-launay triangulace, maximální a minimální hodnota souřadnice z a dz, což je základní interval vrstevnic. Výstupním argumentem je vektor hran s vytvořenými vrstevnicemi.
+
+\paragraph {double getSlope(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}
+Funkce počítá hodnotu sklonu trojúhelníku Delaunay triangulace. Vstupními argumenty jsou vrcholy trojúhlníku uložené v datovém typu QPoint3D, výstupním je hodnota sklonu.
+
+\paragraph {double getExposition(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}
+Funkce počítá hodnotu expozice trojúhelníku Delaunay triangulace. Vstupními argumenty jsou vrcholy trojúhlníku uložené v datovém typu QPoint3D, výstupním je hodnota expozice.
+
+\paragraph {std::vector<Triangle> analyzeDTM(std::vector<Edge> \&dt);}
+Funkce analyzuje všechny trojúhelníky vytvořené Delaunay triangulací – počítá jejich sklon, expozici. Vstupním argumentem je vektor hran Delaunay triangulace, výstupním je vektor Triangle, v němž jsou uložené hrany jednotlivých trojúhelníků, jejich sklony a expozice.
+
+\paragraph {QPoint3D getCentreOfMass(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}
+Funkce počítá těžiště trojúhelníku. Vstupními argumenty jsou vrcholy trojúhlníku uložené v datovém typu QPoint3D, výstupním je bod těžiště trojúhelníku v datovém typu QPoint3D. 
 
 \paragraph{int getPositionWinding(QPoint \&q, std::vector<QPoint> \&pol);}\mbox{}\\
 Funkce analyzuje polohu bodu metodou Winding Number, jež byla podrobně vysvětlena v kapitole 3.  Vstupními argumenty jsou souřadnice bodu $q$ (jako QPoint) a vektor vrcholů polygonu (vektor naplněný prvky QPoint). Funkce vrací integer, jež může nabývat 3 hodnot:
 
 \begin{itemize}
-\item 1, leží-li analyzovaný bod uvnitř polygonu
-\item -1 leží-li na linii polygonu 
-\item a 0, leží-li mimo kontrolovaný polygon.
+	\item 1, leží-li analyzovaný bod uvnitř polygonu
+	\item -1 leží-li na linii polygonu 
+	\item a 0, leží-li mimo kontrolovaný polygon.
 \end{itemize}
 
-\paragraph{int getPositionRayCrossing(QPoint \&q, std::vector<QPoint> \&pol);}\mbox{}\\
-Funkce analyzuje polohu bodu metodou Ray Crossing, jež byla podrobně vysvětlena v kapitole 3. vstupními argumenty jsou souřadnice bodu $q$ (jako QPoint) a vektor vrcholů polygonu (vektor naplněný prvky QPoint). Funkce vrací, stejně jako funkce předchozí, celé číslo, jež může nabývat následujících hodnot:
+\paragraph{int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);}
+Analyzuje vzájemnou polohu mezi bodem a linií polygonu, resp. v jaké polorovině vůči linii se bod nachází. Vstupními argumenty funkce jsou souřadnice určovaného bodu (jako QPoint) a souřadnice 2 bodů určujících polohu linie (vrcholy polygonu taktéž jako QPoint). Funkce vrací vždy hodnotu 1, 0 nebo -1 dle následujících pravidel:
 
 \begin{itemize}
-\item 1, pokud leží analyzovaný bod uvnitř polygonu
-\item a 0, leží-li mimo kontrolovaný polygon.
+	\item 0 v případě, že bod leží v pravé polorovině,
+	\item 1 v případě, že  bod leží v levé polorovině,
+	\item -1 v případě, že bod leží na linii.
 \end{itemize}
-
-Ošetření případu, kdy bod leží na linii nebylo do kódu implementováno, funkce tedy nevrací  hodnotu -1, leží-li bod na linii.
 
 \subsection{Třída Draw}
 Třída Draw obsahuje následující funkce, které budou dále podrobně popsány:
@@ -491,40 +535,148 @@ Třída Draw obsahuje následující funkce, které budou dále podrobně popsá
 \item void paintEvent(QPaintEvent *event);
 \item void mousePressEvent(QMouseEvent *event);
 \item void clear();
-\item QPoint getPoint(){return q;}
-\item std::vector<QPolygon> getPolygon()\{return polygons;\}
-\item void fillPolygon(int result);
+\item explicit Draw(QWidget *parent = nullptr);
+\item void loadData(QString \&file\_name);
+\item void loadPolygon(QString \&file\_name);
+\item std::vector<QPoint3D> getPoints();
+\item double getZmin();
+\item double getZmax();
+\item void setDT(std::vector<Edge> \&dt\_);
+\item void setDZ(int \&dz\_);
+\item void setMinSlope(double \&minsl\_);
+\item void setMaxSlope(double \&maxsl\_);
+\item void setDirections(std::vector<double> directions\_);
+\item std::vector<double> getDirections();
+\item void setLabelPoints(std::vector<QPoint3D> \&label\_points\_);
+\item std::vector<QPoint3D> getLabelPoints();
+\item std::vector<Edge> getDT();
+\item void setContours(std::vector<Edge> \&contours\_);
+\item void setMainContours(std::vector<Edge> \&main\_contours\_);
+\item std::vector<Edge> getContours();
+\item std::vector<Edge> getMainContours();
+\item std::vector<Triangle> getTriangles();
+\item void setTriangles(std::vector<Triangle> \&triangles\_);
+\item int round2num(int \&numToRound, int \&multiple, bool \&dir);
+\item void clearDT();
+\item void setSlopeParameters(int slope\_param\_);
+\item void setExpositionParameters(int expos\_param\_);
 \item void loadData(QString \&file\_name);
 \end{itemize}
 
 a následující proměnné:
 
 \begin{itemize}
-\item std::vector<QPolygon> polygons;  
-\item QPoint q; - analyzovaný bod
-\item int highlighted\_polygon=-99; - id polygonu, který obsahuje analyzovaný bod   
+\item int dz - základní interval vrstevnic
+\item int slope\_param - způsob vykreslování sklonu 
+\item int expos\_param - způsob vykreslování expozice         
+\item double max\_slope - maximální sklon
+\item min\_slope - minimální sklon
+\item double y\_max - maximální y
+\item double x\_min - minimální x
+\item double y\_min - minimální y
+\item double x\_max - maximální x
+\item double z\_min - minimální z
+\item double z\_max - maximální z
+\item QPolygonF polygon - nekonvexní polygon            
+\item std::vector<QPoint3D> points - body tachymetrie 
+\item std::vector<Edge> dt - Delaunay triangulace
+\item std::vector<Edge> contours, main\_contours - hlavní vrstevnice
+\item std::vector<Triangle> triangles - trojúhelníky Delaunay triangulace    
+\item std::vector<QPoint3D> label\_points - popisy vrstevnic
+\item std::vector<double> directions - směry popisů vrstevnic 
 \end{itemize}
 
-\paragraph{•	void paintEvent(QPaintEvent *event);}\mbox{}\\
+\paragraph{void paintEvent(QPaintEvent *event);}\mbox{}\\
 Funkce nastavuje grafické atributy vykreslovaných objektů a kreslí na plátno vyhodnocovaný bod a zadané polygony a znázorňuje polygon incidující s bodem. 
 
 \paragraph{void mousePressEvent(QMouseEvent *event);}\mbox{}\\
-Metoda získává souřadnice myši a ukládá je do proměnné QPoint q, tedy jako souřadnice analyzovaného bodu $q$.
+Metoda získává souřadnice myši a ukládá je do vektoru QPoint3D, tedy jako souřadnice analyzovaných bodů.
 
 \paragraph{void clear();}\mbox{}\\
 Funkce smaže veškeré objekty, jež jsou vykresleny na canvasu, funkce nemá vstupní argumenty. 
 
-\paragraph{QPoint getPoint()\{return q;\}}\mbox{}\\
-Funkce vrací souřadnice bodu $q$, návratový typ funkce je QPoint, funkce nemá vstupní argumenty.
-
-\paragraph{std::vector<QPolygon> getPolygon()\{return polygons;\}}\mbox{}\\
-Funkce vrací vektor polygonů načtených z textového souboru – návratový typ je std::vector<QPolygon>, funkce nemá vstupní argumenty.
-
-\paragraph{void fillPolygon(int result);}\mbox{}\\
-Funkce ukládá identifikátor polygonu obsahujícího analyzovaný bod, pomocí identifikátoru se tento polygon následně ve funkci paintEvent() zvýrazní. Vstupním argumentem je int result, jež stanovuje polohu bodu vůči linii (má hodnoty 0,1,-1,dle definice výše). 
-
 \paragraph{void loadData(QString \&file\_name);}\mbox{}\\
-Funkce načítá data z textového souboru a ukládá je do vektoru QPolygon. Vstupní argumentem je cesta k souboru, jejž chceme načíst do aplikace.   
+Funkce načítá data z textového souboru a ukládá je do vektoru QPoint3D. Vstupní argumentem je cesta k souboru, jejž chceme načíst do aplikace.   
+
+void loadPolygon(QString \&file\_name);
+Funkce načítá souřadnice vrcholů nekonvexního polygonu z textového souboru a ukládá je do vektoru QPoint3D. Vstupní argumentem je cesta k souboru, jejž chceme načíst do aplikace. 
+
+\paragraph {std::vector<QPoint3D> getPoints();}
+Funkce pro získání vektoru bodů měřené tachymetrie ze třídy Draw. Vstupní argument funkce nemá, výstupním argumentem je vektor QPoint3D.
+
+\paragraph {double getZmin();}
+Funkce pro získání minimální souřadnice Z ze třídy Draw. Vstupní argument funkce nemá, výstupním argumentem je hodnota nejmenší souřadnice z.
+
+\paragraph {double getZmax();}
+Funkce pro získání maximální souřadnice Z ze třídy Draw. Vstupní argument funkce nemá, výstupním argumentem je hodnota největší souřadnice z.
+
+\paragraph {void setDT(std::vector<Edge> \&dt\_);}
+Ukládá vybraný Delaunay triangulaci do třídy Widget - do proměnné dt.
+
+\paragraph {void setDZ(int \&dz\_);}
+Ukládá základní interval vrstevnic do třídy Widget - do proměnné dz.
+
+\paragraph {void setMinSlope(double \&minsl\_);}
+Ukládá základní minimální hodnotu sklonu do třídy Widget - do proměnné min\_slope.
+
+\paragraph {void setMaxSlope(double \&maxsl\_);}
+Ukládá základní maximální hodnotu sklonu do třídy Widget - do proměnné max\_slope.
+
+\paragraph {void setDirections(std::vector<double> directions\_);}
+Ukládá směry natočení popisků vrstevnic do třídy Widget - do proměnné directions.
+
+\paragraph {std::vector<double> getDirections();}
+Funkce pro získání směrů natočení popisků vrstevnic ze třídy Draw. Vstupní argument funkce nemá, výstupním argumentem je hodnota vektor hodnot natočení popisků.
+                           
+\paragraph {void setLabelPoints(std::vector<QPoint3D> \&label\_points\_);}
+
+\paragraph {std::vector<QPoint3D> getLabelPoints();}
+
+\paragraph {std::vector<Edge> getDT();}
+Funkce pro získání Delaunay triangulace ze třídy Draw. Vstupní argument funkce nemá, výstupním argumentem je hodnota vektor Edge Delaunay triangulace.
+
+\paragraph {void setContours(std::vector<Edge> \&contours\_);}
+Ukládá vrstevnice uložené jako vektor Edge do třídy Widget - do proměnné contours.
+
+\paragraph {void setMainContours(std::vector<Edge> \&main\_contours\_);}
+Ukládá hlavní vrstevnice uložené jako vektor Edge do třídy Widget - do proměnné main\_contours.
+
+\paragraph {std::vector<Edge> getContours();}
+Funkce pro získání vrstevnic ze třídy Draw. Vstupní argument funkce nemá, výstupním argumentem je vektor vrstevnic.
+
+\paragraph {std::vector<Edge> getMainContours();}
+Funkce pro získání hlavních vrstevnic ze třídy Draw. Vstupní argument funkce nemá, výstupním argumentem je vektor hlavních vrstevnic.
+
+\paragraph {std::vector<Triangle> getTriangles();}
+Funkce pro získání trojúhelníků Delunay triangulace ze třídy Draw. Vstupní argument funkce nemá, výstupním argumentem je hodnota vektor trojúhelníků.
+
+\paragraph {void setTriangles(std::vector<Triangle> \&triangles\_);}
+Ukládá trojúhelníky dt uložené jako vektor Triangle do třídy Widget - do proměnné triangles.
+
+\paragraph{int round2num(int \&numToRound, int \&multiple, bool \&dir);} 
+-----------------
+
+\paragraph {void clearDT();}
+Maže zobrazenou Delaunay triangulaci z canvasu.
+
+\paragraph {void setSlopeParameters(int slope\_param\_);}
+Ukládá vybraný typ vizualizace sklonu terénu ze třídy Widget a ukládá jej do proměnné slope\_param podle následujících hodnot se následně vykresluje sklon terénu: 
+
+\begin {itemize}
+	\item 0 - vizualizace ve stupních šedé barvy
+	\item 1 - vizualizace v barvách od zelené do červené
+	\item 2 - vizualizace v barvách od žluté do červenou
+	\item 3 - vizualizace v barvách od tyrkysové po modrou
+\end {itemize}
+  
+\paragraph {void setExpositionParameters(int expos\_param\_);}
+Ukládá vybraný typ vizualizace expozice terénu ze třídy Widget a ukládá jej do proměnné s expos\_param podle následujících hodnot se následně vykresluje sklon terénu: 
+
+\begin{itemize}
+	\item 0 - vizualizace ze stupních šedé barvy
+	\item 1 - vizualizace v diskrétním barevném schématu
+	\item 2 - vizualizace ve spojitém barevném schématu
+\end{itemize}
 
 \subsection{Třída Widget}
 Třída Widget obsahuje 3 metody:
