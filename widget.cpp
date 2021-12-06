@@ -22,14 +22,14 @@ Widget::~Widget()
 }
 
 
-void Widget::on_pushButton_2_clicked()
+void Widget::on_pushButton_ClearAll_clicked()
 {
     //Clear all
     ui->Canvas->clear();
     repaint();
 }
 
-void Widget::on_pushButton_clicked()
+void Widget::on_pushButton_CreateDT_clicked()
 {
     //Create DT
 
@@ -62,8 +62,6 @@ void Widget::on_pushButton_clicked()
         else if (slope < min_slope)
             min_slope = slope;
     }
-        //max_slope = max_slope*(180/M_PI);
-        //min_slope = min_slope*(180/M_PI);
 
         ui->Canvas->setMaxSlope(max_slope);
         ui->Canvas->setMinSlope(min_slope);
@@ -85,7 +83,7 @@ void Widget::on_lineEdit_3_editingFinished()
     dz = ui->lineEdit_3->text().toDouble();
 }
 
-void Widget::on_pushButton_3_clicked()
+void Widget::on_pushButton_CreateContours_clicked()
 {
     //Create contours
     //Get points
@@ -127,7 +125,7 @@ void Widget::on_pushButton_3_clicked()
 }
 
 
-void Widget::on_pushButton_4_clicked()
+void Widget::on_pushButton_AnalyzeDTM_clicked()
 {
     //Draw slope or exposition
 
@@ -167,19 +165,18 @@ void Widget::on_pushButton_4_clicked()
     repaint();
 }
 
-void Widget::on_pushButton_5_clicked()
+void Widget::on_pushButton_LoadPoints_clicked()
 {
     //Open text file with dialog
     //QString file_name = "D:/skola_ING/semestr3/ADKaGIS/kladivova_spererova_adk-master/U3_kladivova_spererova/U3_test_data/test.txt";
-    QString file_name = "D:/Github/ADK/ADK_uloha3/test_data/e1.txt";
-    //QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
+    //QString file_name = "D:/Github/ADK/ADK_uloha3/test_data/e1.txt";
+    QString file_name = QFileDialog::getOpenFileName(this, tr("Open Text file"), "", tr("Text Files (*.txt)"));
     ui->Canvas->loadData(file_name);
-
 
     repaint();
 }
 
-void Widget::on_pushButton_6_clicked()
+void Widget::on_pushButton_LoadPolygon_clicked()
 {
     //Open text file with dialog
     //QString file_name = "C:/Users/monik/OneDrive/Documents/GitHub/ADK_uloha3/ADK_uloha3/polygon2.txt";
@@ -189,7 +186,7 @@ void Widget::on_pushButton_6_clicked()
     repaint();
 }
 
-void Widget::on_pushButton_7_clicked()
+void Widget::on_pushButton_CreatePolDT_clicked()
 {
     //Create polygon DT
 

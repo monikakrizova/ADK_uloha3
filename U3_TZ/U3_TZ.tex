@@ -170,6 +170,11 @@ Pro konstrukci je používána datová struktura AEL (Active Edge List), která 
 		Přidání hrany do AEL, pokud již neexistuje s opačnou orientací.$$AEL if \not\exists \leftarrow e_2; AEL \leftarrow e_3  $$ 
  \end{enumerate}
 
+\subsection{Delaunayova triangulace nekonvexního polygonu}
+Konstrukce Delaunayovy triangulace nekonvexního polygonu je témšř totožná s triangulací tachymetrie. Jedinou výjimkou je nutnost odebrání trojúhelníků s těžištěm ležícím mimo polygon. 
+
+Těžiště trojúhelníku se vypočte jako průměr souřadnic vrcholů trohúhelníku. Pro zjištění, zda leží bod (těžiště) uvnitř polygonu byla použita metoda Winding number algoritmu, jež byla konstruována v první úloze tohoto předmětu, v jejíž dokumentaci je algoritmus podrobně vysvětlen.
+
 \subsection{Konstrukce vrstevnic lineární interpolací}
 Vrstevnice je křivka, která spojuje body se stejnou nadmořskou výškou. Zpravidla bývají vrstevnice vykreslovány s pravidelným intervalem.
 
@@ -217,6 +222,15 @@ $$  v = (v_x, v_y, v_z)$$
 $$ n = \vec{u}\times \vec{v} = (n_x, n_y, n_z)$$
 $$ \varphi = arccos \frac{n_z}{|n|} $$ 
 
+Barevná vizualizace sklonu terénu je vytvořena pomocí interpolace jednotlivých složek barevného schématu RGB. Při tvorbě je vždy nejprve vypočten podíl sklonu trojúhelníku a sklonu maximálního. Tento podíl je následně násoben hodnotou 255 a poté je vždy buď uložen do složky barvy, nebo odečten od hodnoty 255, má-li klesat podíl této složky. 
+
+Při volbě vizualizace sklonu (\textit{s}) v barvách mezi zelenou a červenou barvou je výpočet následující. Zelená barva má složky (0,255,0) a červená (255,0,255), proto je nutné, aby podíl zelené složky s rostoucím sklonem klesal a podíl červené složky naopak stoupal, podíl modré složky je vždy nulový. Výpočet tedy bude proveden následovně:
+
+$$	x = \frac{s}{s_{max}} $$
+$$	red = x*255 $$
+$$	green = 255-x*255 $$
+$$	blue = 0 $$
+
 \subsection{Algoritmus výpočtu expozice trojúhelníku}
 Expozice představuje orientaci terénu vzhledem ke Slunci.
 
@@ -226,6 +240,15 @@ $$  u = (u_x, u_y, u_z)$$
 $$  v = (v_x, v_y, v_z)$$
 $$ n_t = \vec{u}\times \vec{v} = (n_x, n_y, n_z)$$
 $$ A =atan2( \frac{n_x}{n_y}) $$
+
+Expozice je v případě barevného schématu zobrazována v následujícím barevném schématu.
+
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=1]{images/expozice.jpg} 
+	\caption{vizualizace expozice terénu}
+	\label{fig:getExposition()}
+\end{figure} 
 
 \subsection{Automatické generování popisu vrstevnic}
 Výškovou kótou bývají popisovány hlavní vrstevnice. I popis by však měl dodržovat určité kartografické zásady.
@@ -679,22 +702,75 @@ Ukládá vybraný typ vizualizace expozice terénu ze třídy Widget a ukládá 
 \end{itemize}
 
 \subsection{Třída Widget}
-Třída Widget obsahuje 3 metody:
+Třída Widget obsahuje 13 metod:
 
 \begin{itemize}
-\item void on\_pushButtonClear\_clicked();
-\item void on\_pushButtonAnalyze\_clicked();
-\item void on\_pushButtonLoad\_clicked();
+	\item void on\_pushButton\_ClearAll\_clicked();
+	\item void on\_pushButton\_CreateDT\_clicked();
+	\item void on\_pushButton\_cleardt\_clicked();
+	\item void on\_lineEdit\_3\_editingFinished();
+	\item void on\_pushButton\_CreateContours\_clicked();
+	\item void on\_pushButton\_AnalyzeDTM\_clicked();
+	\item void on\_pushButton\_LoadPoints\_clicked();
+	\item void on\_pushButton\_LoadPolygon\_clicked();
+	\item void on\_pushButton\_CreatePolDT\_clicked();
+	\item void on\_pushButton\_contour\_labels\_clicked();
+	\item void on\_checkBox\_stateChanged(int arg1);
+	\item void on\_pushButton\_ClearPoints\_clicked();
+	\item void on\_checkBox\_ShowContours\_stateChanged(int arg1);
 \end{itemize}
 
-\paragraph{ void on\_pushButtonClear\_clicked();}\mbox{}\\
-Funkce se volá při stisknutí tlačítka Clear, volá funkci clear(), jež je definovaná v třídě Draw.
+\paragraph {void on\_pushButton\_ClearAll\_clicked();}
+Funkce se volá po stisknutí tlačítka \textit{Clear all}, slouží k volání funkce clear() ze třídy Draw, tato funkce následně smaže všechny prvky z canvasu.
 
-\paragraph{ void on\_pushButtonAnalyze\_clicked();}\mbox{}\\
-Funkce se volá při stisknutí tlačítka Analyze. Ve funkci nejprve dojde k uložení jednotlivých polygonů do vektoru vrcholů polygonu, následně je zavolána funkce getPositionRayCrossing ze třídy Algorithms nebo getPositionWinding dle výběru v comboboxu.
+\paragraph {void on\_pushButton\_CreateDT\_clicked();}
+Funkce se volá po stisknutí tlačítka \textit{Create DT}, slouží k vytvoření Delaunay triangulace pomocí metody dT ze třídy Algorithms.
 
-\paragraph{void on\_pushButtonLoad\_clicked();}\mbox{}\\
-Funkce slouží k inicializaci načítání souboru, spustí se po stisknutí tlačítka Load, čímž zobrazí dialog pro výběr souboru obsahujícího data, jež mají být načtena do aplikace. Po výběru souboru se zavolá funkce loadData ze třídy Draw, která přečte data ze souboru a uloží je do proměnné.
+\paragraph {void on\_pushButton\_cleardt\_clicked();}
+Funkce se volá po stisknutí tlačítka \textit{Clear DT}, slouží k volání funkce clearDT() ze třídy Draw, tato funkce následně smaže zobrazenou Delaunay triangulaci, vrstevnice a vizualizaci sklonu/expozice.
+
+\paragraph {void on\_lineEdit\_3\_editingFinished();}
+Funkce se volá při změně parametrů základního intervalu vrstevnic.
+
+\paragraph {void on\_pushButton\_CreateContours\_clicked();}
+Funkce se volá po stisknutí tlačítka \textit{Create Contours}, slouží k vytvoření vrstevnic pomocí metody getContourLines ze třídy Algorithms.
+
+
+\paragraph {void on\_pushButton\_AnalyzeDTM\_clicked();}
+Funkce se volá po stisknutí tlačítka \textit{Analyze DTM}, slouží k výpočtu sklonu terénu a expozice pomocí metody analyzeDTM ze třídy Algorithms.
+
+\paragraph {void on\_pushButton\_LoadPoints\_clicked();}
+Funkce se volá po stisknutí tlačítka \textit{Load points}, slouží k načtení bodů tachymetrie z textového souboru, volá metodu loadData ze třídy Draw.
+
+\paragraph {void on\_pushButton\_LoadPolygon\_clicked();}
+Funkce se volá po stisknutí tlačítka \textit{Load Polygon}, slouží k načtení vrcholů polygonu z textového souboru, volá metodu loadPolygon ze třídy Draw.
+
+\paragraph {void on\_pushButton\_CreatePolDT\_clicked();}
+Funkce se volá po stisknutí tlačítka \textit{Create Polygon DT}, slouží k vytvoření Delaunay triangulace nekonvexního polygonu z textového souboru, volá metodu dTPolygon třídy Algorithms.
+
+\paragraph {void on\_pushButton\_contour\_labels\_clicked();}
+Funkce se volá v případě zaškrtnutí možnosti \textit{Show contours labels}, v případě zaškrtnutí umožňuje vykreslení vrstenic s popisy. Volá metodu getMainContours třídy Draw.
+
+\paragraph {void on\_checkBox\_stateChanged(int arg1);}
+------------------------------------------
+
+\paragraph {void on\_pushButton\_ClearPoints\_clicked();}
+
+\paragraph {void on\_checkBox\_ShowContours\_stateChanged(int arg1);}
+Funkce se volá v případě zaškrtnutí možnosti \textit{Show with contours}, v případě zaškrtnutí umožňuje vykreslení vrstenic nad zobrazovaným sklonem terénu nebo expozicí.
+
+\subsection{Třída Edge}
+Ve třídě Edge je definován datoý typ Edge, jenž definuje hranu (DT), je definován počátečním a koncovým bodem uloženým v datovém typu QPoint3D.
+
+\subsection{Třída QPoint3D}
+Třída definuje datový typ QPoint3D, jež je dědičným datovým typem QPointF. Umožňuje uložení bodu se souřadnicemi x, y a z s předností float.
+
+\subsection{Třída Triangle}
+Třída definuje datový typ Triangle, v němž je možné uložit jednotlivé trojúhelníky Delaunay triangulace. Ukládá souřadnice 3 vrcholů trojúhelníku uložených v datovém typu QPoint3D a sklon a expozici v datových typech double.
+
+\subsection{Třída SortByX}
+Třída definuje operátor přetížení, který řadí body podle x-ové souřadnice.
+
 
 %----------------------------------------------------------------------------------------
 %	ZÁVĚR
