@@ -225,8 +225,6 @@ void Widget::on_pushButton_ClearPoints_clicked()
 }
 
 
-
-
 void Widget::on_checkBox_ShowContours_stateChanged(int arg1)
 {
 

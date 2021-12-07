@@ -1,208 +1,220 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.11.6)  6 DEC 2021 21:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.4)  7 DEC 2021 12:13
 entering extended mode
 **./U3_TZ.tex
 (U3_TZ.tex
-LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-08-27>
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
-File: size11.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(D:\Programy\MikTex\tex/latex/base\article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(D:\Programy\MikTex\tex/latex/base\size11.clo
+File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count182
-\c@section=\count183
-\c@subsection=\count184
-\c@subsubsection=\count185
-\c@paragraph=\count186
-\c@subparagraph=\count187
-\c@figure=\count188
-\c@table=\count189
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen138
+\bibindent=\dimen134
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks16
-\inpenc@posthook=\toks17
+(D:\Programy\MikTex\tex/latex/base\inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+(D:\Programy\MikTex\tex/latex/base\fontenc.sty
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\mathpazo.sty
+(D:\Programy\MikTex\tex/latex/psnfss\mathpazo.sty
 Package: mathpazo 2020/03/25 PSNFSS-v9.3 Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup4
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2021/07/22 3.63 The Babel package
+(D:\Programy\MikTex\tex/generic/babel\babel.sty
+Package: babel 2020/02/14 3.40 The Babel package
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
-File: babel.def 2021/07/22 3.63 Babel common definitions
-\babel@savecnt=\count190
-\U@D=\dimen139
-\l@unhyphenated=\language79
-
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
-\bbl@readstream=\read2
+(D:\Programy\MikTex\tex/generic/babel\switch.def
+File: switch.def 2020/02/14 3.40 Babel switching mechanism
 )
-\bbl@dirlevel=\count191
-
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+(D:\Programy\MikTex\tex/latex/arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/babel-czech\czech.ldf
+(D:\Programy\MikTex\tex/latex/babel-czech\czech.ldf
 Language: czech 2008/07/06 v3.1a Czech support from the babel system
-Package babel Info: Making " an active character on input line 172.
-\cs@wordlen=\count192
-Package babel Info: Making - an active character on input line 226.
-)) (C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.st
-y
-Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks18
+(D:\Programy\MikTex\tex/generic/babel\babel.def
+File: babel.def 2020/02/14 3.40 Babel common definitions
+\babel@savecnt=\count175
+\U@D=\dimen135
+
+(D:\Programy\MikTex\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count176
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+Package babel Info: Making " an active character on input line 172.
+\cs@wordlen=\count177
+Package babel Info: Making - an active character on input line 226.
+))
+(D:\Programy\MikTex\tex/latex/graphics\graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+(D:\Programy\MikTex\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(D:\Programy\MikTex\tex/latex/graphics\graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(D:\Programy\MikTex\tex/latex/graphics\trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
-fg
+(D:\Programy\MikTex\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+(D:\Programy\MikTex\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen140
-\Gin@req@width=\dimen141
+\Gin@req@height=\dimen136
+\Gin@req@width=\dimen137
 )
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 12
-.
- (C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ppl.fd
-File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
+(D:\Programy\MikTex\tex/latex/caption\caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+
+(D:\Programy\MikTex\tex/latex/caption\caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen138
+\captionmargin@=\dimen139
+\captionwidth=\dimen140
+\caption@tempdima=\dimen141
+\caption@indent=\dimen142
+\caption@parindent=\dimen143
+\caption@hangindent=\dimen144
+Package caption Info: Standard document class detected.
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
-tex.def
-File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count193
-\l__pdf_internal_box=\box50
+\c@caption@flags=\count178
+\c@continuedfloat=\count179
+)
+(D:\Programy\MikTex\tex/latex/l3backend\l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count180
+\l__pdf_internal_box=\box45
 ) (U3_TZ.aux)
 \openout1 = `U3_TZ.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-\big@size=\dimen142
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 14
+.
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
-ii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count194
-\scratchdimen=\dimen143
-\scratchbox=\box51
-\nofMPsegments=\count195
-\nofMParguments=\count196
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count197
-\MPscratchDim=\dimen144
-\MPnumerator=\count198
-\makeMPintoPDFobject=\count199
-\everyMPtoPDFconversion=\toks20
+(D:\Programy\MikTex\tex/latex/psnfss\t1ppl.fd
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
-ase.sty
+\big@size=\dimen145
+
+(D:\Programy\MikTex\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count181
+\scratchdimen=\dimen146
+\scratchbox=\box46
+\nofMPsegments=\count182
+\nofMParguments=\count183
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count184
+\MPscratchDim=\dimen147
+\MPnumerator=\count185
+\makeMPintoPDFobject=\count186
+\everyMPtoPDFconversion=\toks18
+) (D:\Programy\MikTex\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ [1
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
-fg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-)) [1
-
-{C:/Users/monik/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-(U3_TZ.toc
+{C:/Users/Marek/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (U3_TZ.toc
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 5
 .
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ppl.fd
+(D:\Programy\MikTex\tex/latex/psnfss\ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
 5.
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlzplm.fd
+(D:\Programy\MikTex\tex/latex/psnfss\omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
 5.
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omszplm.fd
+(D:\Programy\MikTex\tex/latex/psnfss\omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
 5.
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxzplm.fd
+(D:\Programy\MikTex\tex/latex/psnfss\omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
 5.
 
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1zplm.fd
+(D:\Programy\MikTex\tex/latex/psnfss\ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-)
-[1])
+) [1])
 \tf@toc=\write3
 \openout3 = `U3_TZ.toc'.
 
  [2]
-Overfull \hbox (2.27577pt too wide) in paragraph at lines 95--96
+Overfull \hbox (2.27577pt too wide) in paragraph at lines 97--98
 \T1/ppl/m/n/10.95 nimi vy-tvo°te Delauna-y-ovu tri-an-gu-laci me-to-dou in-kre-
 men-tální kon-strukce.
  []
 
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
-05.
-(C:\Users\monik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ppl.fd
+07.
+(D:\Programy\MikTex\tex/latex/psnfss\ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
-Overfull \hbox (7.1812pt too wide) in paragraph at lines 137--138
+Overfull \hbox (7.1812pt too wide) in paragraph at lines 139--140
 \T1/ppl/m/n/10.95 tri-an-gu-lace, která svými kri-té-rii za-ji²-´uje jed-no-zna
-£-nost, spo-leh-livé vý-slekdy
+£-nost, spo-leh-livé vý-sledky
  []
 
 [3
 
 ]
-Overfull \hbox (1.3961pt too wide) in paragraph at lines 140--141
+Overfull \hbox (1.3961pt too wide) in paragraph at lines 142--143
 []\T1/ppl/m/n/10.95 Uvnit° kruº-nice $\OML/zplm/m/it/10.95 k$ \T1/ppl/m/n/10.95
  opsa-nému li-bo-vol-nému troj-ú-hel-níku $\OML/zplm/m/it/10.95 t[]$ \T1/ppl/m/
 n/10.95 ne-leºí ºádný
  []
 
 [4] [5] [6]
-Overfull \hbox (6.50365pt too wide) in paragraph at lines 206--207
+Overfull \hbox (6.50365pt too wide) in paragraph at lines 208--209
 \T1/ppl/m/n/10.95 £íky mezi vr-choly troj-ú-hel-níku - vrs-tev-nice je vy-kres-
 lena mezi
  []
@@ -211,343 +223,439 @@ lena mezi
 <images/expozice.jpg, id=34, 121.6545pt x 146.949pt>
 File: images/expozice.jpg Graphic file (type jpg)
 <use images/expozice.jpg>
-Package pdftex.def Info: images/expozice.jpg  used on input line 248.
+Package pdftex.def Info: images/expozice.jpg  used on input line 250.
 (pdftex.def)             Requested size: 121.65419pt x 146.94864pt.
  [8 <./images/expozice.jpg>]
-Overfull \hbox (0.12935pt too wide) in paragraph at lines 262--263
+<images/U2_problem_pocatek.png, id=38, 263.7855pt x 314.97675pt>
+File: images/U2_problem_pocatek.png Graphic file (type png)
+<use images/U2_problem_pocatek.png>
+Package pdftex.def Info: images/U2_problem_pocatek.png  used on input line 270.
+
+(pdftex.def)             Requested size: 211.02867pt x 251.98172pt.
+ [9
+
+ <./images/U2_problem_pocatek.png>]
+<images/U2_problem_meritko2.png, id=44, 208.98074pt x 142.73325pt>
+File: images/U2_problem_meritko2.png Graphic file (type png)
+<use images/U2_problem_meritko2.png>
+Package pdftex.def Info: images/U2_problem_meritko2.png  used on input line 285
+.
+(pdftex.def)             Requested size: 167.18481pt x 114.18674pt.
+<images/U2_problem_transformace.png, id=45, 274.02374pt x 112.62074pt>
+File: images/U2_problem_transformace.png Graphic file (type png)
+<use images/U2_problem_transformace.png>
+Package pdftex.def Info: images/U2_problem_transformace.png  used on input line
+ 297.
+(pdftex.def)             Requested size: 274.02307pt x 112.62045pt.
+ [10 <./images/U2_problem_meritko2.png> <./images/U2_problem_transformace.png>]
+<images/round2num.png, id=51, 337.86224pt x 208.3785pt>
+File: images/round2num.png Graphic file (type png)
+<use images/round2num.png>
+Package pdftex.def Info: images/round2num.png  used on input line 311.
+(pdftex.def)             Requested size: 236.50194pt x 145.86394pt.
+<images/round2num2.png, id=52, 277.035pt x 139.11975pt>
+File: images/round2num2.png Graphic file (type png)
+<use images/round2num2.png>
+Package pdftex.def Info: images/round2num2.png  used on input line 320.
+(pdftex.def)             Requested size: 193.92317pt x 97.38315pt.
+ [11
+
+ <./images/round2num.png> <./images/round2num2.png>]
+Overfull \hbox (1.81105pt too wide) in paragraph at lines 334--335
+[]\T1/ppl/m/n/10.95 Nicmén¥, au-to-ma-tický po-pis vrs-tev-nic re-spek-tu-jící 
+kar-to-gra-fické zá-sady
+ []
+
+
+Overfull \hbox (0.12935pt too wide) in paragraph at lines 338--339
 \T1/ppl/m/n/10.95 stu-pem funkce jsou vek-tor 3D bod· a vek-tor úhl· s da-to-vý
 m ty-pem double.
  []
 
-<images/getContourLabels.png, id=38, 287.8755pt x 150.5625pt>
+<images/getContourLabels.png, id=58, 287.8755pt x 150.5625pt>
 File: images/getContourLabels.png Graphic file (type png)
 <use images/getContourLabels.png>
-Package pdftex.def Info: images/getContourLabels.png  used on input line 269.
-(pdftex.def)             Requested size: 287.87479pt x 150.56212pt.
+Package pdftex.def Info: images/getContourLabels.png  used on input line 345.
+(pdftex.def)             Requested size: 230.3007pt x 120.45015pt.
 
-Overfull \hbox (4.62552pt too wide) in paragraph at lines 274--275
+Overfull \hbox (4.62552pt too wide) in paragraph at lines 350--351
 []\T1/ppl/m/n/10.95 Ve t°íd¥ Draw pak byly nejd°íve vy-ge-ne-ro-vány ob-dél-ník
 y v barv¥ plátna,
  []
 
-[9 <./images/getContourLabels.png>]
-Overfull \hbox (13.87782pt too wide) in paragraph at lines 276--277
+[12 <./images/getContourLabels.png>]
+Overfull \hbox (13.87782pt too wide) in paragraph at lines 352--353
 []\T1/ppl/m/n/10.95 Abychom mohli vy-kres-lit ob-dél-níky ve sm¥ru vrs-tev-nice
 , mu-síme nejd°íve
  []
 
-<images/DrawLabelSquares.png, id=44, 608.2725pt x 308.95425pt>
+<images/DrawLabelSquares.png, id=64, 608.2725pt x 308.95425pt>
 File: images/DrawLabelSquares.png Graphic file (type png)
 <use images/DrawLabelSquares.png>
-Package pdftex.def Info: images/DrawLabelSquares.png  used on input line 280.
+Package pdftex.def Info: images/DrawLabelSquares.png  used on input line 356.
 (pdftex.def)             Requested size: 304.13551pt x 154.47675pt.
 File: images/DrawLabelSquares.png Graphic file (type png)
 <use images/DrawLabelSquares.png>
-Package pdftex.def Info: images/DrawLabelSquares.png  used on input line 291.
+Package pdftex.def Info: images/DrawLabelSquares.png  used on input line 367.
 (pdftex.def)             Requested size: 304.13551pt x 154.47675pt.
-[10 <./images/DrawLabelSquares.png>] [11]
-<images/U2_problem_pocatek.png, id=52, 263.7855pt x 314.97675pt>
-File: images/U2_problem_pocatek.png Graphic file (type png)
-<use images/U2_problem_pocatek.png>
-Package pdftex.def Info: images/U2_problem_pocatek.png  used on input line 311.
-
-(pdftex.def)             Requested size: 211.02867pt x 251.98172pt.
- [12
-
- <./images/U2_problem_pocatek.png>]
-<images/U2_problem_meritko2.png, id=58, 208.98074pt x 142.73325pt>
-File: images/U2_problem_meritko2.png Graphic file (type png)
-<use images/U2_problem_meritko2.png>
-Package pdftex.def Info: images/U2_problem_meritko2.png  used on input line 326
-.
-(pdftex.def)             Requested size: 167.18481pt x 114.18674pt.
-<images/U2_problem_transformace.png, id=59, 274.02374pt x 112.62074pt>
-File: images/U2_problem_transformace.png Graphic file (type png)
-<use images/U2_problem_transformace.png>
-Package pdftex.def Info: images/U2_problem_transformace.png  used on input line
- 338.
-(pdftex.def)             Requested size: 274.02307pt x 112.62045pt.
- [13 <./images/U2_problem_meritko2.png> <./images/U2_problem_transformace.png>]
-<images/round2num.png, id=65, 337.86224pt x 208.3785pt>
-File: images/round2num.png Graphic file (type png)
-<use images/round2num.png>
-Package pdftex.def Info: images/round2num.png  used on input line 352.
-(pdftex.def)             Requested size: 236.50194pt x 145.86394pt.
-<images/round2num2.png, id=66, 277.035pt x 139.11975pt>
-File: images/round2num2.png Graphic file (type png)
-<use images/round2num2.png>
-Package pdftex.def Info: images/round2num2.png  used on input line 361.
-(pdftex.def)             Requested size: 193.92317pt x 97.38315pt.
- [14
-
- <./images/round2num.png> <./images/round2num2.png>] [15]
-<images/vstup.png, id=75, 181.27725pt x 127.677pt>
+<images/code_calculateLabelPoints.png, id=65, 528.7755pt x 522.753pt>
+File: images/code_calculateLabelPoints.png Graphic file (type png)
+<use images/code_calculateLabelPoints.png>
+Package pdftex.def Info: images/code_calculateLabelPoints.png  used on input li
+ne 380.
+(pdftex.def)             Requested size: 264.3871pt x 261.37585pt.
+[13 <./images/DrawLabelSquares.png>] [14 <./images/code_calculateLabelPoints.pn
+g>]
+<images/vstup.png, id=74, 181.27725pt x 127.677pt>
 File: images/vstup.png Graphic file (type png)
 <use images/vstup.png>
-Package pdftex.def Info: images/vstup.png  used on input line 393.
+Package pdftex.def Info: images/vstup.png  used on input line 409.
 (pdftex.def)             Requested size: 181.27681pt x 127.67668pt.
- [16
+ [15
 
  <./images/vstup.png>]
-<images/vstup_polygon.png, id=80, 133.6995pt x 123.46124pt>
+<images/vstup_polygon.png, id=79, 133.6995pt x 123.46124pt>
 File: images/vstup_polygon.png Graphic file (type png)
 <use images/vstup_polygon.png>
-Package pdftex.def Info: images/vstup_polygon.png  used on input line 411.
-(pdftex.def)             Requested size: 133.69916pt x 123.46092pt.
- [17 <./images/vstup_polygon.png>]
-<images/aplikace_klik_analyze.png, id=85, 787.14075pt x 558.28575pt>
-File: images/aplikace_klik_analyze.png Graphic file (type png)
-<use images/aplikace_klik_analyze.png>
-Package pdftex.def Info: images/aplikace_klik_analyze.png  used on input line 4
-27.
-(pdftex.def)             Requested size: 314.85072pt x 223.31033pt.
-<images/aplikace_analyze_outside.png, id=86, 786.5385pt x 557.08125pt>
-File: images/aplikace_analyze_outside.png Graphic file (type png)
-<use images/aplikace_analyze_outside.png>
-Package pdftex.def Info: images/aplikace_analyze_outside.png  used on input lin
-e 441.
-(pdftex.def)             Requested size: 314.60983pt x 222.82855pt.
-<images/aplikace_analyze_inside.png, id=87, 787.14075pt x 557.08125pt>
-File: images/aplikace_analyze_inside.png Graphic file (type png)
-<use images/aplikace_analyze_inside.png>
-Package pdftex.def Info: images/aplikace_analyze_inside.png  used on input line
- 447.
-(pdftex.def)             Requested size: 314.85072pt x 222.82855pt.
- [18
+Package pdftex.def Info: images/vstup_polygon.png  used on input line 428.
+(pdftex.def)             Requested size: 120.32841pt x 111.11407pt.
+<images/vystup_LoadPoints.png, id=80, 952.7595pt x 612.48825pt>
+File: images/vystup_LoadPoints.png Graphic file (type png)
+<use images/vystup_LoadPoints.png>
+Package pdftex.def Info: images/vystup_LoadPoints.png  used on input line 439.
+(pdftex.def)             Requested size: 333.47083pt x 214.3741pt.
+<images/vystup_CreateDT.png, id=81, 958.17975pt x 614.89725pt>
+File: images/vystup_CreateDT.png Graphic file (type png)
+<use images/vystup_CreateDT.png>
+Package pdftex.def Info: images/vystup_CreateDT.png  used on input line 446.
+(pdftex.def)             Requested size: 335.36794pt x 215.21725pt.
+<images/vystup_CreateContours.png, id=82, 958.17975pt x 615.4995pt>
+File: images/vystup_CreateContours.png Graphic file (type png)
+<use images/vystup_CreateContours.png>
+Package pdftex.def Info: images/vystup_CreateContours.png  used on input line 4
+53.
+(pdftex.def)             Requested size: 335.36794pt x 215.42804pt.
+<images/vystup_CreateContourswLabels.png, id=83, 953.36176pt x 618.51076pt>
+File: images/vystup_CreateContourswLabels.png Graphic file (type png)
+<use images/vystup_CreateContourswLabels.png>
+Package pdftex.def Info: images/vystup_CreateContourswLabels.png  used on input
+ line 459.
+(pdftex.def)             Requested size: 333.68161pt x 216.482pt.
+<images/vystup_AnalyzeDTM_slope_shadesofgray.png, id=84, 955.1685pt x 617.30624
+pt>
+File: images/vystup_AnalyzeDTM_slope_shadesofgray.png Graphic file (type png)
+<use images/vystup_AnalyzeDTM_slope_shadesofgray.png>
+Package pdftex.def Info: images/vystup_AnalyzeDTM_slope_shadesofgray.png  used 
+on input line 465.
+(pdftex.def)             Requested size: 334.31398pt x 216.06041pt.
+<images/vystup_AnalyzeDTM_slope_y2r.png, id=85, 954.56625pt x 614.89725pt>
+File: images/vystup_AnalyzeDTM_slope_y2r.png Graphic file (type png)
+<use images/vystup_AnalyzeDTM_slope_y2r.png>
+Package pdftex.def Info: images/vystup_AnalyzeDTM_slope_y2r.png  used on input 
+line 471.
+(pdftex.def)             Requested size: 334.1032pt x 215.21725pt.
+<images/vystup_AnalyzeDTM_slope_c2b_wContours.png, id=86, 952.7595pt x 619.113p
+t>
+File: images/vystup_AnalyzeDTM_slope_c2b_wContours.png Graphic file (type png)
+<use images/vystup_AnalyzeDTM_slope_c2b_wContours.png>
+Package pdftex.def Info: images/vystup_AnalyzeDTM_slope_c2b_wContours.png  used
+ on input line 477.
+(pdftex.def)             Requested size: 333.47083pt x 216.6928pt.
+<images/vystup_AnalyzeDTM_exposition_shadesofgrey.png, id=87, 954.56625pt x 619
+.113pt>
+File: images/vystup_AnalyzeDTM_exposition_shadesofgrey.png Graphic file (type p
+ng)
+<use images/vystup_AnalyzeDTM_exposition_shadesofgrey.png>
+Package pdftex.def Info: images/vystup_AnalyzeDTM_exposition_shadesofgrey.png  
+used on input line 484.
+(pdftex.def)             Requested size: 334.1032pt x 216.6928pt.
+<images/vystup_AnalyzeDTM_exposition_discrete.png, id=88, 950.3505pt x 616.1017
+5pt>
+File: images/vystup_AnalyzeDTM_exposition_discrete.png Graphic file (type png)
+<use images/vystup_AnalyzeDTM_exposition_discrete.png>
+Package pdftex.def Info: images/vystup_AnalyzeDTM_exposition_discrete.png  used
+ on input line 490.
+(pdftex.def)             Requested size: 332.62766pt x 215.63884pt.
+<images/vystup_LoadPolygon.png, id=89, 956.373pt x 618.51076pt>
+File: images/vystup_LoadPolygon.png Graphic file (type png)
+<use images/vystup_LoadPolygon.png>
+Package pdftex.def Info: images/vystup_LoadPolygon.png  used on input line 496.
 
- <./images/aplikace_klik_analyze.png>] [19 <./images/aplikace_analyze_outside.p
-ng> <./images/aplikace_analyze_inside.png>]
-<images/aplikace_uvodni_okno.png, id=98, 787.14075pt x 557.08125pt>
+(pdftex.def)             Requested size: 334.73557pt x 216.482pt.
+<images/vystup_CreateDT_pol.png, id=90, 959.38425pt x 617.9085pt>
+File: images/vystup_CreateDT_pol.png Graphic file (type png)
+<use images/vystup_CreateDT_pol.png>
+Package pdftex.def Info: images/vystup_CreateDT_pol.png  used on input line 502
+.
+(pdftex.def)             Requested size: 335.7895pt x 216.27121pt.
+<images/vystup_CreateContourswLabels_pol.png, id=91, 958.782pt x 617.30624pt>
+File: images/vystup_CreateContourswLabels_pol.png Graphic file (type png)
+<use images/vystup_CreateContourswLabels_pol.png>
+Package pdftex.def Info: images/vystup_CreateContourswLabels_pol.png  used on i
+nput line 509.
+(pdftex.def)             Requested size: 335.57872pt x 216.06041pt.
+<images/vystup_AnalyzeDTM_slope_g2r_pol.png, id=92, 958.17975pt x 613.0905pt>
+File: images/vystup_AnalyzeDTM_slope_g2r_pol.png Graphic file (type png)
+<use images/vystup_AnalyzeDTM_slope_g2r_pol.png>
+Package pdftex.def Info: images/vystup_AnalyzeDTM_slope_g2r_pol.png  used on in
+put line 515.
+(pdftex.def)             Requested size: 335.36794pt x 214.58488pt.
+<images/vystup_AnalyzeDTM_exposition_shadesofgrey_pol_wContours.png, id=93, 959
+.38425pt x 617.9085pt>
+File: images/vystup_AnalyzeDTM_exposition_shadesofgrey_pol_wContours.png Graphi
+c file (type png)
+<use images/vystup_AnalyzeDTM_exposition_shadesofgrey_pol_wContours.png>
+Package pdftex.def Info: images/vystup_AnalyzeDTM_exposition_shadesofgrey_pol_w
+Contours.png  used on input line 521.
+(pdftex.def)             Requested size: 335.7895pt x 216.27121pt.
+<images/vystup_AnalyzeDTM_exposition_discrete_pol.png, id=94, 952.7595pt x 612.
+48825pt>
+File: images/vystup_AnalyzeDTM_exposition_discrete_pol.png Graphic file (type p
+ng)
+<use images/vystup_AnalyzeDTM_exposition_discrete_pol.png>
+Package pdftex.def Info: images/vystup_AnalyzeDTM_exposition_discrete_pol.png  
+used on input line 527.
+(pdftex.def)             Requested size: 333.47083pt x 214.3741pt.
+ [16 <./images/vstup_polygon.png> <./images/vystup_LoadPoints.png>] [17 <./imag
+es/vystup_CreateDT.png> <./images/vystup_CreateContours.png>] [18 <./images/vys
+tup_CreateContourswLabels.png> <./images/vystup_AnalyzeDTM_slope_shadesofgray.p
+ng>] [19 <./images/vystup_AnalyzeDTM_slope_y2r.png> <./images/vystup_AnalyzeDTM
+_slope_c2b_wContours.png>] [20 <./images/vystup_AnalyzeDTM_exposition_shadesofg
+rey.png> <./images/vystup_AnalyzeDTM_exposition_discrete.png>] [21 <./images/vy
+stup_LoadPolygon.png> <./images/vystup_CreateDT_pol.png>] [22 <./images/vystup_
+CreateContourswLabels_pol.png> <./images/vystup_AnalyzeDTM_slope_g2r_pol.png>] 
+[23 <./images/vystup_AnalyzeDTM_exposition_shadesofgrey_pol_wContours.png> <./i
+mages/vystup_AnalyzeDTM_exposition_discrete_pol.png>]
+<images/aplikace_uvodni_okno.png, id=136, 955.1685pt x 615.4995pt>
 File: images/aplikace_uvodni_okno.png Graphic file (type png)
 <use images/aplikace_uvodni_okno.png>
-Package pdftex.def Info: images/aplikace_uvodni_okno.png  used on input line 45
-7.
-(pdftex.def)             Requested size: 314.85072pt x 222.82855pt.
+Package pdftex.def Info: images/aplikace_uvodni_okno.png  used on input line 53
+6.
+(pdftex.def)             Requested size: 382.06062pt x 246.19543pt.
 
-Overfull \hbox (2.51743pt too wide) in paragraph at lines 479--480
+Overfull \hbox (22.06062pt too wide) in paragraph at lines 536--537
+ [][] 
+ []
+
+[24
+
+ <./images/aplikace_uvodni_okno.png>]
+Overfull \hbox (2.51743pt too wide) in paragraph at lines 560--561
 []\T1/ppl/m/n/10.95 double get2LinesAngle(QPoint &p1, QPoint &p2, QPoint &p3, Q
 Point
  []
 
 
-Overfull \hbox (69.9461pt too wide) in paragraph at lines 480--481
+Overfull \hbox (69.9461pt too wide) in paragraph at lines 561--562
 []\T1/ppl/m/n/10.95 std::tuple<QPoint3D,double> get-Ci-rcle-Cen-ter-An-dRa-dius
 (QPoint3D &p1,QPoint3D
  []
 
-[20
 
- <./images/aplikace_uvodni_okno.png>]
-Overfull \hbox (18.9848pt too wide) in paragraph at lines 481--482
+Overfull \hbox (18.9848pt too wide) in paragraph at lines 562--563
 []\T1/ppl/m/n/10.95 int ge-t-Delauna-y-Point(QPoint3D &s,QPoint3D &e,std::vecto
 r<QPoint3D>
  []
 
 
-Overfull \hbox (20.749pt too wide) in paragraph at lines 487--488
+Overfull \hbox (20.749pt too wide) in paragraph at lines 568--569
 []\T1/ppl/m/n/10.95 std::vector<Edge> get-Con-tour-Li-nes(std::vector<Edge> &dt
 , double zmin,
  []
 
 
-Overfull \hbox (2.4172pt too wide) in paragraph at lines 489--490
+Overfull \hbox (2.4172pt too wide) in paragraph at lines 570--571
 []\T1/ppl/m/n/10.95 double ge-tEx-po-si-tion(QPoint3D &p1, QPoint3D &p2, QPoint
 3D &p3); 
  []
 
 
-Overfull \hbox (5.75748pt too wide) in paragraph at lines 491--492
+Overfull \hbox (5.75748pt too wide) in paragraph at lines 572--573
 []\T1/ppl/m/n/10.95 QPoint3D get-Cen-t-re-O-f-Mass(QPoint3D &p1, QPoint3D &p2, 
 QPoint3D
  []
 
+[25
 
-Overfull \hbox (4.11546pt too wide) in paragraph at lines 498--499
+]
+Overfull \hbox (4.11546pt too wide) in paragraph at lines 579--580
 \T1/ppl/m/n/10.95 ur-£u-jící li-nie, tzn. vr-choly po-ly-gonu. Ná-vra-to-vou ho
 d-no-tou funkce je double
  []
 
 
-Overfull \hbox (57.00533pt too wide) in paragraph at lines 501--502
+Overfull \hbox (57.00533pt too wide) in paragraph at lines 582--583
  \T1/ppl/b/n/10.95 std::tuple<QPoint3D,double> get-Ci-rcle-Cen-ter-An-dRa-dius(
 QPoint3D &p1,QPoint3D
  []
 
 
-Overfull \hbox (4.35732pt too wide) in paragraph at lines 504--505
+Overfull \hbox (4.35732pt too wide) in paragraph at lines 585--586
  \T1/ppl/b/n/10.95 int ge-t-Delauna-y-Point(QPoint3D &s,QPoint3D &e,std::vector
 <QPoint3D>
  []
 
 
-Overfull \hbox (0.317pt too wide) in paragraph at lines 504--505
+Overfull \hbox (0.317pt too wide) in paragraph at lines 585--586
 \T1/ppl/b/n/10.95 &points);[] \T1/ppl/m/n/10.95 Funkce hledá Delaunay bod. Vstu
 p-ními ar-gu-menty jsou 2 body
  []
 
-[21]
-Overfull \hbox (10.89478pt too wide) in paragraph at lines 507--508
+
+Overfull \hbox (10.89478pt too wide) in paragraph at lines 588--589
  \T1/ppl/b/n/10.95 int get-Nea-rest-Point(QPoint3D &p, std::vector<QPoint3D> &p
 oints);[] \T1/ppl/m/n/10.95 Fun-
  []
 
 
-Overfull \hbox (10.42401pt too wide) in paragraph at lines 510--512
+Overfull \hbox (10.42401pt too wide) in paragraph at lines 591--593
  \T1/ppl/b/n/10.95 std::vector<Edge> dT(std::vector<QPoint3D> &points);[] \T1/p
 pl/m/n/10.95 Funkce po-£ítá De-
  []
 
 
-Overfull \hbox (0.66771pt too wide) in paragraph at lines 514--515
+Overfull \hbox (0.66771pt too wide) in paragraph at lines 595--596
  \T1/ppl/b/n/10.95 std::vector<Edge> dT-Po-ly-gon(std::vector<QPoint3D> &points
 );[] \T1/ppl/m/n/10.95 Funkce
  []
 
-
-Overfull \hbox (0.28482pt too wide) in paragraph at lines 522--523
+[26]
+Overfull \hbox (0.28482pt too wide) in paragraph at lines 603--604
  \T1/ppl/b/n/10.95 std::vector<Edge> get-Con-tour-Li-nes(std::vector<Edge> &dt,
  double zmin,
  []
 
 
-Overfull \hbox (8.57275pt too wide) in paragraph at lines 525--526
+Overfull \hbox (8.57275pt too wide) in paragraph at lines 606--607
  \T1/ppl/b/n/10.95 double get-Slope(QPoint3D &p1, QPoint3D &p2, QPoint3D &p3);[
 ] \T1/ppl/m/n/10.95 Funkce
  []
 
-[22]
-Overfull \hbox (6.49199pt too wide) in paragraph at lines 528--529
-\T1/ppl/m/n/10.95 ními ar-gu-menty jsou vr-choly troj-ú-hl-níku ulo-ºené v da-t
-o-vém typu QPoint3D,
+
+Overfull \hbox (11.73695pt too wide) in paragraph at lines 609--610
+\T1/ppl/m/n/10.95 ními ar-gu-menty jsou vr-choly troj-ú-hel-níku ulo-ºené v da-
+to-vém typu QPoint3D,
  []
 
 
-Overfull \hbox (3.64629pt too wide) in paragraph at lines 531--532
+Overfull \hbox (3.64629pt too wide) in paragraph at lines 612--613
  \T1/ppl/b/n/10.95 std::vector<Triangle> ana-ly-zeDTM(std::vector<Edge> &dt);[]
  \T1/ppl/m/n/10.95 Funkce ana-
  []
 
 
-Overfull \hbox (2.5062pt too wide) in paragraph at lines 536--538
+Overfull \hbox (2.5062pt too wide) in paragraph at lines 617--619
 \T1/ppl/m/n/10.95 drobn¥ vy-sv¥t-lena v ka-pi-tole 3. Vstup-ními ar-gu-menty js
 ou sou-°ad-nice bodu
  []
 
-[23] [24] [25]
-Overfull \hbox (5.61566pt too wide) in paragraph at lines 612--614
+[27] [28] [29]
+Overfull \hbox (5.61566pt too wide) in paragraph at lines 693--695
 \T1/ppl/m/n/10.95 Funkce na-sta-vuje gra-fické atri-buty vy-kres-lo-va-ných ob-
 jekt· a kreslí na plátno
  []
 
 
-Overfull \hbox (0.77649pt too wide) in paragraph at lines 618--620
+Overfull \hbox (0.77649pt too wide) in paragraph at lines 699--701
 \T1/ppl/m/n/10.95 Funkce smaºe ve²-keré ob-jekty, jeº jsou vy-kres-leny na ca-n
 -vasu, funkce nemá
  []
 
-
-Overfull \hbox (3.21886pt too wide) in paragraph at lines 628--629
+[30]
+Overfull \hbox (3.21886pt too wide) in paragraph at lines 709--710
  \T1/ppl/b/n/10.95 std::vector<QPoint3D> get-Points();[] \T1/ppl/m/n/10.95 Funk
 ce pro zís-kání vek-toru bod· m¥-
  []
 
-[26]
-Overfull \hbox (3.78789pt too wide) in paragraph at lines 662--663
+[31]
+Overfull \hbox (3.78789pt too wide) in paragraph at lines 743--744
  \T1/ppl/b/n/10.95 void setCon-tours(std::vector<Edge> &con-tours_);[] \T1/ppl/
 m/n/10.95 Ukládá vrs-tev-nice ulo-
  []
 
 
-Overfull \hbox (20.99089pt too wide) in paragraph at lines 665--666
+Overfull \hbox (20.99089pt too wide) in paragraph at lines 746--747
  \T1/ppl/b/n/10.95 void setMa-in-Con-tours(std::vector<Edge> &main_contours_);[
 ] \T1/ppl/m/n/10.95 Ukládá hlavní
  []
 
 
-Overfull \hbox (39.79082pt too wide) in paragraph at lines 665--666
+Overfull \hbox (39.79082pt too wide) in paragraph at lines 746--747
 \T1/ppl/m/n/10.95 vrs-tev-nice ulo-ºené jako vek-tor Edge do t°ídy Wi-dget - do
  pro-m¥nné main_contours. 
  []
 
-[27]
-Overfull \hbox (2.05789pt too wide) in paragraph at lines 674--675
+
+Overfull \hbox (2.05789pt too wide) in paragraph at lines 755--756
  \T1/ppl/b/n/10.95 std::vector<Triangle> get-Tri-an-gles();[] \T1/ppl/m/n/10.95
  Funkce pro zís-kání troj-ú-hel-ník· De-
  []
 
 
-Overfull \hbox (8.83594pt too wide) in paragraph at lines 677--678
+Overfull \hbox (8.83594pt too wide) in paragraph at lines 758--759
  \T1/ppl/b/n/10.95 void setTri-an-gles(std::vector<Triangle> &tri-an-gles_);[] 
 \T1/ppl/m/n/10.95 Ukládá troj-ú-hel-níky
  []
 
-[28]
-Overfull \hbox (0.74431pt too wide) in paragraph at lines 736--737
+
+Overfull \hbox (8.4756pt too wide) in paragraph at lines 761--762
+ \T1/ppl/b/n/10.95 int round2num(int &num-To-Round, int &mul-tiple, bool &dir);
+[] \T1/ppl/m/n/10.95 Za-o-krouh-
+ []
+
+[32] [33]
+Overfull \hbox (0.74431pt too wide) in paragraph at lines 817--818
  \T1/ppl/b/n/10.95 void on_pushButton_CreateContours_clicked();[] \T1/ppl/m/n/1
 0.95 Funkce se volá po stisk-
  []
 
-[29]
-Overfull \hbox (1.76277pt too wide) in paragraph at lines 752--753
+[34]
+Overfull \hbox (1.76277pt too wide) in paragraph at lines 833--834
  \T1/ppl/b/n/10.95 void on_pushButton_contour_labels_clicked();[] \T1/ppl/m/n/1
 0.95 Funkce se volá v p°í-pad¥
  []
 
 
-Overfull \hbox (4.57864pt too wide) in paragraph at lines 755--756
- \T1/ppl/b/n/10.95 void on_checkBox_stateChanged(int arg1);[] \T1/ppl/m/n/10.95
- ---------------------------------------
- []
-
-
-Overfull \hbox (12.65822pt too wide) in paragraph at lines 760--761
+Overfull \hbox (12.65822pt too wide) in paragraph at lines 842--843
  \T1/ppl/b/n/10.95 void on_checkBox_ShowContours_stateChanged(int arg1);[] \T1/
 ppl/m/n/10.95 Funkce se volá
  []
 
 
-Overfull \hbox (6.67856pt too wide) in paragraph at lines 763--764
-\T1/ppl/m/n/10.95 no-ván po-£á-te£-ním a kon-co-vým bo-dem ulo-ºe-ným v da-to-v
-ém typu QPoint3D. 
- []
-
-[30]
-Overfull \hbox (14.58434pt too wide) in paragraph at lines 766--767
+Overfull \hbox (14.58434pt too wide) in paragraph at lines 848--849
 \T1/ppl/m/n/10.95 T°ída de-fi-nuje da-tový typ QPoint3D, jeº je d¥-di£-ným da-t
 o-vým ty-pem QPointF.
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 780--781
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 782--783
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 862--863
 
  []
 
-[31] (U3_TZ.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--865
+
+ []
+
+[36] (U3_TZ.aux) ) 
 Here is how much of TeX's memory you used:
- 2865 strings out of 478927
- 45844 string characters out of 2852535
- 354243 words of memory out of 3000000
- 20662 multiletter control sequences out of 15000+600000
- 439400 words of font info for 87 fonts, out of 8000000 for 9000
+ 3772 strings out of 481556
+ 61615 string characters out of 2927850
+ 304678 words of memory out of 3000000
+ 18939 multiletter control sequences out of 15000+200000
+ 568308 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,66p,721b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/monik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips
-/base/8r.enc}<C:/Users/monik/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb><C:/Users/monik/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr10.pfb><C:/Users/monik/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/monik/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/mathpazo/fplmri.pfb><C:/Users/monik/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/monik/AppData/Local/P
-rograms/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/monik/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on U3_TZ.pdf (32 pages, 305319 bytes).
+ 39i,6n,43p,711b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Programy/MikTex/fonts/enc/dvips/base/8r.enc}<D:/Programy/
+MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Programy/MikTex/fonts/type
+1/public/amsfonts/cm/cmr10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb><D:/Programy/MikTex/fonts/type1/public/mathpazo/fplmri.pfb><D:/Pr
+ogramy/MikTex/fonts/type1/urw/palatino/uplb8a.pfb><D:/Programy/MikTex/fonts/typ
+e1/urw/palatino/uplr8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/uplri8a
+.pfb>
+Output written on U3_TZ.pdf (37 pages, 1753488 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
+ 206 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

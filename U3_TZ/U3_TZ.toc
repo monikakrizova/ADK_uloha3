@@ -1,91 +1,90 @@
-\babel@toc {czech}{}\relax 
-\contentsline {section}{\numberline {1}Zadání}{3}{}%
-\contentsline {section}{\numberline {2}Údaje o bonusových úlohách}{3}{}%
-\contentsline {section}{\numberline {3}Popis problému}{3}{}%
-\contentsline {subsection}{\numberline {3.1}Formulace problému}{3}{}%
-\contentsline {section}{\numberline {4}Popisy algoritmů}{4}{}%
-\contentsline {subsection}{\numberline {4.1}Delaunayova triangulace}{4}{}%
-\contentsline {subsubsection}{\numberline {4.1.1}Inkrementální konstrukce}{4}{}%
-\contentsline {paragraph}{Popis Algoritmu}{4}{}%
-\contentsline {subsection}{\numberline {4.2}Delaunayova triangulace nekonvexního polygonu}{6}{}%
-\contentsline {subsection}{\numberline {4.3}Konstrukce vrstevnic lineární interpolací}{6}{}%
-\contentsline {subsubsection}{\numberline {4.3.1}Lineární interpolace}{6}{}%
-\contentsline {subsubsection}{\numberline {4.3.2}Algoritmus}{6}{}%
-\contentsline {subsection}{\numberline {4.4}Algoritmus výpočtu sklonu trojúhelníku}{7}{}%
-\contentsline {subsection}{\numberline {4.5}Algoritmus výpočtu expozice trojúhelníku}{8}{}%
-\contentsline {subsection}{\numberline {4.6}Automatické generování popisu vrstevnic}{9}{}%
-\contentsline {section}{\numberline {5}Problematické situace}{12}{}%
-\contentsline {subsection}{\numberline {5.1}Transformace souřadnic}{12}{}%
-\contentsline {subsubsection}{\numberline {5.1.1}Počátek}{12}{}%
-\contentsline {subsubsection}{\numberline {5.1.2}Měřítko}{12}{}%
-\contentsline {subsubsection}{\numberline {5.1.3}Transformace souřadnic}{13}{}%
-\contentsline {subsection}{\numberline {5.2}Automatické určování maximální a minimální hodnoty z}{14}{}%
-\contentsline {subsection}{\numberline {5.3}Generování popisu vrstevnice ve směru spádu}{15}{}%
-\contentsline {section}{\numberline {6}Vstupní data}{16}{}%
-\contentsline {subsection}{\numberline {6.1}Načítání bodů}{16}{}%
-\contentsline {subsection}{\numberline {6.2}Načítání polygonu}{16}{}%
-\contentsline {section}{\numberline {7}Výstupní data}{18}{}%
-\contentsline {section}{\numberline {8}Printscreen vytvořené aplikace}{20}{}%
-\contentsline {section}{\numberline {9}Dokumentace}{20}{}%
-\contentsline {subsection}{\numberline {9.1}Třída Algorithms}{20}{}%
-\contentsline {paragraph}{double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);}{21}{}%
-\contentsline {paragraph}{std::tuple<QPoint3D,double> getCircleCenterAndRadius(QPoint3D \&p1,QPoint3D \&p2,QPoint3D \&p3);}{21}{}%
-\contentsline {paragraph}{int getDelaunayPoint(QPoint3D \&s,QPoint3D \&e,std::vector<QPoint3D> \&points);}{22}{}%
-\contentsline {paragraph}{int getNearestPoint(QPoint3D \&p, std::vector<QPoint3D> \&points);}{22}{}%
-\contentsline {paragraph}{std::vector<Edge> dT(std::vector<QPoint3D> \&points);}{22}{}%
-\contentsline {paragraph}{std::vector<Edge> dTPolygon(std::vector<QPoint3D> \&points);}{22}{}%
-\contentsline {paragraph}{void updateAEL(Edge \&e, std::list<Edge> \&ael);}{22}{}%
-\contentsline {paragraph}{QPoint3D getContourPoint(QPoint3D \&p1, QPoint3D \&p2, double z);}{22}{}%
-\contentsline {paragraph}{std::vector<Edge> getContourLines(std::vector<Edge> \&dt, double zmin, double zmax, double dz);}{22}{}%
-\contentsline {paragraph}{double getSlope(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}{22}{}%
-\contentsline {paragraph}{double getExposition(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}{23}{}%
-\contentsline {paragraph}{std::vector<Triangle> analyzeDTM(std::vector<Edge> \&dt);}{23}{}%
-\contentsline {paragraph}{QPoint3D getCentreOfMass(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}{23}{}%
-\contentsline {paragraph}{int getPositionWinding(QPoint \&q, std::vector<QPoint> \&pol);}{23}{}%
-\contentsline {paragraph}{int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);}{23}{}%
-\contentsline {subsection}{\numberline {9.2}Třída Draw}{24}{}%
-\contentsline {paragraph}{void paintEvent(QPaintEvent *event);}{26}{}%
-\contentsline {paragraph}{void mousePressEvent(QMouseEvent *event);}{26}{}%
-\contentsline {paragraph}{void clear();}{26}{}%
-\contentsline {paragraph}{void loadData(QString \&file\_name);}{26}{}%
-\contentsline {paragraph}{std::vector<QPoint3D> getPoints();}{26}{}%
-\contentsline {paragraph}{double getZmin();}{26}{}%
-\contentsline {paragraph}{double getZmax();}{27}{}%
-\contentsline {paragraph}{void setDT(std::vector<Edge> \&dt\_);}{27}{}%
-\contentsline {paragraph}{void setDZ(int \&dz\_);}{27}{}%
-\contentsline {paragraph}{void setMinSlope(double \&minsl\_);}{27}{}%
-\contentsline {paragraph}{void setMaxSlope(double \&maxsl\_);}{27}{}%
-\contentsline {paragraph}{void setDirections(std::vector<double> directions\_);}{27}{}%
-\contentsline {paragraph}{std::vector<double> getDirections();}{27}{}%
-\contentsline {paragraph}{void setLabelPoints(std::vector<QPoint3D> \&label\_points\_);}{27}{}%
-\contentsline {paragraph}{std::vector<QPoint3D> getLabelPoints();}{27}{}%
-\contentsline {paragraph}{std::vector<Edge> getDT();}{27}{}%
-\contentsline {paragraph}{void setContours(std::vector<Edge> \&contours\_);}{27}{}%
-\contentsline {paragraph}{void setMainContours(std::vector<Edge> \&main\_contours\_);}{27}{}%
-\contentsline {paragraph}{std::vector<Edge> getContours();}{28}{}%
-\contentsline {paragraph}{std::vector<Edge> getMainContours();}{28}{}%
-\contentsline {paragraph}{std::vector<Triangle> getTriangles();}{28}{}%
-\contentsline {paragraph}{void setTriangles(std::vector<Triangle> \&triangles\_);}{28}{}%
-\contentsline {paragraph}{int round2num(int \&numToRound, int \&multiple, bool \&dir);}{28}{}%
-\contentsline {paragraph}{void clearDT();}{28}{}%
-\contentsline {paragraph}{void setSlopeParameters(int slope\_param\_);}{28}{}%
-\contentsline {paragraph}{void setExpositionParameters(int expos\_param\_);}{28}{}%
-\contentsline {subsection}{\numberline {9.3}Třída Widget}{29}{}%
-\contentsline {paragraph}{void on\_pushButton\_ClearAll\_clicked();}{29}{}%
-\contentsline {paragraph}{void on\_pushButton\_CreateDT\_clicked();}{29}{}%
-\contentsline {paragraph}{void on\_pushButton\_cleardt\_clicked();}{29}{}%
-\contentsline {paragraph}{void on\_lineEdit\_3\_editingFinished();}{30}{}%
-\contentsline {paragraph}{void on\_pushButton\_CreateContours\_clicked();}{30}{}%
-\contentsline {paragraph}{void on\_pushButton\_AnalyzeDTM\_clicked();}{30}{}%
-\contentsline {paragraph}{void on\_pushButton\_LoadPoints\_clicked();}{30}{}%
-\contentsline {paragraph}{void on\_pushButton\_LoadPolygon\_clicked();}{30}{}%
-\contentsline {paragraph}{void on\_pushButton\_CreatePolDT\_clicked();}{30}{}%
-\contentsline {paragraph}{void on\_pushButton\_contour\_labels\_clicked();}{30}{}%
-\contentsline {paragraph}{void on\_checkBox\_stateChanged(int arg1);}{30}{}%
-\contentsline {paragraph}{void on\_pushButton\_ClearPoints\_clicked();}{30}{}%
-\contentsline {paragraph}{void on\_checkBox\_ShowContours\_stateChanged(int arg1);}{30}{}%
-\contentsline {subsection}{\numberline {9.4}Třída Edge}{31}{}%
-\contentsline {subsection}{\numberline {9.5}Třída QPoint3D}{31}{}%
-\contentsline {subsection}{\numberline {9.6}Třída Triangle}{31}{}%
-\contentsline {subsection}{\numberline {9.7}Třída SortByX}{31}{}%
-\contentsline {section}{\numberline {10}Závěr}{31}{}%
+\babel@toc {czech}{}
+\contentsline {section}{\numberline {1}Zadání}{3}%
+\contentsline {section}{\numberline {2}Údaje o bonusových úlohách}{3}%
+\contentsline {section}{\numberline {3}Popis problému}{3}%
+\contentsline {subsection}{\numberline {3.1}Formulace problému}{3}%
+\contentsline {section}{\numberline {4}Popisy algoritmů}{4}%
+\contentsline {subsection}{\numberline {4.1}Delaunayova triangulace}{4}%
+\contentsline {subsubsection}{\numberline {4.1.1}Inkrementální konstrukce}{4}%
+\contentsline {paragraph}{Popis Algoritmu}{4}%
+\contentsline {subsection}{\numberline {4.2}Delaunayova triangulace nekonvexního polygonu}{6}%
+\contentsline {subsection}{\numberline {4.3}Konstrukce vrstevnic lineární interpolací}{6}%
+\contentsline {subsubsection}{\numberline {4.3.1}Lineární interpolace}{6}%
+\contentsline {subsubsection}{\numberline {4.3.2}Algoritmus}{6}%
+\contentsline {subsection}{\numberline {4.4}Algoritmus výpočtu sklonu trojúhelníku}{7}%
+\contentsline {subsection}{\numberline {4.5}Algoritmus výpočtu expozice trojúhelníku}{8}%
+\contentsline {section}{\numberline {5}Problematické situace}{9}%
+\contentsline {subsection}{\numberline {5.1}Transformace souřadnic}{9}%
+\contentsline {subsubsection}{\numberline {5.1.1}Počátek}{9}%
+\contentsline {subsubsection}{\numberline {5.1.2}Měřítko}{9}%
+\contentsline {subsubsection}{\numberline {5.1.3}Transformace souřadnic}{10}%
+\contentsline {subsection}{\numberline {5.2}Automatické určování maximální a minimální hodnoty z}{11}%
+\contentsline {subsection}{\numberline {5.3}Automatické generování popisu vrstevnic}{12}%
+\contentsline {section}{\numberline {6}Vstupní data}{15}%
+\contentsline {subsection}{\numberline {6.1}Načítání bodů}{15}%
+\contentsline {subsection}{\numberline {6.2}Načítání polygonu}{15}%
+\contentsline {section}{\numberline {7}Výstupní data}{16}%
+\contentsline {section}{\numberline {8}Printscreen vytvořené aplikace}{24}%
+\contentsline {section}{\numberline {9}Dokumentace}{25}%
+\contentsline {subsection}{\numberline {9.1}Třída Algorithms}{25}%
+\contentsline {paragraph}{double get2LinesAngle(QPoint \&p1, QPoint \&p2, QPoint \&p3, QPoint \&p4);}{26}%
+\contentsline {paragraph}{std::tuple<QPoint3D,double> getCircleCenterAndRadius(QPoint3D \&p1,QPoint3D \&p2,QPoint3D \&p3);}{26}%
+\contentsline {paragraph}{int getDelaunayPoint(QPoint3D \&s,QPoint3D \&e,std::vector<QPoint3D> \&points);}{26}%
+\contentsline {paragraph}{int getNearestPoint(QPoint3D \&p, std::vector<QPoint3D> \&points);}{26}%
+\contentsline {paragraph}{std::vector<Edge> dT(std::vector<QPoint3D> \&points);}{26}%
+\contentsline {paragraph}{std::vector<Edge> dTPolygon(std::vector<QPoint3D> \&points);}{26}%
+\contentsline {paragraph}{void updateAEL(Edge \&e, std::list<Edge> \&ael);}{26}%
+\contentsline {paragraph}{QPoint3D getContourPoint(QPoint3D \&p1, QPoint3D \&p2, double z);}{27}%
+\contentsline {paragraph}{std::vector<Edge> getContourLines(std::vector<Edge> \&dt, double zmin, double zmax, double dz);}{27}%
+\contentsline {paragraph}{double getSlope(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}{27}%
+\contentsline {paragraph}{double getExposition(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}{27}%
+\contentsline {paragraph}{std::vector<Triangle> analyzeDTM(std::vector<Edge> \&dt);}{27}%
+\contentsline {paragraph}{QPoint3D getCentreOfMass(QPoint3D \&p1, QPoint3D \&p2, QPoint3D \&p3);}{27}%
+\contentsline {paragraph}{int getPositionWinding(QPoint \&q, std::vector<QPoint> \&pol);}{27}%
+\contentsline {paragraph}{int getPointLinePosition(QPoint \&a, QPoint \&p1, QPoint \&p2);}{28}%
+\contentsline {subsection}{\numberline {9.2}Třída Draw}{28}%
+\contentsline {paragraph}{void paintEvent(QPaintEvent *event);}{30}%
+\contentsline {paragraph}{void mousePressEvent(QMouseEvent *event);}{30}%
+\contentsline {paragraph}{void clear();}{30}%
+\contentsline {paragraph}{void loadData(QString \&file\_name);}{31}%
+\contentsline {paragraph}{std::vector<QPoint3D> getPoints();}{31}%
+\contentsline {paragraph}{double getZmin();}{31}%
+\contentsline {paragraph}{double getZmax();}{31}%
+\contentsline {paragraph}{void setDT(std::vector<Edge> \&dt\_);}{31}%
+\contentsline {paragraph}{void setDZ(int \&dz\_);}{31}%
+\contentsline {paragraph}{void setMinSlope(double \&minsl\_);}{31}%
+\contentsline {paragraph}{void setMaxSlope(double \&maxsl\_);}{31}%
+\contentsline {paragraph}{void setDirections(std::vector<double> directions\_);}{31}%
+\contentsline {paragraph}{std::vector<double> getDirections();}{31}%
+\contentsline {paragraph}{void setLabelPoints(std::vector<QPoint3D> \&label\_points\_);}{32}%
+\contentsline {paragraph}{std::vector<QPoint3D> getLabelPoints();}{32}%
+\contentsline {paragraph}{std::vector<Edge> getDT();}{32}%
+\contentsline {paragraph}{void setContours(std::vector<Edge> \&contours\_);}{32}%
+\contentsline {paragraph}{void setMainContours(std::vector<Edge> \&main\_contours\_);}{32}%
+\contentsline {paragraph}{std::vector<Edge> getContours();}{32}%
+\contentsline {paragraph}{std::vector<Edge> getMainContours();}{32}%
+\contentsline {paragraph}{std::vector<Triangle> getTriangles();}{32}%
+\contentsline {paragraph}{void setTriangles(std::vector<Triangle> \&triangles\_);}{32}%
+\contentsline {paragraph}{int round2num(int \&numToRound, int \&multiple, bool \&dir);}{32}%
+\contentsline {paragraph}{void clearDT();}{32}%
+\contentsline {paragraph}{void setSlopeParameters(int slope\_param\_);}{33}%
+\contentsline {paragraph}{void setExpositionParameters(int expos\_param\_);}{33}%
+\contentsline {subsection}{\numberline {9.3}Třída Widget}{33}%
+\contentsline {paragraph}{void on\_pushButton\_ClearAll\_clicked();}{34}%
+\contentsline {paragraph}{void on\_pushButton\_CreateDT\_clicked();}{34}%
+\contentsline {paragraph}{void on\_pushButton\_cleardt\_clicked();}{34}%
+\contentsline {paragraph}{void on\_lineEdit\_3\_editingFinished();}{34}%
+\contentsline {paragraph}{void on\_pushButton\_CreateContours\_clicked();}{34}%
+\contentsline {paragraph}{void on\_pushButton\_AnalyzeDTM\_clicked();}{34}%
+\contentsline {paragraph}{void on\_pushButton\_LoadPoints\_clicked();}{34}%
+\contentsline {paragraph}{void on\_pushButton\_LoadPolygon\_clicked();}{34}%
+\contentsline {paragraph}{void on\_pushButton\_CreatePolDT\_clicked();}{35}%
+\contentsline {paragraph}{void on\_pushButton\_contour\_labels\_clicked();}{35}%
+\contentsline {paragraph}{void on\_checkBox\_stateChanged(int arg1);}{35}%
+\contentsline {paragraph}{void on\_pushButton\_ClearPoints\_clicked();}{35}%
+\contentsline {paragraph}{void on\_checkBox\_ShowContours\_stateChanged(int arg1);}{35}%
+\contentsline {subsection}{\numberline {9.4}Třída Edge}{35}%
+\contentsline {subsection}{\numberline {9.5}Třída QPoint3D}{35}%
+\contentsline {subsection}{\numberline {9.6}Třída Triangle}{35}%
+\contentsline {subsection}{\numberline {9.7}Třída SortByX}{36}%
+\contentsline {section}{\numberline {10}Závěr}{36}%

@@ -584,13 +584,13 @@ std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabel
         QPoint3D s1_point = c.getStart();
         QPoint3D e1_point = c.getEnd();
 
-        //Secure the same orientation for all edges
+        /*//Secure the same orientation for all edges
         if (s1_point.x() > e1_point.x())
         {
             QPoint3D temp = e1_point;
             e1_point = s1_point;
             s1_point = temp;
-        }
+        }*/
 
         //Compute direction
         double dx = e1_point.x() - s1_point.x();
@@ -613,9 +613,6 @@ std::tuple<std::vector<QPoint3D>,std::vector<double>> Algorithms::calculateLabel
         double rot2 = atan2(dy2,dx2);
 
         double dz = qn.getZ() - label_point.getZ();
-
-        std::cout << "dz:" << dz << std::endl;
-
 
         if ((rot2 - rot > 0) && (rot2 - rot < M_PI) && (dz < 0))
             rot += M_PI;
