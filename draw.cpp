@@ -50,7 +50,8 @@ void Draw::paintEvent(QPaintEvent *event)
         QPoint3D s_point = c.getStart();
         QPoint3D e_point = c.getEnd();
 
-        QPen fill_pen(Qt::magenta, 1);
+        QColor color (136, 76, 12 ,255);
+        QPen fill_pen(color, 1);
         qp.setPen(fill_pen);
 
         //Draw line
@@ -59,7 +60,8 @@ void Draw::paintEvent(QPaintEvent *event)
         //Higligt every 5th contour
         if ((int)s_point.getZ()%(dz*5)  == 0)
         {
-            QPen fill_pen(Qt::magenta, 3);
+            QColor color (136, 76, 12 ,255);
+            QPen fill_pen(color, 3);
             qp.setPen(fill_pen);
 
             //Draw line
@@ -124,7 +126,8 @@ void Draw::paintEvent(QPaintEvent *event)
             qp.translate(-label_points[i]);
 
             //Set pen
-            qp.setPen(QPen(Qt::magenta, 3));
+            QColor color (136, 76, 12 ,255);
+            qp.setPen(QPen(color, 3));
 
             //Draw text
             //qp.drawText(label_point, z_str);
@@ -413,7 +416,8 @@ void Draw::paintEvent(QPaintEvent *event)
             QPoint3D s_point = c.getStart();
             QPoint3D e_point = c.getEnd();
 
-            QPen fill_pen(Qt::magenta, 1);
+            QColor color (136, 76, 12 ,255);
+            QPen fill_pen(color, 1);
             qp.setPen(fill_pen);
 
             //Draw line
@@ -422,7 +426,7 @@ void Draw::paintEvent(QPaintEvent *event)
             //Higligt every 5th contour
             if ((int)s_point.getZ()%(dz*5)  == 0)
             {
-                QPen fill_pen(Qt::magenta, 3);
+                QPen fill_pen(color, 3);
                 qp.setPen(fill_pen);
 
                 //Draw line
@@ -454,7 +458,8 @@ void Draw::paintEvent(QPaintEvent *event)
 
                 //qp.drawRect(label_points[i].x()-font.pixelSize()/2, label_points[i].y()-font.pixelSize()/2,20, 20);
 
-                qp.setPen(QPen(Qt::magenta, 3));
+                QColor color (136, 76, 12 ,255);
+                qp.setPen(QPen(color, 3));
 
                 //Draw text
                 //qp.drawText(label_point, z_str);
