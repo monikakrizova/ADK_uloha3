@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.4)  7 DEC 2021 12:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.4)  30 DEC 2021 02:43
 entering extended mode
 **./U3_TZ.tex
 (U3_TZ.tex
@@ -102,6 +102,9 @@ Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count178
 \c@continuedfloat=\count179
+)
+(D:\Programy\MikTex\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
 )
 (D:\Programy\MikTex\tex/latex/l3backend\l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
@@ -627,35 +630,53 @@ Overfull \hbox (14.58434pt too wide) in paragraph at lines 848--849
 o-vým ty-pem QPointF.
  []
 
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 862--863
+[35] [36]
+<images/chyba_nekonvex.png, id=180, 410.2828pt x 743.02594pt>
+File: images/chyba_nekonvex.png Graphic file (type png)
+<use images/chyba_nekonvex.png>
+Package pdftex.def Info: images/chyba_nekonvex.png  used on input line 876.
+(pdftex.def)             Requested size: 143.60112pt x 260.06297pt.
+<images/chyba_nekonvex_spravne.png, id=181, 279.29344pt x 551.81157pt>
+File: images/chyba_nekonvex_spravne.png Graphic file (type png)
+<use images/chyba_nekonvex_spravne.png>
+Package pdftex.def Info: images/chyba_nekonvex_spravne.png  used on input line 
+877.
+(pdftex.def)             Requested size: 131.26793pt x 259.35147pt.
+ [37 <./images/chyba_nekonvex.png> <./images/chyba_nekonvex_spravne.png>]
+<images/chyba_reka.png, id=187, 758.08218pt x 749.80125pt>
+File: images/chyba_reka.png Graphic file (type png)
+<use images/chyba_reka.png>
+Package pdftex.def Info: images/chyba_reka.png  used on input line 889.
+(pdftex.def)             Requested size: 174.35522pt x 172.45065pt.
+<images/chyba_reka_zm.png, id=188, 485.56406pt x 481.04718pt>
+File: images/chyba_reka_zm.png Graphic file (type png)
+<use images/chyba_reka_zm.png>
+Package pdftex.def Info: images/chyba_reka_zm.png  used on input line 890.
+(pdftex.def)             Requested size: 169.94997pt x 168.36903pt.
+ [38
 
- []
+ <./images/chyba_reka.png> <./images/chyba_reka_zm.png>] (U3_TZ.aux)
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Underfull \hbox (badness 10000) in paragraph at lines 864--865
-
- []
-
-[36] (U3_TZ.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 3772 strings out of 481556
- 61615 string characters out of 2927850
+ 3815 strings out of 481556
+ 62643 string characters out of 2927850
  304678 words of memory out of 3000000
- 18939 multiletter control sequences out of 15000+200000
+ 18974 multiletter control sequences out of 15000+200000
  568308 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,6n,43p,711b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Programy/MikTex/fonts/enc/dvips/base/8r.enc}<D:/Programy/
-MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Programy/MikTex/fonts/type
-1/public/amsfonts/cm/cmr10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><D:/Programy/MikTex/fonts/type1/public/mathpazo/fplmri.pfb><D:/Pr
-ogramy/MikTex/fonts/type1/urw/palatino/uplb8a.pfb><D:/Programy/MikTex/fonts/typ
-e1/urw/palatino/uplr8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/uplri8a
-.pfb>
-Output written on U3_TZ.pdf (37 pages, 1753488 bytes).
+ 39i,6n,43p,1186b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Programy/MikTex/fonts/enc/dvips/base/8r.enc}<D:/Programy/MikTex/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><D:/Programy/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D
+:/Programy/MikTex/fonts/type1/public/mathpazo/fplmri.pfb><D:/Programy/MikTex/fo
+nts/type1/urw/palatino/uplb8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/
+uplr8a.pfb><D:/Programy/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on U3_TZ.pdf (39 pages, 2893093 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
+ 220 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
 

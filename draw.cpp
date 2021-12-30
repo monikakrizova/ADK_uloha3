@@ -60,7 +60,6 @@ void Draw::paintEvent(QPaintEvent *event)
         //Higligt every 5th contour
         if ((int)s_point.getZ()%(dz*5)  == 0)
         {
-            QColor color (136, 76, 12 ,255);
             QPen fill_pen(color, 3);
             qp.setPen(fill_pen);
 

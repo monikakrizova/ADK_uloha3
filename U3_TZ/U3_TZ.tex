@@ -9,7 +9,7 @@
 \usepackage{graphicx}  % Graphics
 \usepackage{caption}  % Caption
 %\usepackage[amsmath]
-
+\usepackage{placeins}
 
 \begin{document}
 
@@ -859,10 +859,39 @@ Třída definuje operátor přetížení, který řadí body podle x-ové souřa
 %----------------------------------------------------------------------------------------
 
 \section{Závěr}
-Vytvořená aplikace vizualizuje polygonovou mapu uloženou ve výše popsaném formátu, po přidání bodu taktéž analyzuje polohu tohoto bodu vůči jednotlivým polygonům mapy. Po analýze bodu se vypíše výsledek – tedy zda bod leží uvnitř nebo vně polygonové mapy, v případě umístění bodu uvnitř polygonu se polygon obsahující tento bod graficky zvýrazní.\\
+V rámci úlohy byla vytvořena aplikace s grafickým uživatelským rozhraním, která uživateli umožňuje načítat textový soubor s prostorovými souřadnicemi a nad touto množinou bodů dále generovat Delaunayho triangulaci. Po vypočtení triangulace lze následně zobrazit vrstevnice s libovolným intervalem a k hlavním vrstevnicím, které jsou zvýrazněné, lze vygenerovat i výškové kóty. Dále lze v aplikaci vykreslit sklon terénu v odstínech šedi anebo v odstínech od zelené po červenou, od žluté po červenou či od tyrkysové po modrou. Vizualizovat lze i expozici terénu k jednotlivým světovým stranám, a to buď v odstínech šedi či v odstínech podle schématu na obrázku \ref{fig:getExposition()}.  Vrstevnice lze vykreslit i přes jednotlivé analýzy DMT. Kromě bodových měření lze do aplikace nahrát polygon, který definuje nekonvexní oblast, nad níž lze taktéž generovat triangulaci, vrstevnice i provádět jednotlivé analýzy DMT v různých barevných škálách. Nakonec lze ze zobrazovacího okna odstranit vstupní množinu bodů, triangulaci či všechny dosud vykreslené prvky.
 
- V aplikaci jsou pro vyhodnocení polohy bodu implementovány 2 algoritmy – Winding number a Ray Crossing, mezi nimiž je možné přepínat pomocí comboboxu umístěném v pravé části okna. Princip fungování obou algoritmů je popsán v kapitole 3. \\
+Aplikace s vygenerovanými vrstevnicemi s popisem podává poměrně slušný náhled na výškový charakter terénu a při kombinaci s vizualizacemi sklonu a expozice poskytuje svým plastickým vzhledem také představu o tvaru a orientaci terénu. Nicméně je zde prostor na mnohá zlepšení. 
 
-Možné zlepšení kódu programu by bylo v řešení singularit polohy bodu $q$, tedy případu, kdy bod $q$ leží na vrcholu jednoho či více polygonů a dále přidání analýzy případu, kdy bod $q$ leží na linii polygonu pomocí Ray Crossing algoritmu. Dalším možným krokem pro zlepšení funkčnosti by mohlo být přidání bodu $q$ pomocí vepsání souřadnic, nikoliv pouze odečtením polohy myši.
+V rámci vizualizace vrstevnic by bylo například vhodné navrhnout algoritmus pro jejich vyhlazení. Dále by zde byl prostor pro implementaci barevné hypsometrie, která by poskytovala lepší představu a výškových poměrech analyzovaného území.
+
+Dále by bylo vhodné, aby aplikace poskytovala možnost editace DMT, zejména přidávání a rušení spojnic bodů. Současný stav aplikace generuje trojúhelníkovou síť mezi všemi body, tj. i mezi body, které spolu nesouvisejí. Proto by bylo třeba označit hrany mimo analyzované území jako obalové, a tím zajistit, aby se nad těmito hranami neprováděly žádné další výpočty a analýzy. 
+
+Dále by byla vhodná definice povinných spojnic, které mění tvar výsledného DMT. Jsou tím myšleny povinné hrany pro zvýraznění hřebenů a údolí, lomové hrany pro modelování příkopů či okrajů silnic, anebo ostrovní hrany vyznačující oblasti, kde se vrstevnice nevyhodnocují, zejména tedy stavby či vodní toky. 
+
+Následující obrázek je příkladem nevhodného generování triangulace v nekonvexní oblasti východně od vozovky, která by také měla být ohraničena lomovými hranami. Na pravé straně je pak zobrazen DMT opravený o tyto chyby.
+
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=0.35]{images/chyba_nekonvex.png}
+	\includegraphics[scale=0.47]{images/chyba_nekonvex_spravne.png}
+	\caption{Vrstevnice vykreslované mimo zájmové území - nekonvexní polygon}	
+	\label{fig:nekonvex}
+\end{figure} 
+\FloatBarrier
+
+Na následujícím obrázku je na levé straně nad údolím řeky Ohře vygenerována Delaunayho triangulace s vrstevnicemi, které chybně zasahují do vodního toku. Abychom tomu zabránily, je třeba kolem vodního toku zavést ostrovní hranu. Na pravě straně obrázku je pro porovnání uveden snímek ze ZMČR, kde jsou vrstevnice na vodním toku ošetřeny.
+
+\clearpage
+
+\begin{figure}[htbh]
+	\centering
+	\includegraphics[scale=0.23]{images/chyba_reka.png}
+	\includegraphics[scale=0.35]{images/chyba_reka_zm.png}
+	\caption{Vrstevnice vykreslované přes řeku s chybějící ostrovní hranou}	
+	\label{fig:reka}
+\end{figure} 
+
+Aplikace nabízí prostor pro mnoha zlepšení, avšak ve své aktuální verzi představuje funkční nástroj pro jednoduché výškové analýzy. 
 
 \end{document}
